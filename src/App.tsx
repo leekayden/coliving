@@ -1,24 +1,29 @@
-import React from 'react';
-import logo from './logo.svg';
-import './App.css';
+import "./App.css";
+import NavBar from "./components/NavBar";
+import { AppName } from "./global/definitions";
+import Carousel from "./components/Carousel";
+import Card from "./components/Card";
+import { PropertyList } from "./global/data";
+import { Grid } from "@material-ui/core";
+import Typography from '@mui/material/Typography';
+import Divider from '@mui/material/Divider';
 
 function App() {
+  const titles = PropertyList.map(item => item.title);
   return (
     <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.tsx</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
+      <NavBar appname={AppName} />
+      <Carousel items={titles} />
+      <Typography variant="h3" gutterBottom>
+        <Divider>Properties</Divider>
+      </Typography>
+      <Grid container spacing={2} style={{ justifyContent: "center" }}>
+        {PropertyList.map((item) => (
+          <Grid item xs={2}>
+            <Card title={item.title} description={item.description} propertyStats={item.status} route={item.route} />
+          </Grid>
+        ))}
+      </Grid>
     </div>
   );
 }

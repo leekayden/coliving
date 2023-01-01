@@ -1,0 +1,18 @@
+.glassmorphic-card {
+  /* Add your glassmorphic styling here */
+  background: linear-gradient(45deg, #ccc, #fff);
+  border-radius: 10px;
+  box-shadow: 0 10px 20px rgba(0, 0, 0, 0.19), 0 6px 6px rgba(0, 0, 0, 0.23);
+  display: inline-block;
+  margin: 20px;
+  padding: 20px;
+  position: relative;
+  transition: all 0.3s cubic-bezier(0.25, 0.8, 0.25, 1);
+  width: 300px;
+}
+
+.glassmorphic-card:hover {
+  /* Add your hover styling here */
+  box-shadow: 0 19px 38px rgba(0, 0, 0, 0.3), 0 15px 12px rgba(0, 0, 0, 0.22);
+  transform: translateY(-3px);
+}

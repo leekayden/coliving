@@ -1,19 +1,51 @@
-import React from 'react';
-import ReactDOM from 'react-dom/client';
-import './index.css';
-import App from './App';
-import reportWebVitals from './reportWebVitals';
+import React from "react";
+import ReactDOM from "react-dom/client";
+import "./index.css";
+import App from "./App";
+import reportWebVitals from "./reportWebVitals";
+import { createBrowserRouter, RouterProvider } from "react-router-dom";
+import { PropertyList } from "./global/data";
+import PropertyView from "./components/PropertyView";
+import { createTheme, ThemeProvider } from '@material-ui/core/styles';
+import HomeownerView from "./components/HomeownerView";
 
-const root = ReactDOM.createRoot(
-  document.getElementById('root') as HTMLElement
-);
-root.render(
-  <React.StrictMode>
-    <App />
-  </React.StrictMode>
+const router = createBrowserRouter([
+  {
+    path: "/",
+    element: <App />,
+  },
+  {
+    path: "/homeowners/dashboard",
+    element: <HomeownerView />,
+  },
+  ...PropertyList.map((item) => ({
+    path: `/properties/${item.route}`,
+    element: <PropertyView id={item.id} />,
+  })),
+]);
+
+let lightTheme = createTheme({
+  palette: {
+    type: 'light',
+    primary: {
+      main: '#3f51b5',
+    },
+    secondary: {
+      main: '#f50057',
+    },
+  },
+  typography: {
+    fontFamily: 'Ubuntu',
+    fontWeightMedium: 600,
+  },
+});
+
+ReactDOM.createRoot(document.getElementById("root")!).render(
+  <ThemeProvider theme={lightTheme}>
+    <React.StrictMode>
+      <RouterProvider router={router} />
+    </React.StrictMode>
+  </ThemeProvider>
 );
 
-// If you want to start measuring performance in your app, pass a function
-// to log results (for example: reportWebVitals(console.log))
-// or send to an analytics endpoint. Learn more: https://bit.ly/CRA-vitals
 reportWebVitals();
