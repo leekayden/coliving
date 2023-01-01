@@ -33,6 +33,7 @@ const Search = styled("div")(({ theme }) => ({
     marginLeft: theme.spacing(3),
     width: "auto",
   },
+  transition: "all .5s",
 }));
 
 const SearchIconWrapper = styled("div")(({ theme }) => ({
