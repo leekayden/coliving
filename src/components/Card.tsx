@@ -8,7 +8,6 @@ import ArticleIcon from "@mui/icons-material/Article";
 import Modal from "./Modal";
 import Chip from "@mui/material/Chip";
 import Link from "@mui/material/Link";
-import { withStyles } from "@material-ui/core/styles";
 
 interface CardProps {
   title: string;

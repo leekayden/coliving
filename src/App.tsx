@@ -12,7 +12,7 @@ function App() {
   const titles = PropertyList.map(item => item.title);
   return (
     <div className="App">
-      <NavBar appname={AppName} />
+      <NavBar appname={AppName} isHomeOwner={false} />
       <Carousel items={titles} />
       <Typography variant="h3" gutterBottom>
         <Divider>Properties</Divider>

@@ -1,6 +1,7 @@
 export let PropertyList = [
   {
     id: 0,
+    ownerId: 0,
     title: "Apple",
     description: "🍎",
     status: "For Rent",
@@ -15,6 +16,7 @@ export let PropertyList = [
   },
   {
     id: 1,
+    ownerId: 0,
     title: "Banana",
     description: "🍌",
     status: "For Sale",
@@ -29,6 +31,7 @@ export let PropertyList = [
   },
   {
     id: 2,
+    ownerId: 1,
     title: "Orange",
     description: "🍊",
     status: "For Rent",

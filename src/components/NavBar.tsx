@@ -17,6 +17,7 @@ import NotificationsIcon from "@mui/icons-material/Notifications";
 import MoreIcon from "@mui/icons-material/MoreVert";
 import Link from '@mui/material/Link';
 import { AppName } from "../global/definitions";
+import Chip from '@mui/material/Chip';
 
 const Search = styled("div")(({ theme }) => ({
   position: "relative",
@@ -60,10 +61,12 @@ const StyledInputBase = styled(InputBase)(({ theme }) => ({
 
 interface PrimarySearchAppBarProps {
   appname?: string;
+  isHomeOwner: boolean;
 }
 
 export default function PrimarySearchAppBar({
   appname,
+  isHomeOwner,
 }: PrimarySearchAppBarProps) {
   const [anchorEl, setAnchorEl] = React.useState<null | HTMLElement>(null);
   const [mobileMoreAnchorEl, setMobileMoreAnchorEl] =
@@ -183,7 +186,8 @@ export default function PrimarySearchAppBar({
             sx={{ display: { xs: "none", sm: "block" }, userSelect:"none", fontWeight:555, }}
           >
             <Link href="/" underline="none" color="inherit">{appname ? appname : AppName}</Link>
-            
+            &nbsp;
+            {isHomeOwner ? <Chip label="Home Owner" color="warning" /> : null}
           </Typography>
           <Search>
             <SearchIconWrapper>
