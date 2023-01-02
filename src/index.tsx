@@ -8,11 +8,16 @@ import { PropertyList } from "./global/data";
 import PropertyView from "./components/PropertyView";
 import { createTheme, ThemeProvider } from '@material-ui/core/styles';
 import HomeownerView from "./components/HomeownerView";
+import TestForm from "./TestForm";
 
 const router = createBrowserRouter([
   {
     path: "/",
     element: <App />,
+  },
+  {
+    path: "/testform",
+    element: <TestForm />,
   },
   {
     path: "/homeowners/dashboard",
