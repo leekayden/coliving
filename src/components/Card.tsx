@@ -1,3 +1,4 @@
+import * as React from "react";
 import Card from "@mui/material/Card";
 import CardActions from "@mui/material/CardActions";
 import CardContent from "@mui/material/CardContent";
@@ -25,7 +26,7 @@ export default function MediaCard({
   route,
 }: CardProps) {
   return (
-    <Card sx={{ maxWidth: 345, padding: "5px" }}>
+    <Card sx={{ maxWidth: 400, padding: "5px" }}>
       <CardMedia
         sx={{ height: 140 }}
         image={
@@ -63,7 +64,7 @@ export default function MediaCard({
             Details
           </Link>
         </Button>
-        <Modal isBookNow={true} modalTitle="Title" />
+        <Modal isBookNow={true} modalTitle={title} modalTxt={description} />
       </CardActions>
     </Card>
   );

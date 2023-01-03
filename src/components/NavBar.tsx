@@ -9,15 +9,15 @@ import InputBase from "@mui/material/InputBase";
 import Badge from "@mui/material/Badge";
 import MenuItem from "@mui/material/MenuItem";
 import Menu from "@mui/material/Menu";
-import MenuIcon from "@mui/icons-material/Menu";
 import SearchIcon from "@mui/icons-material/Search";
 import AccountCircle from "@mui/icons-material/AccountCircle";
 import MailIcon from "@mui/icons-material/Mail";
 import NotificationsIcon from "@mui/icons-material/Notifications";
 import MoreIcon from "@mui/icons-material/MoreVert";
-import Link from '@mui/material/Link';
+import Link from "@mui/material/Link";
 import { AppName } from "../global/definitions";
-import Chip from '@mui/material/Chip';
+import Chip from "@mui/material/Chip";
+import SideBar from "./SideBar";
 
 const Search = styled("div")(({ theme }) => ({
   position: "relative",
@@ -171,7 +171,7 @@ export default function PrimarySearchAppBar({
     <Box sx={{ flexGrow: 1 }}>
       <AppBar position="static">
         <Toolbar>
-          <IconButton
+          {/* <IconButton
             size="large"
             edge="start"
             color="inherit"
@@ -179,14 +179,21 @@ export default function PrimarySearchAppBar({
             sx={{ mr: 2 }}
           >
             <MenuIcon />
-          </IconButton>
+          </IconButton> */}
+          <SideBar />
           <Typography
             variant="h6"
             noWrap
             component="div"
-            sx={{ display: { xs: "none", sm: "block" }, userSelect:"none", fontWeight:555, }}
+            sx={{
+              display: { xs: "none", sm: "block" },
+              userSelect: "none",
+              fontWeight: 555,
+            }}
           >
-            <Link href="/" underline="none" color="inherit">{appname ? appname : AppName}</Link>
+            <Link href="/" underline="none" color="inherit">
+              {appname ? appname : AppName}
+            </Link>
             &nbsp;
             {isHomeOwner ? <Chip label="Home Owner" color="warning" /> : null}
           </Typography>

@@ -8,16 +8,12 @@ import { PropertyList } from "./global/data";
 import PropertyView from "./components/PropertyView";
 import { createTheme, ThemeProvider } from '@material-ui/core/styles';
 import HomeownerView from "./components/HomeownerView";
-import TestForm from "./TestForm";
+import Error from "./components/Error";
 
 const router = createBrowserRouter([
   {
     path: "/",
     element: <App />,
-  },
-  {
-    path: "/testform",
-    element: <TestForm />,
   },
   {
     path: "/homeowners/dashboard",
@@ -27,6 +23,10 @@ const router = createBrowserRouter([
     path: `/properties/${item.route}`,
     element: <PropertyView id={item.id} />,
   })),
+  {
+    path: "*",
+    element: <Error errorCode={404} />
+  }
 ]);
 
 let lightTheme = createTheme({
@@ -52,5 +52,7 @@ ReactDOM.createRoot(document.getElementById("root")!).render(
     </React.StrictMode>
   </ThemeProvider>
 );
+
+console.log(router)
 
 reportWebVitals();

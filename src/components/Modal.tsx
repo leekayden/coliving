@@ -97,14 +97,12 @@ export default function Modal({ isBookNow, modalTitle, modalTxt }: ModalProps) {
           id="customized-dialog-title"
           onClose={handleClose}
         >
-          {isBookNow ? "Book Now" + (modalTitle ? " (" + modalTitle + ")" : null) : null}
+          {isBookNow
+            ? "Book Now" + (modalTitle ? " (" + modalTitle + ")" : null)
+            : null}
         </BootstrapDialogTitle>
-        <DialogContent dividers>
-          <Typography gutterBottom>
-            {modalTxt} Cras mattis consectetur purus sit amet fermentum. Cras
-            justo odio, dapibus ac facilisis in, egestas eget quam. Morbi leo
-            risus, porta ac consectetur ac, vestibulum at eros.
-          </Typography>
+        <DialogContent dividers sx={{ width: 555 }}>
+          <Typography gutterBottom>{modalTxt}</Typography>
         </DialogContent>
         <DialogActions>
           <Button
@@ -112,6 +110,7 @@ export default function Modal({ isBookNow, modalTitle, modalTxt }: ModalProps) {
             size="large"
             autoFocus
             onClick={handleClose}
+            style={{ display: "inline" }}
           >
             Book Now
           </Button>
