@@ -20,7 +20,7 @@ function App() {
       <Grid container spacing={2} style={{ justifyContent: "center" }}>
         {PropertyList.map((item) => (
           <Grid item xs={2}>
-            <Card title={item.title} description={item.description} propertyStats={item.status} route={item.route} />
+            <Card id={item.id} title={item.title} description={item.description} propertyStats={item.status} route={item.route} />
           </Grid>
         ))}
       </Grid>

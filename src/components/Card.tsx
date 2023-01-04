@@ -10,6 +10,7 @@ import Chip from "@mui/material/Chip";
 import Link from "@mui/material/Link";
 
 interface CardProps {
+  id: number;
   title: string;
   description?: string;
   img?: any;
@@ -18,6 +19,7 @@ interface CardProps {
 }
 
 export default function MediaCard({
+  id,
   title,
   description,
   img,
@@ -63,7 +65,7 @@ export default function MediaCard({
             Details
           </Link>
         </Button>
-        <Modal isBookNow={true} modalTitle={title} modalTxt={description} />
+        <Modal id={id} isBookNow={true} modalTitle={title} modalTxt={description} />
       </CardActions>
     </Card>
   );

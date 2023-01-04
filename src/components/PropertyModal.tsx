@@ -42,10 +42,10 @@ export default function FormDialog({title}: FormDialogProps) {
         style={{ display: "flex", justifyContent: "flex-end" }}
         onClick={handleClickOpen}
       >
-        Book Now
+        Enquire
       </Button>
       <Dialog open={open} onClose={handleClose}>
-        <DialogTitle>Book Now</DialogTitle>
+        <DialogTitle>Enquire</DialogTitle>
         <DialogContent>
           <DialogContentText>
             Please enter your details so that we can process your order.

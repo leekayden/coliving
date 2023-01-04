@@ -52,30 +52,55 @@ function createData(
   };
 }
 
-const rows = PropertyList.map((property) =>
-  createData(
-    property.id,
-    property.ownerId,
-    property.title,
-    property.description,
-    property.status,
-    property.price,
-    property.extraDetails,
-    property.maxPax,
-    property.roomFeatures
-  )
-);
-
 interface PropertyInfoProps {
-  identifier: any;
+  identifier: number;
 }
 
 export default function PropertyInfo({ identifier }: PropertyInfoProps) {
-  const filteredList = PropertyList.find((item) => item.title === identifier);
+  const filteredList:
+    | {
+        id: number;
+        ownerId: number;
+        title: string;
+        description: string;
+        status: string;
+        route: string;
+        price: number;
+        extraDetails: string[];
+        maxPax: number;
+        roomFeatures: string[];
+      }
+    | undefined = PropertyList.find((item) => item.id === identifier);
+
+  const rows: Array<{
+    id: number;
+    ownerId: number;
+    title: string;
+    description: string;
+    status: string;
+    price: number;
+    extraDetails: string[];
+    maxPax: number;
+    roomFeatures: string[];
+  }> = filteredList
+    ? [
+        createData(
+          filteredList.id,
+          filteredList.ownerId,
+          filteredList.title,
+          filteredList.description,
+          filteredList.status,
+          filteredList.price,
+          filteredList.extraDetails,
+          filteredList.maxPax,
+          filteredList.roomFeatures
+        ),
+      ]
+    : [];
 
   return (
     <TableContainer component={Paper}>
-      <Table sx={{ minWidth: 650 }} aria-label="simple table">
+      <Table sx={{ minWidth: 500, display: "block" }} aria-label="simple table">
         <TableHead>
           <TableRow>
             <StyledTableCell>Name</StyledTableCell>
@@ -98,11 +123,11 @@ export default function PropertyInfo({ identifier }: PropertyInfoProps) {
               <StyledTableCell align="right">{row.status}</StyledTableCell>
               <StyledTableCell align="right">{row.price}</StyledTableCell>
               <StyledTableCell align="right">
-                {row.extraDetails}
+                {row.extraDetails.join(", ")}
               </StyledTableCell>
               <StyledTableCell align="right">{row.maxPax}</StyledTableCell>
               <StyledTableCell align="right">
-                {row.roomFeatures}
+                {row.roomFeatures.join(", ")}
               </StyledTableCell>
             </StyledTableRow>
           ))}

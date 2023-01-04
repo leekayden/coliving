@@ -51,13 +51,13 @@ function BootstrapDialogTitle(props: DialogTitleProps) {
 }
 
 interface ModalProps {
+  id: number;
   isBookNow: boolean;
   modalTitle?: string;
   modalTxt?: string;
-  // modalTxt?: ModalProps['modalTitle'] extends string ? string : undefined;
 }
 
-export default function Modal({ isBookNow, modalTitle, modalTxt }: ModalProps) {
+export default function Modal({ id, isBookNow, modalTitle, modalTxt }: ModalProps) {
   const [open, setOpen] = React.useState(false);
 
   const handleClickOpen = () => {
@@ -76,7 +76,7 @@ export default function Modal({ isBookNow, modalTitle, modalTxt }: ModalProps) {
           variant="contained"
           disableElevation
         >
-          Book Now
+          Enquire
         </Button>
       ) : (
         // <PropertyModal title={modalTitle!} />
@@ -94,12 +94,12 @@ export default function Modal({ isBookNow, modalTitle, modalTxt }: ModalProps) {
           onClose={handleClose}
         >
           {isBookNow
-            ? "Book Now" + (modalTitle ? " (" + modalTitle + ")" : null)
+            ? "Enquire" + (modalTitle ? " (" + modalTitle + ")" : null)
             : null}
         </BootstrapDialogTitle>
-        <DialogContent dividers sx={{ minWidth: 333 }}>
+        <DialogContent dividers sx={{ minWidth: 500 }}>
           <Typography gutterBottom>{modalTxt}</Typography>
-          <PropertyInfo identifier={modalTitle} />
+          <PropertyInfo identifier={id} />
         </DialogContent>
         <DialogActions>
           <PropertyModal title={modalTitle!} />
