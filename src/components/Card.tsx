@@ -25,7 +25,7 @@ export default function MediaCard({
   route,
 }: CardProps) {
   return (
-    <Card sx={{ maxWidth: 400, padding: "5px" }}>
+    <Card sx={{ padding: "5px", flexWrap: "wrap", maxWidth: 500 }}>
       <CardMedia
         sx={{ height: 140 }}
         image={

@@ -9,6 +9,7 @@ import IconButton from "@mui/material/IconButton";
 import CloseIcon from "@mui/icons-material/Close";
 import Typography from "@mui/material/Typography";
 import PropertyModal from "./PropertyModal";
+import PropertyInfo from "./PropertyInfo";
 
 const BootstrapDialog = styled(Dialog)(({ theme }) => ({
   "& .MuiDialogContent-root": {
@@ -96,19 +97,11 @@ export default function Modal({ isBookNow, modalTitle, modalTxt }: ModalProps) {
             ? "Book Now" + (modalTitle ? " (" + modalTitle + ")" : null)
             : null}
         </BootstrapDialogTitle>
-        <DialogContent dividers sx={{ width: 555 }}>
+        <DialogContent dividers sx={{ minWidth: 333 }}>
           <Typography gutterBottom>{modalTxt}</Typography>
+          <PropertyInfo identifier={modalTitle} />
         </DialogContent>
         <DialogActions>
-          {/* <Button
-            variant="contained"
-            size="large"
-            autoFocus
-            onClick={handleClose}
-            style={{ display: "inline" }}
-          >
-            Book Now
-          </Button> */}
           <PropertyModal title={modalTitle!} />
         </DialogActions>
       </BootstrapDialog>

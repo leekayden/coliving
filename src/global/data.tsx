@@ -6,12 +6,12 @@ export let PropertyList = [
     description: "🍎",
     status: "For Rent",
     route: "apple",
-    price: "1900",
+    price: 1900,
     extraDetails: [
       "Minimum rental period is three months",
       "Rental inclusive utilities, wifi and apartment common area cleaning",
     ],
-    maxPax: "2",
+    maxPax: 2,
     roomFeatures: ["Room Feature 1", "Room Feature 2"],
   },
   {
@@ -21,12 +21,12 @@ export let PropertyList = [
     description: "🍌",
     status: "For Sale",
     route: "banana",
-    price: "1900",
+    price: 1900,
     extraDetails: [
       "Minimum rental period is three months",
       "Rental inclusive utilities, wifi and apartment common area cleaning",
     ],
-    maxPax: "2",
+    maxPax: 2,
     roomFeatures: ["Room Feature 1", "Room Feature 2"],
   },
   {
@@ -36,12 +36,12 @@ export let PropertyList = [
     description: "🍊",
     status: "For Rent",
     route: "orange",
-    price: "1900",
+    price: 1900,
     extraDetails: [
       "Minimum rental period is three months",
       "Rental inclusive utilities, wifi and apartment common area cleaning",
     ],
-    maxPax: "2",
+    maxPax: 2,
     roomFeatures: ["Room Feature 1", "Room Feature 2"],
   },
 ];
