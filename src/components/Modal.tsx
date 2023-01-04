@@ -8,6 +8,7 @@ import DialogActions from "@mui/material/DialogActions";
 import IconButton from "@mui/material/IconButton";
 import CloseIcon from "@mui/icons-material/Close";
 import Typography from "@mui/material/Typography";
+import PropertyModal from "./PropertyModal";
 
 const BootstrapDialog = styled(Dialog)(({ theme }) => ({
   "& .MuiDialogContent-root": {
@@ -65,10 +66,6 @@ export default function Modal({ isBookNow, modalTitle, modalTxt }: ModalProps) {
     setOpen(false);
   };
 
-  if (isBookNow && modalTitle === null) {
-    console.log(isBookNow, modalTitle);
-  }
-
   return (
     <div>
       {isBookNow ? (
@@ -77,13 +74,11 @@ export default function Modal({ isBookNow, modalTitle, modalTxt }: ModalProps) {
           size="large"
           variant="contained"
           disableElevation
-          disableFocusRipple
-          disableTouchRipple
-          disableRipple
         >
           Book Now
         </Button>
       ) : (
+        // <PropertyModal title={modalTitle!} />
         <Button variant="contained" onClick={handleClickOpen}>
           Open dialog
         </Button>
@@ -105,7 +100,7 @@ export default function Modal({ isBookNow, modalTitle, modalTxt }: ModalProps) {
           <Typography gutterBottom>{modalTxt}</Typography>
         </DialogContent>
         <DialogActions>
-          <Button
+          {/* <Button
             variant="contained"
             size="large"
             autoFocus
@@ -113,7 +108,8 @@ export default function Modal({ isBookNow, modalTitle, modalTxt }: ModalProps) {
             style={{ display: "inline" }}
           >
             Book Now
-          </Button>
+          </Button> */}
+          <PropertyModal title={modalTitle!} />
         </DialogActions>
       </BootstrapDialog>
     </div>
