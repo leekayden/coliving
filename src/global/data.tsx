@@ -45,3 +45,32 @@ export let PropertyList = [
     roomFeatures: ["Room Feature 1", "Room Feature 2"],
   },
 ];
+
+export type CarouselItemsType = {
+  Name: string;
+  Caption: string;
+  contentPosition: "left" | "right" | "middle";
+  Items: { Name: string; Image: string }[];
+  route: string;
+};
+
+export let CarouselItems: CarouselItemsType[] = [
+  {
+    Name: "122 Lorong 2 Toa Payoh",
+    Caption: "For Rent",
+    contentPosition: "left",
+    route: "apple",
+    Items: [
+      {
+        Name: "Living Room",
+        Image:
+          "https://res.cloudinary.com/kayden/image/upload/v1672909158/1-livingroom_xhsgac.jpg",
+      },
+      {
+        Name: "Master Room",
+        Image:
+          "https://res.cloudinary.com/kayden/image/upload/v1672909150/1-master_f3dj1n.jpg",
+      },
+    ],
+  },
+];

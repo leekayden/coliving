@@ -9,13 +9,13 @@ import Typography from '@mui/material/Typography';
 import Divider from '@mui/material/Divider';
 
 function App() {
-  const titles = PropertyList.map(item => item.title);
+  // const titles = PropertyList.map(item => item.title);
   return (
     <div className="App">
       <NavBar appname={AppName} isHomeOwner={false} />
       <Carousel />
       <Typography variant="h3" gutterBottom>
-        <Divider>Properties</Divider>
+        <Divider/>
       </Typography>
       <Grid container spacing={2} style={{ justifyContent: "center" }}>
         {PropertyList.map((item) => (
