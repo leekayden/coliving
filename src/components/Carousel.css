@@ -1,4 +1,4 @@
-.carousel-container {
+/* .carousel-container {
   display: flex;
   align-items: center;
   background-color: #fafafa;
@@ -29,4 +29,78 @@
 
 .active-dot {
   background-color: #666;
+} */
+
+.Banner {
+  height: 400px;
+  position: relative;
+}
+.Banner .Media {
+  background-color: white;
+  height: 100%;
+  overflow: hidden;
+  position: relative;
+  transition: 300ms;
+  cursor: pointer;
+}
+.Banner .Media .MediaCaption {
+  text-overflow: ellipsis;
+  position: absolute;
+  bottom: 0;
+  padding: 15px;
+  background-color: black;
+  color: white;
+  opacity: 0.6;
+  width: 100%;
+  height: 10%;
+  font-size: 21px;
+  font-weight: 200;
+  transition: 300ms;
+  cursor: pointer;
+}
+.Banner .Media .MediaCaption:hover {
+  opacity: 0.8;
+}
+.Banner .Media:hover {
+  filter: brightness(115%);
+}
+.Banner .BannerGrid {
+  height: 100%;
+  position: relative;
+}
+.Banner .Content {
+  color: white;
+  background-color: #771818;
+  height: 100%;
+  position: relative;
+  cursor: pointer;
+  padding: 30px;
+  transition: 300ms;
+}
+.Banner .Content:hover,
+.Banner .Content:active {
+  background-color: #571111;
+}
+.Banner .Content:hover .ViewButton,
+.Banner .Content:active .ViewButton {
+  background-color: #f1f1f1;
+  color: #771818;
+}
+.Banner .Content .Title {
+  font-size: 30px;
+  font-weight: 500;
+  color: white;
+}
+.Banner .Content .Caption {
+  margin-top: 10px;
+  font-size: 18px;
+  color: white;
+}
+.Banner .Content .ViewButton {
+  margin-top: 40px;
+  color: white;
+  font-size: 25px;
+  border: 3px solid white;
+  text-transform: capitalize;
+  transition: 200ms;
 }

@@ -13,7 +13,7 @@ function App() {
   return (
     <div className="App">
       <NavBar appname={AppName} isHomeOwner={false} />
-      <Carousel items={titles} />
+      <Carousel />
       <Typography variant="h3" gutterBottom>
         <Divider>Properties</Divider>
       </Typography>

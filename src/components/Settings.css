@@ -1,0 +1,10 @@
+.Options {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  flex-wrap: wrap;
+}
+.Options div {
+  display: flex;
+  flex-direction: column;
+}

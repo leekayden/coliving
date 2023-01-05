@@ -82,7 +82,7 @@ export default function PropertyInfo({ identifier }: PropertyInfoProps) {
     extraDetails: string[];
     maxPax: number;
     roomFeatures: string[];
-  }> = filteredList 
+  }> = filteredList
     ? [
         createData(
           filteredList.id,

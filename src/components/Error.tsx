@@ -2,7 +2,6 @@ import { Box, Button, Container, Typography } from "@mui/material";
 import Grid from "@mui/material/Grid";
 import Link from "@mui/material/Link";
 import NavBar from "./NavBar";
-import Error from "./Error.css"
 
 export interface ErrorProps {
   errorCode: number;
@@ -11,7 +10,7 @@ export interface ErrorProps {
 export default function Error(props: ErrorProps) {
   const { errorCode } = props;
   return (
-    <div class={Error.body}>
+    <div>
       <NavBar isHomeOwner={false} />
       <Box
         sx={{
