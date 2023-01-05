@@ -1,31 +1,53 @@
-import React, { useState } from 'react';
+import { useState } from "react";
+import Carousel from "react-material-ui-carousel";
+import { Paper, Button, Typography } from "@mui/material";
+import { PropertyCarouselItems, PropertyCarouselItemsType } from "../global/data";
+import "./PropertyCarousel.css";
+import { DefaultSettingsT, SettingsT } from "./CarouselSettings";
 
-interface Props {
-  images: string[];
-}
-
-const Carousel: React.FC<Props> = ({ images }) => {
-  const [currentIndex, setCurrentIndex] = useState(0);
-
-  const handlePrevClick = () => {
-    setCurrentIndex((currentIndex - 1 + images.length) % images.length);
-  };
-
-  const handleNextClick = () => {
-    setCurrentIndex((currentIndex + 1) % images.length);
-  };
+const SecondExample = () => {
+  const [settings] = useState<SettingsT>(DefaultSettingsT);
 
   return (
-    <div style={{ display: 'flex', alignItems: 'center' }}>
-      <button onClick={handlePrevClick} style={{ position: 'relative', top: '50%', transform: 'translateY(-50%)' }}>
-        &lt;
-      </button>
-      <img src={images[currentIndex]} alt="" style={{ maxWidth: '100%', maxHeight: '100%' }} />
-      <button onClick={handleNextClick} style={{ position: 'relative', top: '50%', transform: 'translateY(-50%)' }}>
-        &gt;
-      </button>
+    <div style={{ marginTop: "50px", color: "#494949" }}>
+      <Carousel className="SecondExample" {...settings}>
+        {PropertyCarouselItems.map((item, index) => {
+          return <Project item={item} key={index} />;
+        })}
+      </Carousel>
+      <br />
     </div>
   );
 };
 
-export default Carousel;
+interface ProjectProps {
+  item: PropertyCarouselItemsType;
+}
+
+function Project({ item }: ProjectProps) {
+  return (
+    <Paper
+      className="Project"
+      style={{
+        backgroundColor: item.color,
+      }}
+      elevation={10}
+    >
+      <Typography variant="h5">{item.name}</Typography>
+      <br />
+      <Typography>{item.description}</Typography>
+
+      <Button
+        className="CheckButton"
+        component="a"
+        href={item.href}
+        target="_blank"
+        rel="noreferrer"
+      >
+        Check it out!
+      </Button>
+    </Paper>
+  );
+}
+
+export default SecondExample;

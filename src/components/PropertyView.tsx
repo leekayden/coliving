@@ -18,7 +18,7 @@ function PropertyView({id}: PropertyViewProps) {
   return (
     <div>
       <NavBar isHomeOwner={false} />
-      <PropertyCarousel images={images} />
+      <PropertyCarousel />
       <Typography variant="h3" gutterBottom sx={{ padding:"7px" }}>
         {PropertyList[id].title}
       </Typography>

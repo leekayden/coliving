@@ -1,0 +1,20 @@
+.SecondExample {
+  max-width: 500px;
+}
+.SecondExample .Project {
+  max-width: 100%;
+  position: relative;
+  height: 300px;
+  overflow: hidden;
+  padding: 20px;
+}
+.SecondExample .Project * {
+  color: white;
+}
+.SecondExample .Project .CheckButton {
+  margin-top: 40px;
+  color: white;
+  font-size: 25px;
+  border: 3px solid white;
+  text-transform: capitalize;
+}
