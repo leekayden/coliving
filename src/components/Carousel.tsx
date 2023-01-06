@@ -12,7 +12,7 @@ import {
 } from "@mui/material";
 import { useState } from "react";
 import { CarouselItems, CarouselItemsType } from "../global/data";
-import Box, { BoxProps } from '@mui/material/Box';
+import Box, { BoxProps } from "@mui/material/Box";
 
 function Item(props: BoxProps) {
   const { sx, ...other } = props;
@@ -21,14 +21,16 @@ function Item(props: BoxProps) {
       sx={{
         p: 1,
         m: 1,
-        bgcolor: (theme) => (theme.palette.mode === 'dark' ? '#101010' : 'grey.100'),
-        color: (theme) => (theme.palette.mode === 'dark' ? 'grey.300' : 'grey.800'),
-        border: '1px solid',
+        bgcolor: (theme) =>
+          theme.palette.mode === "dark" ? "#101010" : "grey.100",
+        color: (theme) =>
+          theme.palette.mode === "dark" ? "grey.300" : "grey.800",
+        border: "1px solid",
         borderColor: (theme) =>
-          theme.palette.mode === 'dark' ? 'grey.800' : 'grey.300',
+          theme.palette.mode === "dark" ? "grey.800" : "grey.300",
         borderRadius: 2,
-        fontSize: '0.875rem',
-        fontWeight: '700',
+        fontSize: "0.875rem",
+        fontWeight: "700",
         ...sx,
       }}
       {...other}
@@ -43,15 +45,17 @@ const Example = () => {
     <div style={{ marginTop: "50px", color: "#494949" }}>
       <Box
         sx={{
-          display: 'flex',
-          justifyContent: 'center',
+          display: "flex",
+          justifyContent: "center",
           p: 1,
           m: 1,
-          bgcolor: 'background.paper',
+          bgcolor: "background.paper",
           borderRadius: 1,
         }}
       >
-        <Item><Typography variant="h4">Popular Properties</Typography></Item>
+        <Item>
+          <Typography variant="h4">Popular Properties</Typography>
+        </Item>
       </Box>
       <br />
       <Carousel className="Example" {...settings}>
@@ -61,6 +65,7 @@ const Example = () => {
               item={item}
               key={index}
               contentPosition={item.contentPosition}
+              // contentPosition="none"
               route={item.route}
             />
           );
@@ -73,7 +78,7 @@ const Example = () => {
 
 interface BannerProps {
   item: CarouselItemsType;
-  contentPosition: "left" | "right" | "middle";
+  contentPosition: "left" | "right" | "middle" | "none";
   length?: number;
   route: string;
 }
@@ -116,10 +121,10 @@ const Banner = (props: BannerProps) => {
         </CardMedia>
       </Grid>
     );
-
     items.push(media);
   }
 
+if (contentPosition !== "none") {
   if (contentPosition === "left") {
     items.unshift(content);
   } else if (contentPosition === "right") {
@@ -127,7 +132,10 @@ const Banner = (props: BannerProps) => {
   } else if (contentPosition === "middle") {
     items.splice(items.length / 2, 0, content);
   }
+}
 
+
+  console.log(items)
   return (
     <Card raised className="Banner">
       <Grid container spacing={0} className="BannerGrid">
