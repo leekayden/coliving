@@ -6,7 +6,7 @@ import reportWebVitals from "./reportWebVitals";
 import { createBrowserRouter, RouterProvider } from "react-router-dom";
 import { PropertyList } from "./global/data";
 import PropertyView from "./components/PropertyView";
-import { createTheme, ThemeProvider } from '@material-ui/core/styles';
+import { createTheme, ThemeProvider } from "@material-ui/core/styles";
 import HomeownerView from "./components/HomeownerView";
 import Error from "./components/Error";
 
@@ -25,22 +25,22 @@ const router = createBrowserRouter([
   })),
   {
     path: "*",
-    element: <Error errorCode={404} />
-  }
+    element: <Error errorCode={404} />,
+  },
 ]);
 
 let lightTheme = createTheme({
   palette: {
-    type: 'light',
+    type: "light",
     primary: {
-      main: '#3f51b5',
+      main: "#3f51b5",
     },
     secondary: {
-      main: '#f50057',
+      main: "#f50057",
     },
   },
   typography: {
-    fontFamily: 'Ubuntu',
+    fontFamily: "Ubuntu",
     fontWeightMedium: 600,
   },
 });
@@ -53,6 +53,6 @@ ReactDOM.createRoot(document.getElementById("root")!).render(
   </ThemeProvider>
 );
 
-console.log(router)
+console.log(router);
 
 reportWebVitals();

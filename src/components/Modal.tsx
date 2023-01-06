@@ -94,7 +94,7 @@ export default function Modal({ id, isBookNow, modalTitle, modalTxt }: ModalProp
           onClose={handleClose}
         >
           {isBookNow
-            ? "Enquire" + (modalTitle ? " (" + modalTitle + ")" : null)
+            ? "Enquiry Info" + (modalTitle ? " (" + modalTitle + ")" : null)
             : null}
         </BootstrapDialogTitle>
         <DialogContent dividers sx={{ minWidth: 500 }}>
