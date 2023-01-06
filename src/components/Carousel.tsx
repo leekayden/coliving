@@ -60,7 +60,13 @@ const Banner = (props: BannerProps) => {
         <Typography className="Caption">{props.item.Caption}</Typography>
 
         <Button variant="outlined" className="ViewButton">
-          <Link color="inherit" underline="none" href={`/properties/${props.route}`}>View Now</Link>
+          <Link
+            color="inherit"
+            underline="none"
+            href={`/properties/${props.route}`}
+          >
+            View Now
+          </Link>
         </Button>
       </CardContent>
     </Grid>
