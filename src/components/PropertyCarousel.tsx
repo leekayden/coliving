@@ -9,7 +9,7 @@ const SecondExample = () => {
   const [settings] = useState<SettingsT>(DefaultSettingsT);
 
   return (
-    <div style={{ marginTop: "50px", color: "#494949" }}>
+    <div style={{ marginTop: "50px", color: "#494949", justifyContent: "center" }}>
       <Carousel className="SecondExample" {...settings}>
         {PropertyCarouselItems.map((item, index) => {
           return <Project item={item} key={index} />;
