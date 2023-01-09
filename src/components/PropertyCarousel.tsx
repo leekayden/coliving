@@ -1,6 +1,6 @@
 import { useState } from "react";
 import Carousel from "react-material-ui-carousel";
-import { Paper, Button, Typography } from "@mui/material";
+import { Paper, Button } from "@mui/material";
 import { PropertyCarouselItems, PropertyCarouselItemsType } from "../global/data";
 import "./PropertyCarousel.css";
 import { DefaultSettingsT, SettingsT } from "./CarouselSettings";
@@ -28,15 +28,16 @@ function Project({ item }: ProjectProps) {
   return (
     <Paper
       className="Project"
-      style={{
-        backgroundColor: item.color,
-      }}
+      // style={{
+      //   backgroundColor: item.color,
+      // }}
       elevation={10}
     >
-      <Typography variant="h5">{item.name}</Typography>
-      <br />
-      <Typography>{item.description}</Typography>
-
+      <img
+        src={item.imgUrl}
+        alt={item.name}
+        style={{ width: "100%", height: "100%", objectFit: "cover" }}
+      />
       <Button
         className="CheckButton"
         component="a"
