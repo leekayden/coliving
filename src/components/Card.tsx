@@ -62,7 +62,7 @@ export default function MediaCard({
       <CardActions sx={{ justifyContent: "space-between" }}>
         <Button size="large" startIcon={<ArticleIcon />}>
           <Link href={`/properties/${route}`} color="inherit" underline="none">
-            Details
+            View
           </Link>
         </Button>
         <Modal id={id} isBookNow={true} modalTitle={title} modalTxt={description} />

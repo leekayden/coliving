@@ -40,9 +40,12 @@ function Item(props: BoxProps) {
 
 interface CarouselComponentProps {
   mainTxt?: string | null;
+  noViewBtn?: boolean;
+  title?: string;
+  status?: string;
 }
 
-const CarouselComponent = ({ mainTxt }: CarouselComponentProps) => {
+const CarouselComponent = ({ mainTxt, noViewBtn, title, status }: CarouselComponentProps) => {
   const [settings] = useState<SettingsT>(DefaultSettingsT);
 
   return (
@@ -74,6 +77,9 @@ const CarouselComponent = ({ mainTxt }: CarouselComponentProps) => {
               key={index}
               contentPosition={item.contentPosition}
               route={item.route}
+              noViewBtn={noViewBtn}
+              title={title}
+              status={status}
             />
           );
         })}
@@ -88,6 +94,9 @@ interface BannerProps {
   contentPosition: "left" | "right" | "middle" | "none";
   length?: number;
   route: string;
+  noViewBtn?: boolean;
+  title?: string;
+  status?: string;
 }
 
 const Banner = (props: BannerProps) => {
@@ -101,19 +110,22 @@ const Banner = (props: BannerProps) => {
   const content = (
     <Grid item xs={4} key="content">
       <CardContent className="Content">
-        <Typography className="Title">{props.item.Name}</Typography>
+        <Typography className="Title">
+          {props.title ? props.title : props.item.Name}
+        </Typography>
 
-        <Typography className="Caption">{props.item.Caption}</Typography>
-
-        <Button variant="outlined" className="ViewButton">
-          <Link
-            color="inherit"
-            underline="none"
-            href={`/properties/${props.route}`}
-          >
-            View Now
-          </Link>
-        </Button>
+        <Typography className="Caption">{props.status ? props.status : props.item.Caption}</Typography>
+        {props.noViewBtn ? null : (
+          <Button variant="outlined" className="ViewButton">
+            <Link
+              color="inherit"
+              underline="none"
+              href={`/properties/${props.route}`}
+            >
+              View Now
+            </Link>
+          </Button>
+        )}
       </CardContent>
     </Grid>
   );
