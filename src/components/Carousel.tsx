@@ -38,25 +38,33 @@ function Item(props: BoxProps) {
   );
 }
 
-const Example = () => {
+interface CarouselComponentProps {
+  mainTxt?: string | null;
+}
+
+const CarouselComponent = ({ mainTxt }: CarouselComponentProps) => {
   const [settings] = useState<SettingsT>(DefaultSettingsT);
 
   return (
     <div style={{ marginTop: "50px", color: "#494949" }}>
-      <Box
-        sx={{
-          display: "flex",
-          justifyContent: "center",
-          p: 1,
-          m: 1,
-          bgcolor: "background.paper",
-          borderRadius: 1,
-        }}
-      >
-        <Item>
-          <Typography variant="h4">Popular Properties</Typography>
-        </Item>
-      </Box>
+      {mainTxt === null ? null : (
+        <Box
+          sx={{
+            display: "flex",
+            justifyContent: "center",
+            p: 1,
+            m: 1,
+            bgcolor: "background.paper",
+            borderRadius: 1,
+          }}
+        >
+          <Item>
+            <Typography variant="h4">
+              {mainTxt ? mainTxt : "Popular Properties"}
+            </Typography>
+          </Item>
+        </Box>
+      )}
       <br />
       <Carousel className="Example" {...settings}>
         {CarouselItems.map((item, index) => {
@@ -65,7 +73,6 @@ const Example = () => {
               item={item}
               key={index}
               contentPosition={item.contentPosition}
-              // contentPosition="none"
               route={item.route}
             />
           );
@@ -124,18 +131,16 @@ const Banner = (props: BannerProps) => {
     items.push(media);
   }
 
-if (contentPosition !== "none") {
-  if (contentPosition === "left") {
-    items.unshift(content);
-  } else if (contentPosition === "right") {
-    items.push(content);
-  } else if (contentPosition === "middle") {
-    items.splice(items.length / 2, 0, content);
+  if (contentPosition !== "none") {
+    if (contentPosition === "left") {
+      items.unshift(content);
+    } else if (contentPosition === "right") {
+      items.push(content);
+    } else if (contentPosition === "middle") {
+      items.splice(items.length / 2, 0, content);
+    }
   }
-}
 
-
-  console.log(items)
   return (
     <Card raised className="Banner">
       <Grid container spacing={0} className="BannerGrid">
@@ -145,4 +150,4 @@ if (contentPosition !== "none") {
   );
 };
 
-export default Example;
+export default CarouselComponent;

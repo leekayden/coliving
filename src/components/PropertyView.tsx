@@ -4,6 +4,7 @@ import Typography from "@mui/material/Typography";
 import { PropertyList } from "../global/data";
 import PropertyTabs from "./PropertyTabs";
 import PropertyOverview from "./PropertyOverview";
+import Carousel from "./Carousel";
 
 interface PropertyViewProps {
   id: number;
@@ -13,7 +14,7 @@ function PropertyView({ id }: PropertyViewProps) {
   return (
     <div>
       <NavBar isHomeOwner={false} />
-      <PropertyCarousel />
+      <Carousel mainTxt={null} />
       <Typography variant="h3" gutterBottom sx={{ padding: "7px" }}>
         {PropertyList[id].title}
       </Typography>

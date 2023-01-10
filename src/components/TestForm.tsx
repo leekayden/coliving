@@ -1,5 +1,5 @@
-import "./style.css";
-import { useState } from "react";
+import { useState, useEffect } from "react";
+import { apiEndpoint } from "../global/definitions";
 
 function App() {
   const [name, setName] = useState("");
@@ -7,30 +7,39 @@ function App() {
   const [mobileNumber, setMobileNumber] = useState("");
   const [message, setMessage] = useState("");
 
-  let handleSubmit = async (e: any,) => {
+  let handleSubmit = (e: any) => {
     e.preventDefault();
-    try {
-      let res = await fetch("https://httpbin.org/post", {
-        method: "POST",
-        body: JSON.stringify({
-          name: name,
-          email: email,
-          mobileNumber: mobileNumber,
-        }),
-      });
-      let resJson = await res.json();
-      if (res.status === 200) {
-        setName("");
-        setEmail("");
-        setMobileNumber("");
-        setMessage("User created successfully");
-      } else {
-        setMessage("Some error occured");
-      }
-    } catch (err) {
-      console.log(err);
-    }
+    setMessage("Sending request...");
   };
+
+  useEffect(() => {
+    if (name && email && mobileNumber) {
+      fetch(`${apiEndpoint}/testPost`, {
+          method: "POST",
+          body: JSON.stringify({
+            name: name,
+            email: email,
+            mobileNumber: mobileNumber,
+          }),
+        })
+          .then((res) => {
+            if (res.status === 200) {
+              return res.json()
+            }
+            console.error("Error Occured")
+          })
+          .then((resJson) => {
+            setName("");
+            setEmail("");
+            setMobileNumber("");
+            setMessage("User created successfully");
+          })
+          .catch((err) => {
+            console.error(err);
+            setMessage("Error Occured");
+          });
+    }
+  }, [name, email, mobileNumber]);
 
   return (
     <div className="App">
