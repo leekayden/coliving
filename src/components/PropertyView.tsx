@@ -1,3 +1,4 @@
+import React from "react";
 import NavBar from "./NavBar";
 import PropertyCarousel from "./PropertyCarousel";
 import Typography from "@mui/material/Typography";
@@ -5,6 +6,7 @@ import { PropertyList } from "../global/data";
 import PropertyTabs from "./PropertyTabs";
 import PropertyOverview from "./PropertyOverview";
 import Carousel from "./Carousel";
+import Grid from "@material-ui/core/Grid";
 
 interface PropertyViewProps {
   id: number;
@@ -20,11 +22,14 @@ function PropertyView({ id }: PropertyViewProps) {
         status={PropertyList[id].status}
         noViewBtn
       />
-      <Typography variant="h3" gutterBottom sx={{ padding: "7px" }}>
-        {PropertyList[id].title}
-      </Typography>
-      <PropertyOverview title={PropertyList[id].title} />
-      <PropertyTabs property={PropertyList[id].title} />
+      <Grid container spacing={3}>
+        <Grid item xs={12} sm={6}>
+          <PropertyTabs property={PropertyList[id].title} />
+        </Grid>
+        <Grid item xs={12} sm={6}>
+          <PropertyOverview title={PropertyList[id].title} />
+        </Grid>
+      </Grid>
     </div>
   );
 }

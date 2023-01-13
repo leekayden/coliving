@@ -96,16 +96,17 @@ export default function PrimarySearchAppBar({
   const menuId = "primary-search-account-menu";
   const renderMenu = (
     <Menu
+      style={{ marginTop: "49px" }}
       anchorEl={anchorEl}
       anchorOrigin={{
         vertical: "top",
-        horizontal: "right",
+        horizontal: "left",
       }}
       id={menuId}
       keepMounted
       transformOrigin={{
         vertical: "top",
-        horizontal: "right",
+        horizontal: "left",
       }}
       open={isMenuOpen}
       onClose={handleMenuClose}

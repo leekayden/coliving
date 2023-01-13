@@ -1,5 +1,3 @@
-import { Url } from "url";
-
 export let PropertyList = [
   {
     id: 0,

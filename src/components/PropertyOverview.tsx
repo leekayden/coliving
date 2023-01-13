@@ -16,7 +16,7 @@ export default function PropertyOverview({ title }: PropertyOverviewProps) {
     <Card sx={{ maxWidth: 345 }}>
       <CardContent>
         <Typography gutterBottom variant="h5" component="div">
-          {Currency}$<strong>{filteredList?.price}</strong>
+          {Currency}$<strong>{filteredList?.price}</strong>/yr
         </Typography>
         <Typography variant="body2" color="text.secondary">
           {filteredList?.description}

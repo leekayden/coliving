@@ -1,4 +1,5 @@
 import { useState, useEffect } from "react";
+import axios from "axios";
 import { apiEndpoint } from "../global/definitions";
 
 function App() {
@@ -14,30 +15,22 @@ function App() {
 
   useEffect(() => {
     if (name && email && mobileNumber) {
-      fetch(`${apiEndpoint}/testPost`, {
-          method: "POST",
-          body: JSON.stringify({
-            name: name,
-            email: email,
-            mobileNumber: mobileNumber,
-          }),
+      console.log(name, email, mobileNumber);
+      axios.post(`${apiEndpoint}/testPost`, {
+          name: name,
+          email: email,
+          mobileNumber: mobileNumber,
         })
-          .then((res) => {
-            if (res.status === 200) {
-              return res.json()
-            }
-            console.error("Error Occured")
-          })
-          .then((resJson) => {
-            setName("");
-            setEmail("");
-            setMobileNumber("");
-            setMessage("User created successfully");
-          })
-          .catch((err) => {
-            console.error(err);
-            setMessage("Error Occured");
-          });
+        .then((res: any) => {
+          setName("");
+          setEmail("");
+          setMobileNumber("");
+          setMessage("User created successfully");
+        })
+        .catch((err: any) => {
+          console.error(err);
+          setMessage("An Error Occured");
+        });
     }
   }, [name, email, mobileNumber]);
 
