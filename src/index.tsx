@@ -9,7 +9,8 @@ import PropertyView from "./components/PropertyView";
 import { createTheme, ThemeProvider } from "@material-ui/core/styles";
 import HomeownerView from "./components/HomeownerView";
 import Error from "./components/Error";
-import TestForm from "./components/TestForm"
+import TestForm from "./components/TestForm";
+import Carousel2 from "./components/Carousel2";
 
 const router = createBrowserRouter([
   {
@@ -22,7 +23,7 @@ const router = createBrowserRouter([
   },
   {
     path: "/testform",
-    element: <TestForm />,
+    element: <Carousel2 />,
   },
   ...PropertyList.map((item) => ({
     path: `/properties/${item.route}`,
