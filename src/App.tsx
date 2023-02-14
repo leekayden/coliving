@@ -16,7 +16,7 @@ import { usePageEffect } from "./components/usePageEffect";
 
 function App() {
   // const titles = PropertyList.map(item => item.title);
-  const [open, setOpen] = React.useState(true);
+  const [open, setOpen] = React.useState(!localStorage.getItem("alertClosed"));
   usePageEffect({ title: "Home | Eden CoSpaces" });
   return (
     <div className="App">
@@ -31,6 +31,7 @@ function App() {
               size="small"
               onClick={() => {
                 setOpen(false);
+                localStorage.setItem('alertClosed', true.toString());
               }}
             >
               <CloseIcon fontSize="inherit" />
