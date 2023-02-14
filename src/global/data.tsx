@@ -7,6 +7,7 @@ export let PropertyList = [
     status: "For Rent",
     route: "apple",
     price: 1900,
+    whatsappContact: "81234567",
     extraDetails: [
       "Minimum rental period is three months",
       "Rental inclusive utilities, wifi and apartment common area cleaning",
@@ -22,6 +23,7 @@ export let PropertyList = [
     status: "For Sale",
     route: "banana",
     price: 1900,
+    whatsappContact: "81234567",
     extraDetails: [
       "Minimum rental period is three months",
       "Rental inclusive utilities, wifi and apartment common area cleaning",

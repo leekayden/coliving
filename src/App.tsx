@@ -40,7 +40,7 @@ function App() {
           sx={{ mb: 2 }}
         >
           This is a demo version of the app. Most of the data on this site is
-          fake.
+          fake. Some features are disabled or not working.
         </Alert>
       </Collapse>
       <Carousel />

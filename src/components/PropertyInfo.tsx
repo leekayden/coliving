@@ -35,6 +35,7 @@ function createData(
   description: string,
   status: string,
   price: number,
+  whatsappContact: string,
   extraDetails: string[],
   maxPax: number,
   roomFeatures: string[]
@@ -46,6 +47,7 @@ function createData(
     description,
     status,
     price,
+    whatsappContact,
     extraDetails,
     maxPax,
     roomFeatures,
@@ -66,6 +68,7 @@ export default function PropertyInfo({ identifier }: PropertyInfoProps) {
         status: string;
         route: string;
         price: number;
+        whatsappContact: string;
         extraDetails: string[];
         maxPax: number;
         roomFeatures: string[];
@@ -79,6 +82,7 @@ export default function PropertyInfo({ identifier }: PropertyInfoProps) {
     description: string;
     status: string;
     price: number;
+    whatsappContact: string;
     extraDetails: string[];
     maxPax: number;
     roomFeatures: string[];
@@ -91,6 +95,7 @@ export default function PropertyInfo({ identifier }: PropertyInfoProps) {
           filteredList.description,
           filteredList.status,
           filteredList.price,
+          filteredList.whatsappContact,
           filteredList.extraDetails,
           filteredList.maxPax,
           filteredList.roomFeatures
@@ -131,6 +136,7 @@ export default function PropertyInfo({ identifier }: PropertyInfoProps) {
               </StyledTableCell>
             </StyledTableRow>
           ))}
+          <p>WhatsApp Enquiry: {whatsappContact}</p> 
         </TableBody>
       </Table>
     </TableContainer>
