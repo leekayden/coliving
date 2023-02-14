@@ -196,7 +196,7 @@ export default function PrimarySearchAppBar({
               {appname ? appname : AppName}
             </Link>
             &nbsp;
-            {isHomeOwner ? <Chip label="Home Owner" color="warning" /> : <Chip label={`${AppName} Demo`} color="secondary" />}
+            {isHomeOwner ? <Chip label="Home Owner" color="warning" /> : null}
           </Typography>
           <Search>
             <SearchIconWrapper>

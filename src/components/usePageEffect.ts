@@ -3,7 +3,7 @@ import * as React from "react";
 import { useLocation } from "react-router-dom";
 import { AppName } from "../global/definitions";
 
-export function usePageEffect(options?: Options, deps?: React.DependencyList) {
+export function usePageEffect(options?: Options, isCustom?: boolean, deps?: React.DependencyList) {
   const location = useLocation();
 
   // Once the page component was rendered, update the HTML document's title
@@ -14,7 +14,7 @@ export function usePageEffect(options?: Options, deps?: React.DependencyList) {
       location.pathname === "/"
         ? options?.title ?? AppName
         : options?.title
-        ? `${options.title} | ${AppName}`
+        ? isCustom ? `${options.title}` : `${options.title} | ${AppName}`
         : AppName;
 
     return function () {
