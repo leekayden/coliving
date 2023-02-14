@@ -170,7 +170,7 @@ export default function TemporaryDrawer() {
         <Tooltip title="Give Feedback" placement="right" arrow>
           <Link style={{ textDecoration: "none" }} color="inherit" href="/feedback">
             <ListItem key="item5" disablePadding>
-              <ListItemButton>
+              <ListItemButton disabled>
                 <ListItemIcon>
                   <FeedbackOutlinedIcon />
                 </ListItemIcon>

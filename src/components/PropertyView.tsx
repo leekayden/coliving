@@ -1,18 +1,21 @@
 import React from "react";
 import NavBar from "./NavBar";
-import PropertyCarousel from "./PropertyCarousel";
-import Typography from "@mui/material/Typography";
+// import PropertyCarousel from "./PropertyCarousel";
+// import Typography from "@mui/material/Typography";
 import { PropertyList } from "../global/data";
 import PropertyTabs from "./PropertyTabs";
 import PropertyOverview from "./PropertyOverview";
 import Carousel from "./Carousel";
 import Grid from "@material-ui/core/Grid";
+import { usePageEffect } from "./usePageEffect";
+import { AppName } from "../global/definitions";
 
 interface PropertyViewProps {
   id: number;
 }
 
 function PropertyView({ id }: PropertyViewProps) {
+  usePageEffect({ title: PropertyList[id].title })
   return (
     <div>
       <NavBar isHomeOwner={false} />
