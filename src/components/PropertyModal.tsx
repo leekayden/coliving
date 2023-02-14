@@ -10,7 +10,7 @@ import InputLabel from "@mui/material/InputLabel";
 import MenuItem from "@mui/material/MenuItem";
 import FormControl from "@mui/material/FormControl";
 import Select, { SelectChangeEvent } from "@mui/material/Select";
-import { PropertyList } from "../global/data";
+import { PropertyList, enquireExternal } from "../global/data";
 
 interface FormDialogProps {
     title: string;
@@ -41,6 +41,7 @@ export default function FormDialog({title}: FormDialogProps) {
         variant="contained"
         style={{ display: "flex", justifyContent: "flex-end" }}
         onClick={handleClickOpen}
+        disabled={enquireExternal}
       >
         Enquire
       </Button>

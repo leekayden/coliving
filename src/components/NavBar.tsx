@@ -134,7 +134,7 @@ export default function PrimarySearchAppBar({
       onClose={handleMobileMenuClose}
     >
       <MenuItem>
-        <IconButton size="large" aria-label="show 4 new mails" color="inherit">
+        <IconButton size="large" color="inherit" disabled>
           <Badge badgeContent={4} color="error">
             <MailIcon />
           </Badge>
@@ -144,8 +144,8 @@ export default function PrimarySearchAppBar({
       <MenuItem>
         <IconButton
           size="large"
-          aria-label="show 17 new notifications"
           color="inherit"
+          disabled
         >
           <Badge badgeContent={17} color="error">
             <NotificationsIcon />
@@ -196,7 +196,7 @@ export default function PrimarySearchAppBar({
               {appname ? appname : AppName}
             </Link>
             &nbsp;
-            {isHomeOwner ? <Chip label="Home Owner" color="warning" /> : null}
+            {isHomeOwner ? <Chip label="Home Owner" color="warning" /> : <Chip label={`${AppName} Demo`} color="secondary" />}
           </Typography>
           <Search>
             <SearchIconWrapper>
@@ -211,19 +211,19 @@ export default function PrimarySearchAppBar({
           <Box sx={{ display: { xs: "none", md: "flex" } }}>
             <IconButton
               size="large"
-              aria-label="show 4 new mails"
               color="inherit"
+              disabled
             >
-              <Badge badgeContent={4} color="error">
+              <Badge badgeContent={0} color="error">
                 <MailIcon />
               </Badge>
             </IconButton>
             <IconButton
               size="large"
-              aria-label="show 17 new notifications"
               color="inherit"
+              disabled
             >
-              <Badge badgeContent={17} color="error">
+              <Badge badgeContent={0} color="error">
                 <NotificationsIcon />
               </Badge>
             </IconButton>
@@ -235,6 +235,7 @@ export default function PrimarySearchAppBar({
               aria-haspopup="true"
               onClick={handleProfileMenuOpen}
               color="inherit"
+              disabled={isHomeOwner ? false : true}
             >
               <AccountCircle />
             </IconButton>

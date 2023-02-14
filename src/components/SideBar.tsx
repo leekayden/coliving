@@ -186,6 +186,7 @@ export default function TemporaryDrawer() {
           <Link
             color="inherit"
             href="/signup"
+            style={{ textDecoration: "none" }}
           >
             <ListItem key="item1" disablePadding>
               <ListItemButton>
@@ -201,6 +202,7 @@ export default function TemporaryDrawer() {
           <Link
             color="inherit"
             href="/login"
+            style={{ textDecoration: "none" }}
           >
             <ListItem key="item2" disablePadding>
               <ListItemButton>

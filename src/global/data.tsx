@@ -37,6 +37,7 @@ export let PropertyList = [
     status: "For Rent",
     route: "orange",
     price: 1900,
+    whatsappContact: "81234567",
     extraDetails: [
       "Minimum rental period is three months",
       "Rental inclusive utilities, wifi and apartment common area cleaning",
@@ -114,3 +115,5 @@ export const PropertyCarouselItems: PropertyCarouselItemsType[] = [
     imgUrl: "https://res.cloudinary.com/kayden/image/upload/v1672909158/1-livingroom_xhsgac.jpg"
   },
 ];
+
+export const enquireExternal = true
