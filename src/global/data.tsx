@@ -15,6 +15,7 @@ export let PropertyList = [
     maxPax: 2,
     roomFeatures: ["Room Feature 1", "Room Feature 2"],
     apartmentFeatures: ["Apartment Feature 1", "Apartment Feature 2"],
+    commonFacilities: ["Common Facility 1", "Common Facility 2"],
   },
   {
     id: 1,
@@ -32,6 +33,7 @@ export let PropertyList = [
     maxPax: 2,
     roomFeatures: ["Room Feature 1", "Room Feature 2"],
     apartmentFeatures: ["Apartment Feature 1", "Apartment Feature 2"],
+    commonFacilities: ["Common Facility 1", "Common Facility 2"],
   },
   {
     id: 2,
@@ -49,6 +51,7 @@ export let PropertyList = [
     maxPax: 2,
     roomFeatures: ["Room Feature 1", "Room Feature 2"],
     apartmentFeatures: ["Apartment Feature 1", "Apartment Feature 2"],
+    commonFacilities: ["Common Facility 1", "Common Facility 2"],
   },
 ];
 
