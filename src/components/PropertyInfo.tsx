@@ -136,8 +136,8 @@ export default function PropertyInfo({ identifier }: PropertyInfoProps) {
               </StyledTableCell>
             </StyledTableRow>
           ))}
-          <p>WhatsApp Enquiry: {filteredList?.whatsappContact}</p>
         </TableBody>
+          <p>WhatsApp Enquiry: {filteredList?.whatsappContact}</p>
       </Table>
     </TableContainer>
   );
