@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useState } from "react";
 import ReactDOM from "react-dom/client";
 import "./index.css";
 import App from "./App";
@@ -35,7 +35,28 @@ const router = createBrowserRouter([
   },
 ]);
 
-let lightTheme = createTheme({
+interface RootProps {
+  lightTheme?: any,
+  darkTheme?: any,
+}
+
+function Root({ lightTheme, darkTheme }: RootProps) {
+  const [theme, setTheme] = useState("light");
+
+  const toggleTheme = () => {
+    setTheme((prevTheme) => (prevTheme === "light" ? "dark" : "light"));
+  };
+
+  return (
+    <ThemeProvider theme={theme === "light" ? lightTheme : darkTheme}>
+      <React.StrictMode>
+        <RouterProvider router={router} />
+      </React.StrictMode>
+    </ThemeProvider>
+  );
+}
+
+const lightTheme = createTheme({
   palette: {
     type: "light",
     primary: {
@@ -51,12 +72,24 @@ let lightTheme = createTheme({
   },
 });
 
+const darkTheme = createTheme({
+  palette: {
+    type: "dark",
+    primary: {
+      main: "#90caf9",
+    },
+    secondary: {
+      main: "#f48fb1",
+    },
+  },
+  typography: {
+    fontFamily: "Ubuntu",
+    fontWeightMedium: 600,
+  },
+});
+
 ReactDOM.createRoot(document.getElementById("root")!).render(
-  <ThemeProvider theme={lightTheme}>
-    <React.StrictMode>
-      <RouterProvider router={router} />
-    </React.StrictMode>
-  </ThemeProvider>
+  <Root lightTheme={lightTheme} darkTheme={darkTheme} />
 );
 
 reportWebVitals();

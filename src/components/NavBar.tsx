@@ -15,6 +15,7 @@ import MailIcon from "@mui/icons-material/Mail";
 import NotificationsIcon from "@mui/icons-material/Notifications";
 import MoreIcon from "@mui/icons-material/MoreVert";
 import Link from "@mui/material/Link";
+import Slider from "@mui/material/Slider";
 import { AppName } from "../global/definitions";
 import Chip from "@mui/material/Chip";
 import SideBar from "./SideBar";
@@ -69,6 +70,10 @@ export default function PrimarySearchAppBar({
   appname,
   isHomeOwner,
 }: PrimarySearchAppBarProps) {
+  const [theme, setTheme] = React.useState("light");
+  const handleThemeChange = () => {
+    setTheme(theme === "light" ? "dark" : "light");
+  };
   const [anchorEl, setAnchorEl] = React.useState<null | HTMLElement>(null);
   const [mobileMoreAnchorEl, setMobileMoreAnchorEl] =
     React.useState<null | HTMLElement>(null);
@@ -142,11 +147,7 @@ export default function PrimarySearchAppBar({
         <p>Messages</p>
       </MenuItem>
       <MenuItem>
-        <IconButton
-          size="large"
-          color="inherit"
-          disabled
-        >
+        <IconButton size="large" color="inherit" disabled>
           <Badge badgeContent={17} color="error">
             <NotificationsIcon />
           </Badge>
@@ -209,20 +210,12 @@ export default function PrimarySearchAppBar({
           </Search>
           <Box sx={{ flexGrow: 1 }} />
           <Box sx={{ display: { xs: "none", md: "flex" } }}>
-            <IconButton
-              size="large"
-              color="inherit"
-              disabled
-            >
+            <IconButton size="large" color="inherit" disabled>
               <Badge badgeContent={0} color="error">
                 <MailIcon />
               </Badge>
             </IconButton>
-            <IconButton
-              size="large"
-              color="inherit"
-              disabled
-            >
+            <IconButton size="large" color="inherit" disabled>
               <Badge badgeContent={0} color="error">
                 <NotificationsIcon />
               </Badge>
