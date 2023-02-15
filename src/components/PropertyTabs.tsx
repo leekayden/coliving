@@ -75,7 +75,9 @@ export default function BasicTabs({property}: BasicTabsProps) {
         </ul>
       </TabPanel>
       <TabPanel value={value} index={1}>
-        Item Two
+          {filteredList?.apartmentFeatures.map((feature) => (
+            <li>{feature}</li>
+          ))}
       </TabPanel>
       <TabPanel value={value} index={2}>
         Item Three
