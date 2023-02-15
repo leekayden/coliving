@@ -57,7 +57,8 @@ export default function BasicTabs({property}: BasicTabsProps) {
         <Tabs
           value={value}
           onChange={handleChange}
-          aria-label="basic tabs example"
+          variant="scrollable"
+          scrollButtons="auto"
         >
           <Tab label="Room Features" {...a11yProps(0)} />
           <Tab label="Apartment Features" {...a11yProps(1)} />
