@@ -63,7 +63,7 @@ const StyledInputBase = styled(InputBase)(({ theme }) => ({
 
 interface PrimarySearchAppBarProps {
   appname?: string;
-  isHomeOwner: boolean;
+  isHomeOwner?: boolean;
 }
 
 export default function PrimarySearchAppBar({
