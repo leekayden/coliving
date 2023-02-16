@@ -1,3 +1,5 @@
+export let isHomeownerAccount = false
+
 export let PropertyList = [
   {
     id: 0,
