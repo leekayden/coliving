@@ -4,6 +4,7 @@ import TableCell, { tableCellClasses } from "@mui/material/TableCell";
 import TableContainer from "@mui/material/TableContainer";
 import TableHead from "@mui/material/TableHead";
 import TableRow from "@mui/material/TableRow";
+import Typography from "@mui/material/Typography";
 import Paper from "@mui/material/Paper";
 import { PropertyList } from "../global/data";
 import { styled } from "@mui/material/styles";
@@ -104,41 +105,48 @@ export default function PropertyInfo({ identifier }: PropertyInfoProps) {
     : [];
 
   return (
-    <TableContainer component={Paper}>
-      <Table sx={{ minWidth: 500, display: "block" }} aria-label="simple table">
-        <TableHead>
-          <TableRow>
-            <StyledTableCell>Name</StyledTableCell>
-            <StyledTableCell align="right">Status</StyledTableCell>
-            <StyledTableCell align="right">Price</StyledTableCell>
-            <StyledTableCell align="right">Extra Details</StyledTableCell>
-            <StyledTableCell align="right">Max Pax</StyledTableCell>
-            <StyledTableCell align="right">Room Features</StyledTableCell>
-          </TableRow>
-        </TableHead>
-        <TableBody>
-          {rows.map((row) => (
-            <StyledTableRow
-              key={row.id}
-              sx={{ "&:last-child td, &:last-child th": { border: 0 } }}
-            >
-              <StyledTableCell component="th" scope="row">
-                {row.title}
-              </StyledTableCell>
-              <StyledTableCell align="right">{row.status}</StyledTableCell>
-              <StyledTableCell align="right">{row.price}</StyledTableCell>
-              <StyledTableCell align="right">
-                {row.extraDetails.join(", ")}
-              </StyledTableCell>
-              <StyledTableCell align="right">{row.maxPax}</StyledTableCell>
-              <StyledTableCell align="right">
-                {row.roomFeatures.join(", ")}
-              </StyledTableCell>
-            </StyledTableRow>
-          ))}
-        </TableBody>
-      </Table>
-          <p>WhatsApp Enquiry: {filteredList?.whatsappContact}</p>
-    </TableContainer>
+    <div>
+      <TableContainer component={Paper}>
+        <Table
+          sx={{ minWidth: 500, display: "block" }}
+          aria-label="simple table"
+        >
+          <TableHead>
+            <TableRow>
+              <StyledTableCell>Name</StyledTableCell>
+              <StyledTableCell align="right">Status</StyledTableCell>
+              <StyledTableCell align="right">Price</StyledTableCell>
+              <StyledTableCell align="right">Extra Details</StyledTableCell>
+              <StyledTableCell align="right">Max Pax</StyledTableCell>
+              <StyledTableCell align="right">Room Features</StyledTableCell>
+            </TableRow>
+          </TableHead>
+          <TableBody>
+            {rows.map((row) => (
+              <StyledTableRow
+                key={row.id}
+                sx={{ "&:last-child td, &:last-child th": { border: 0 } }}
+              >
+                <StyledTableCell component="th" scope="row">
+                  {row.title}
+                </StyledTableCell>
+                <StyledTableCell align="right">{row.status}</StyledTableCell>
+                <StyledTableCell align="right">{row.price}</StyledTableCell>
+                <StyledTableCell align="right">
+                  {row.extraDetails.join(", ")}
+                </StyledTableCell>
+                <StyledTableCell align="right">{row.maxPax}</StyledTableCell>
+                <StyledTableCell align="right">
+                  {row.roomFeatures.join(", ")}
+                </StyledTableCell>
+              </StyledTableRow>
+            ))}
+          </TableBody>
+        </Table>
+      </TableContainer>
+      <Typography variant="h6">
+        WhatsApp Enquiry: {filteredList?.whatsappContact}
+      </Typography>
+    </div>
   );
 }
