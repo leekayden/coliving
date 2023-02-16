@@ -58,6 +58,7 @@ export default function BasicTabs({ property }: BasicTabsProps) {
           value={value}
           onChange={handleChange}
           variant="scrollable"
+          allowScrollButtonsMobile
           scrollButtons="auto"
         >
           <Tab label="Room Features" {...a11yProps(0)} />
