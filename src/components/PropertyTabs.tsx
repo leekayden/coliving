@@ -39,10 +39,10 @@ function a11yProps(index: number) {
 }
 
 interface BasicTabsProps {
-    property: string;
+  property: string;
 }
 
-export default function BasicTabs({property}: BasicTabsProps) {
+export default function BasicTabs({ property }: BasicTabsProps) {
   const [value, setValue] = React.useState(0);
 
   const handleChange = (event: React.SyntheticEvent, newValue: number) => {
@@ -68,14 +68,14 @@ export default function BasicTabs({property}: BasicTabsProps) {
         </Tabs>
       </Box>
       <TabPanel value={value} index={0}>
-          {filteredList?.roomFeatures.map((feature) => (
-            <li>{feature}</li>
-          ))}
+        {filteredList?.roomFeatures.map((feature) => (
+          <li>{feature}</li>
+        ))}
       </TabPanel>
       <TabPanel value={value} index={1}>
-          {filteredList?.apartmentFeatures.map((feature) => (
-            <li>{feature}</li>
-          ))}
+        {filteredList?.apartmentFeatures.map((feature) => (
+          <li>{feature}</li>
+        ))}
       </TabPanel>
       <TabPanel value={value} index={2}>
         Item Three
