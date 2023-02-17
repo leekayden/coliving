@@ -24,7 +24,7 @@ function Homeowner() {
 }
 
 function Guest() {
-  return(<div><NavBar isHomeOwner={false} /><Error errorCode={403} /></div>);
+  return(<div><NavBar isHomeOwner={false} /><Error errorCode={403} message="Resource forbidden" /></div>);
 }
 
 interface HomeownerViewProps {
