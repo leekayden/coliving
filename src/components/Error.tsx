@@ -4,14 +4,16 @@ import Link from "@mui/material/Link";
 import NavBar from "./NavBar";
 
 export interface ErrorProps {
+  showNavBar?: boolean;
   errorCode: number;
+  message?: string;
 }
 
 export default function Error(props: ErrorProps) {
-  const { errorCode } = props;
+  const { showNavBar, errorCode, message } = props;
   return (
     <div>
-      <NavBar isHomeOwner={false} />
+      {showNavBar ? <NavBar isHomeOwner={false} /> : null}
       <Box
         sx={{
           display: "flex",
@@ -27,7 +29,7 @@ export default function Error(props: ErrorProps) {
               <Typography variant="h6">
                 {errorCode === 404
                   ? "The page you’re looking for doesn’t exist."
-                  : "An error occured, we will get to it as soon as possible."}
+                  : message ? message : "An error occured, we will get to it as soon as possible."}
               </Typography>
               <Button variant="contained">
                 <Link color="inherit" underline="none" href="/">
@@ -35,14 +37,14 @@ export default function Error(props: ErrorProps) {
                 </Link>
               </Button>
             </Grid>
-            <Grid xs={6}>
+            {errorCode === 404 ? <Grid xs={6}>
               <img
                 src="https://cdn.pixabay.com/photo/2017/03/09/12/31/error-2129569__340.jpg"
                 alt=""
                 width={500}
                 height={250}
               />
-            </Grid>
+            </Grid>: null}
           </Grid>
         </Container>
       </Box>

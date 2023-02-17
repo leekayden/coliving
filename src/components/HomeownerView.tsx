@@ -4,7 +4,7 @@ import Divider from "@mui/material/Divider";
 import CreateProperty from "./CreateProperty";
 import HomeownerCard from "./HomeownerCard";
 import { PropertyList, isHomeownerAccount } from "../global/data";
-import { AppName } from "../global/definitions";
+import Error from "./Error";
 
 function Homeowner() {
   let ownerId = 0;
@@ -24,7 +24,7 @@ function Homeowner() {
 }
 
 function Guest() {
-  return(<div><NavBar isHomeOwner={false} /></div>);
+  return(<div><NavBar isHomeOwner={false} /><Error errorCode={403} /></div>);
 }
 
 interface HomeownerViewProps {
