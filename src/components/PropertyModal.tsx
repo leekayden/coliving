@@ -74,9 +74,9 @@ export default function FormDialog({ title }: FormDialogProps) {
         "Content-Type": "application/json",
       },
     };
-
+    console.log(formData);
     axios
-      .post("https://wa.me/6589204050/?text=Hello", formData, config)
+      .post(`https://wa.me/6589204050/?text=${name}`, formData, config)
       .then((response) => {
         console.log(response.data);
       })
