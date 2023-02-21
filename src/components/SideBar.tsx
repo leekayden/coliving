@@ -20,10 +20,17 @@ import SettingsOutlinedIcon from "@mui/icons-material/SettingsOutlined";
 import Link from "@mui/material/Link";
 import Typography from "@mui/material/Typography";
 import Modal from "@mui/material/Modal";
-import Fade from "@mui/material/Fade";
 import FeedbackOutlinedIcon from "@mui/icons-material/FeedbackOutlined";
-import LoginIcon from '@mui/icons-material/Login';
-import AssignmentIndIcon from '@mui/icons-material/AssignmentInd';
+import LoginIcon from "@mui/icons-material/Login";
+import AssignmentIndIcon from "@mui/icons-material/AssignmentInd";
+import Button from "@mui/material/Button";
+import Dialog from "@mui/material/Dialog";
+import DialogActions from "@mui/material/DialogActions";
+import DialogContent from "@mui/material/DialogContent";
+import DialogContentText from "@mui/material/DialogContentText";
+import DialogTitle from "@mui/material/DialogTitle";
+import Slide from "@mui/material/Slide";
+import { TransitionProps } from "@mui/material/transitions";
 
 const style = {
   position: "absolute" as "absolute",
@@ -40,9 +47,23 @@ const style = {
 type Anchor = "top" | "left" | "bottom" | "right";
 
 export default function TemporaryDrawer() {
+  const Transition = React.forwardRef(function Transition(
+    props: TransitionProps & {
+      children: React.ReactElement<any, any>;
+    },
+    ref: React.Ref<unknown>
+  ) {
+    return <Slide direction="up" ref={ref} {...props} />;
+  });
+
   const [open, setOpen] = React.useState(false);
-  const handleOpen = () => setOpen(true);
-  const handleClose = () => setOpen(false);
+  const handleClickOpen = () => {
+    setOpen(true);
+  };
+
+  const handleClose = () => {
+    setOpen(false);
+  };
 
   const [state, setState] = React.useState({
     top: false,
@@ -77,7 +98,7 @@ export default function TemporaryDrawer() {
       </div>
       <Divider />
       <List>
-        {/* <Tooltip title="Home" placement="right" arrow> */}
+        <Tooltip title="Home" placement="right" arrow>
           <Link style={{ textDecoration: "none" }} color="inherit" href="/">
             <ListItem key="item1" disablePadding>
               <ListItemButton>
@@ -88,13 +109,9 @@ export default function TemporaryDrawer() {
               </ListItemButton>
             </ListItem>
           </Link>
-        {/* </Tooltip> */}
+        </Tooltip>
         <Tooltip title="Properties" placement="right" arrow>
-          <Link
-            style={{ textDecoration: "none" }}
-            color="inherit"
-            href="/"
-          >
+          <Link style={{ textDecoration: "none" }} color="inherit" href="/">
             <ListItem key="item2" disablePadding>
               <ListItemButton>
                 <ListItemIcon>
@@ -115,7 +132,7 @@ export default function TemporaryDrawer() {
             href="/settings"
           >
             <ListItem key="item3" disablePadding>
-              <ListItemButton disabled>
+              <ListItemButton>
                 <ListItemIcon>
                   <SettingsOutlinedIcon />
                 </ListItemIcon>
@@ -128,10 +145,11 @@ export default function TemporaryDrawer() {
           <Link
             style={{ textDecoration: "none" }}
             color="inherit"
-            onClick={handleOpen}
+            // onClick={handleClickOpen}
+            href="/about"
           >
             <ListItem key="item4" disablePadding>
-              <ListItemButton disabled>
+              <ListItemButton>
                 <ListItemIcon>
                   <InfoOutlinedIcon />
                 </ListItemIcon>
@@ -140,10 +158,29 @@ export default function TemporaryDrawer() {
             </ListItem>
           </Link>
         </Tooltip>
+        {/* <Dialog
+          open={open}
+          TransitionComponent={Transition}
+          keepMounted
+          onClose={handleClose}
+          aria-describedby="alert-dialog-slide-description"
+        >
+          <DialogTitle>{"Use Google's location service?"}</DialogTitle>
+          <DialogContent>
+            <DialogContentText id="alert-dialog-slide-description">
+              Let Google help apps determine location. This means sending
+              anonymous location data to Google, even when no apps are running.
+            </DialogContentText>
+          </DialogContent>
+          <DialogActions>
+            <Button onClick={handleClose}>Disagree</Button>
+            <Button onClick={handleClose}>Agree</Button>
+          </DialogActions>
+        </Dialog> */}
         <Tooltip title="Help" placement="right" arrow>
           <Link style={{ textDecoration: "none" }} color="inherit" href="/help">
             <ListItem key="item5" disablePadding>
-              <ListItemButton disabled>
+              <ListItemButton>
                 <ListItemIcon>
                   <HelpCenterOutlinedIcon />
                 </ListItemIcon>
@@ -152,25 +189,14 @@ export default function TemporaryDrawer() {
             </ListItem>
           </Link>
         </Tooltip>
-        <Modal
-          open={open}
-          onClose={handleClose}
-          aria-labelledby="modal-modal-title"
-          aria-describedby="modal-modal-description"
-        >
-          <Box sx={style}>
-            <Typography id="modal-modal-title" variant="h6" component="h2">
-              About
-            </Typography>
-            <Typography id="modal-modal-description" sx={{ mt: 2 }}>
-              Made with &#9829; & ReactJS by Kayden Lee :)
-            </Typography>
-          </Box>
-        </Modal>
         <Tooltip title="Give Feedback" placement="right" arrow>
-          <Link style={{ textDecoration: "none" }} color="inherit" href="/feedback">
+          <Link
+            style={{ textDecoration: "none" }}
+            color="inherit"
+            href="/feedback"
+          >
             <ListItem key="item5" disablePadding>
-              <ListItemButton disabled>
+              <ListItemButton>
                 <ListItemIcon>
                   <FeedbackOutlinedIcon />
                 </ListItemIcon>
@@ -207,7 +233,7 @@ export default function TemporaryDrawer() {
             <ListItem key="item2" disablePadding>
               <ListItemButton>
                 <ListItemIcon>
-                  <LoginIcon/>
+                  <LoginIcon />
                 </ListItemIcon>
                 <ListItemText primary="Login" />
               </ListItemButton>
@@ -241,23 +267,23 @@ export default function TemporaryDrawer() {
           {/* <Button variant="contained" onClick={toggleDrawer(anchor, true)}>
             <MenuIcon style={{ margin: "10px" }} />
           </Button> */}
-          <Tooltip
+          {/* <Tooltip
             TransitionComponent={Fade}
             TransitionProps={{ timeout: 600 }}
             title={"Open Menu"}
             style={{ userSelect: "none" }}
+          > */}
+          <IconButton
+            size="large"
+            edge="start"
+            color="inherit"
+            aria-label="open drawer"
+            sx={{ mr: 2 }}
+            onClick={toggleDrawer(anchor, true)}
           >
-            <IconButton
-              size="large"
-              edge="start"
-              color="inherit"
-              aria-label="open drawer"
-              sx={{ mr: 2 }}
-              onClick={toggleDrawer(anchor, true)}
-            >
-              <MenuIcon />
-            </IconButton>
-          </Tooltip>
+            <MenuIcon />
+          </IconButton>
+          {/* </Tooltip> */}
 
           <Drawer
             anchor={anchor}
