@@ -31,7 +31,7 @@ export default function Error(props: ErrorProps) {
                   ? "The page you’re looking for doesn’t exist."
                   : message
                   ? message
-                  : "An error occurred, we will get to it as soon as possible."}
+                  : "An unknown error occurred, we will get to it as soon as possible."}
               </Typography>
               <Button variant="contained">
                 <Link color="inherit" underline="none" href="/">

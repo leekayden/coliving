@@ -9,15 +9,24 @@ import DialogTitle from "@mui/material/DialogTitle";
 import InputLabel from "@mui/material/InputLabel";
 import MenuItem from "@mui/material/MenuItem";
 import FormControl from "@mui/material/FormControl";
-import Select, { SelectChangeEvent } from "@mui/material/Select";
+// import Select, { SelectChangeEvent } from "@mui/material/Select";
 import { PropertyList, enquireExternal } from "../global/data";
+import { SelectChangeEvent } from "@mui/material";
+import Select from "@mui/material/Select";
+import axios from "axios";
 
 interface FormDialogProps {
-    title: string;
+  title: string;
 }
 
-export default function FormDialog({title}: FormDialogProps) {
+export default function FormDialog({ title }: FormDialogProps) {
   const [open, setOpen] = React.useState(false);
+  const [name, setName] = React.useState("");
+  const [nationality, setNationality] = React.useState("");
+  const [gender, setGender] = React.useState("");
+  const [email, setEmail] = React.useState("");
+  const [phone, setPhone] = React.useState("");
+  const [message, setMessage] = React.useState("");
 
   const handleClickOpen = () => {
     setOpen(true);
@@ -27,10 +36,53 @@ export default function FormDialog({title}: FormDialogProps) {
     setOpen(false);
   };
 
-  const [gender, setGender] = React.useState("");
+  const handleNameChange = (event: React.ChangeEvent<HTMLInputElement>) => {
+    setName(event.target.value);
+  };
 
-  const handleChange = (event: SelectChangeEvent) => {
+  const handleNationalityChange = (event: SelectChangeEvent<string>) => {
+    setNationality(event.target.value);
+  };
+
+  const handleGenderChange = (event: SelectChangeEvent<string>) => {
     setGender(event.target.value);
+  };
+
+  const handleEmailChange = (event: React.ChangeEvent<HTMLInputElement>) => {
+    setEmail(event.target.value);
+  };
+
+  const handlePhoneChange = (event: React.ChangeEvent<HTMLInputElement>) => {
+    setPhone(event.target.value);
+  };
+
+  const handleMessageChange = (event: React.ChangeEvent<HTMLInputElement>) => {
+    setMessage(event.target.value);
+  };
+
+  const handleSubmit = () => {
+    const formData = new FormData();
+    formData.append("name", name);
+    formData.append("nationality", nationality);
+    formData.append("gender", gender);
+    formData.append("email", email);
+    formData.append("phone", phone);
+    formData.append("message", message);
+
+    const config = {
+      headers: {
+        "Content-Type": "application/json",
+      },
+    };
+
+    axios
+      .post("https://wa.me/6589204050/?text=Hello", formData, config)
+      .then((response) => {
+        console.log(response.data);
+      })
+      .catch((error) => {
+        console.log(error);
+      });
   };
 
   const filteredList = PropertyList.find((item) => item.title === title);
@@ -50,84 +102,102 @@ export default function FormDialog({title}: FormDialogProps) {
         <DialogContent>
           <DialogContentText>
             Please enter your details so that we can process your order.
-            <br/>
+            <br />
             Maximum tenants allowed: {filteredList?.maxPax}
-            <br/>
-            You are currently booking: {title}
+            <br />
           </DialogContentText>
           <TextField
-            sx={{ m: 1, minWidth: 208.5 }}
             autoFocus
             margin="dense"
             id="name"
             label="Name"
             type="text"
+            fullWidth
+            value={name}
+            onChange={handleNameChange}
             variant="standard"
-            required={true}
+            required
           />
+          <br />
           <TextField
-            sx={{ m: 1 }}
-            autoFocus
-            margin="dense"
-            id="nationality"
-            label="Nationality"
-            type="text"
-            variant="standard"
-            required={true}
-          />
-          <FormControl variant="standard" sx={{ m: 1, minWidth: 120 }}>
-            <InputLabel id="demo-simple-select-standard-label">
-              Gender
-            </InputLabel>
-            <Select
-              labelId="demo-simple-select-standard-label"
-              id="demo-simple-select-standard"
-              value={gender}
-              onChange={handleChange}
-              label="Age"
-              required
-            >
-              <MenuItem value="" disabled>
-                <em>--- Select ---</em>
-              </MenuItem>
-              <MenuItem value={"Male"}>Male</MenuItem>
-              <MenuItem value={"Female"}>Female</MenuItem>
-            </Select>
-          </FormControl>
-          <TextField
-            sx={{ m: 1, minWidth: 345 }}
-            autoFocus
             margin="dense"
             id="email"
-            label="Email"
+            label="Email Address"
             type="email"
+            fullWidth
+            value={email}
+            onChange={handleEmailChange}
             variant="standard"
-            required={true}
+            required
           />
+          <br />
           <TextField
-            sx={{ m: 1 }}
-            autoFocus
             margin="dense"
             id="phone"
-            label="Phone"
-            type="phone"
-            placeholder="+65 8123 4567"
-            variant="standard"
-            required={true}
-          />
-          <TextField
-            sx={{ m: 1 }}
-            id="filled-multiline-static"
-            label="Message"
-            multiline
-            rows={3}
+            label="Phone Number"
+            type="tel"
             fullWidth
+            value={phone}
+            onChange={handlePhoneChange}
             variant="standard"
+            required
+          />
+          <br />
+          <br />
+          <FormControl fullWidth>
+            <InputLabel id="nationality-label">Nationality</InputLabel>
+            <Select
+              labelId="nationality-label"
+              id="nationality"
+              value={nationality}
+              label="Nationality"
+              onChange={handleNationalityChange}
+              variant="standard"
+              required
+            >
+              {filteredList?.nationalities.map((nationality: string) => (
+                <MenuItem value={nationality} key={nationality}>
+                  {nationality}
+                </MenuItem>
+              ))}
+            </Select>
+          </FormControl>
+          <br />
+          <br />
+          <FormControl fullWidth>
+            <InputLabel id="gender-label">Gender</InputLabel>
+            <Select
+              labelId="gender-label"
+              id="gender"
+              value={gender}
+              label="Gender"
+              onChange={handleGenderChange}
+              variant="standard"
+              required
+            >
+              <MenuItem value="male">Male</MenuItem>
+              <MenuItem value="female">Female</MenuItem>
+              <MenuItem value="nonbinary">Non-Binary</MenuItem>
+            </Select>
+          </FormControl>
+          <br />
+          <TextField
+            margin="dense"
+            id="message"
+            label="Message"
+            type="text"
+            fullWidth
+            multiline
+            rows={4}
+            value={message}
+            onChange={handleMessageChange}
+            variant="standard"
+            required
           />
         </DialogContent>
         <DialogActions>
           <Button onClick={handleClose}>Cancel</Button>
-          <Button onClick={handleClose}>Submit</Button>
+          <Button onClick={handleSubmit}>Send</Button>
         </DialogActions>
       </Dialog>
     </div>

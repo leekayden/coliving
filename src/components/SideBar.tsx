@@ -77,7 +77,7 @@ export default function TemporaryDrawer() {
       </div>
       <Divider />
       <List>
-        <Tooltip title="Home" placement="right" arrow>
+        {/* <Tooltip title="Home" placement="right" arrow> */}
           <Link style={{ textDecoration: "none" }} color="inherit" href="/">
             <ListItem key="item1" disablePadding>
               <ListItemButton>
@@ -88,7 +88,7 @@ export default function TemporaryDrawer() {
               </ListItemButton>
             </ListItem>
           </Link>
-        </Tooltip>
+        {/* </Tooltip> */}
         <Tooltip title="Properties" placement="right" arrow>
           <Link
             style={{ textDecoration: "none" }}

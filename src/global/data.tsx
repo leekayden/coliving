@@ -7,6 +7,7 @@ export let PropertyList = [
     title: "Apple",
     description: "🍎",
     status: "For Rent",
+    nationalities: ["Singaporean"],
     route: "apple",
     price: 1900,
     whatsappContact: "81234567",
@@ -25,6 +26,7 @@ export let PropertyList = [
     title: "Banana",
     description: "🍌",
     status: "For Sale",
+    nationalities: ["Singaporean"],
     route: "banana",
     price: 1900,
     whatsappContact: "81234567",
@@ -43,6 +45,7 @@ export let PropertyList = [
     title: "Orange",
     description: "🍊",
     status: "For Rent",
+    nationalities: ["Singaporean"],
     route: "orange",
     price: 1900,
     whatsappContact: "81234567",
@@ -126,4 +129,4 @@ export const PropertyCarouselItems: PropertyCarouselItemsType[] = [
   },
 ];
 
-export const enquireExternal = true
+export const enquireExternal = false
