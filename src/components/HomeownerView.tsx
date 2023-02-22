@@ -5,6 +5,7 @@ import CreateProperty from "./CreateProperty";
 import HomeownerCard from "./HomeownerCard";
 import { PropertyList, isHomeownerAccount } from "../global/data";
 import Error from "./Error";
+import { forbiddenErrorMsg } from "../global/definitions";
 
 function Homeowner() {
   let ownerId = 0;
@@ -24,14 +25,19 @@ function Homeowner() {
 }
 
 function Guest() {
-  return(<div><NavBar isHomeOwner={isHomeownerAccount} /><Error errorCode={403} message="Resource forbidden" /></div>);
+  return (
+    <div>
+      <NavBar isHomeOwner={isHomeownerAccount} />
+      <Error errorCode={403} message={forbiddenErrorMsg} />
+    </div>
+  );
 }
 
 interface HomeownerViewProps {
   isHomeownerAccountArg?: boolean;
 }
 
-function HomeownerView({isHomeownerAccountArg}: HomeownerViewProps) {
+function HomeownerView({ isHomeownerAccountArg }: HomeownerViewProps) {
   if (isHomeownerAccount || isHomeownerAccountArg === true) {
     return <Homeowner />;
   } else {
