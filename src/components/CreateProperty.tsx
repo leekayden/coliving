@@ -37,7 +37,7 @@ export default function FullScreenDialog() {
   };
 
   const nextId = PropertyList[PropertyList.length - 1].id + 1;
-  const paddedNextId = num.toString().padStart(5, '0');
+  const paddedNextId = nextId.toString().padStart(5, '0');
   return (
     <div>
       <Button
