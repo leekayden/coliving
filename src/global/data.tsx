@@ -2,7 +2,7 @@ export let isHomeownerAccount = true
 
 export let PropertyList = [
   {
-    id: 0,
+    id: 00000,
     ownerId: 0,
     title: "Apple",
     description: "🍎",
@@ -21,7 +21,7 @@ export let PropertyList = [
     commonFacilities: ["Common Facility 1", "Common Facility 2"],
   },
   {
-    id: 1,
+    id: 00001,
     ownerId: 0,
     title: "Banana",
     description: "🍌",
@@ -40,7 +40,7 @@ export let PropertyList = [
     commonFacilities: ["Common Facility 1", "Common Facility 2"],
   },
   {
-    id: 2,
+    id: 00002,
     ownerId: 1,
     title: "Orange",
     description: "🍊",
