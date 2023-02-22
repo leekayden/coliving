@@ -61,15 +61,15 @@ const StyledInputBase = styled(InputBase)(({ theme }) => ({
   },
 }));
 
-interface PrimarySearchAppBarProps {
+interface NavBarProps {
   appname?: string;
   isHomeOwner?: boolean;
 }
 
-export default function PrimarySearchAppBar({
+export default function NavBar({
   appname,
   isHomeOwner,
-}: PrimarySearchAppBarProps) {
+}: NavBarProps) {
   const [theme, setTheme] = React.useState("light");
   const handleThemeChange = () => {
     setTheme(theme === "light" ? "dark" : "light");
