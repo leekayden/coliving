@@ -11,6 +11,7 @@ import HomeownerView from "./components/HomeownerView";
 import Error from "./components/Error";
 import TestForm from "./components/TestForm";
 import Carousel2 from "./components/Carousel2";
+import Settings from "./components/Settings.tsx";
 
 const router = createBrowserRouter([
   {
@@ -29,6 +30,10 @@ const router = createBrowserRouter([
     path: `/properties/${item.route}`,
     element: <PropertyView id={item.id} />,
   })),
+  {
+    path: "/settings",
+    element: <Settings />,
+  },
   {
     path: "*",
     element: <Error errorCode={404} />,
