@@ -53,7 +53,7 @@ function Root({ lightTheme, darkTheme }: RootProps) {
   };
 
   return (
-    <ThemeProvider theme={theme === "light" ? lightTheme : darkTheme}>
+    <ThemeProvider theme={theme !== "light" ? lightTheme : darkTheme}>
       <React.StrictMode>
         <RouterProvider router={router} />
       </React.StrictMode>
