@@ -13,13 +13,14 @@ import Collapse from "@mui/material/Collapse";
 import CloseIcon from "@mui/icons-material/Close";
 import IconButton from "@mui/material/IconButton";
 import { usePageEffect } from "./components/usePageEffect";
+import { isHomeownerAccount } from "./global/data";
 
 function App() {
   const [open, setOpen] = React.useState(!localStorage.getItem("alertClosed"));
   usePageEffect({ title: "Home | Eden CoSpaces" });
   return (
     <div className="App">
-      <NavBar appname={AppName} isHomeOwner={false} />
+      <NavBar appname={AppName} isHomeOwner={isHomeownerAccount} />
       <Collapse in={open}>
         <Alert
           severity="warning"

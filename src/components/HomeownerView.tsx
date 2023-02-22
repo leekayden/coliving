@@ -11,7 +11,7 @@ function Homeowner() {
   const filteredList = PropertyList.filter((item) => item.ownerId === ownerId);
   return (
     <div>
-      <NavBar isHomeOwner />
+      <NavBar isHomeOwner={isHomeownerAccount} />
       <Typography variant="h3" gutterBottom sx={{ padding: "7px" }}>
         <Divider textAlign="left">My Properties</Divider>
         <CreateProperty />
@@ -24,7 +24,7 @@ function Homeowner() {
 }
 
 function Guest() {
-  return(<div><NavBar isHomeOwner={false} /><Error errorCode={403} message="Resource forbidden" /></div>);
+  return(<div><NavBar isHomeOwner={isHomeownerAccount} /><Error errorCode={403} message="Resource forbidden" /></div>);
 }
 
 interface HomeownerViewProps {

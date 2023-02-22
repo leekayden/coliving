@@ -9,7 +9,7 @@ app.get('/testget', (req, res) => {
   res.send('Hello, world!');
 });
 
-// Start server
+// Server
 const PORT = process.env.PORT || 3003;
 app.listen(PORT, () => {
   console.log(`Server started, listening on port ${PORT}`);

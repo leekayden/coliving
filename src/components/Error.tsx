@@ -2,6 +2,7 @@ import { Box, Button, Container, Typography } from "@mui/material";
 import Grid from "@mui/material/Grid";
 import Link from "@mui/material/Link";
 import NavBar from "./NavBar";
+import { isHomeownerAccount } from "../global/data";
 
 export interface ErrorProps {
   showNavBar?: boolean;
@@ -13,7 +14,7 @@ export default function Error(props: ErrorProps) {
   const { showNavBar, errorCode, message } = props;
   return (
     <div>
-      {showNavBar ? <NavBar isHomeOwner={false} /> : null}
+      {showNavBar ? <NavBar isHomeOwner={isHomeownerAccount} /> : null}
       <Box
         sx={{
           display: "flex",

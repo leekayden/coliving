@@ -9,6 +9,7 @@ import Carousel from "./Carousel";
 import Grid from "@material-ui/core/Grid";
 import { usePageEffect } from "./usePageEffect";
 import { AppName } from "../global/definitions";
+import { isHomeownerAccount } from "../global/data";
 
 interface PropertyViewProps {
   id: number;
@@ -18,7 +19,7 @@ function PropertyView({ id }: PropertyViewProps) {
   usePageEffect({ title: PropertyList[id].title })
   return (
     <div>
-      <NavBar isHomeOwner={false} />
+      <NavBar isHomeOwner={isHomeownerAccount} />
       <Carousel
         mainTxt={null}
         title={PropertyList[id].title}
