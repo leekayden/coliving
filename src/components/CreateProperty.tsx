@@ -14,6 +14,7 @@ import Slide from "@mui/material/Slide";
 import AddIcon from "@mui/icons-material/Add";
 import TextField from "@mui/material/TextField";
 import { TransitionProps } from "@mui/material/transitions";
+import { PropertyList } from "../global/data";
 
 const Transition = React.forwardRef(function Transition(
   props: TransitionProps & {
