@@ -61,7 +61,7 @@ export default function FormDialog({ title }: FormDialogProps) {
   };
 
   const handleSubmit = () => {
-    window.open(`https://wa.me/6589204050/?text=Name:&nbsp;${name}`);
+    window.open(`https://wa.me/6589204050/?text=Name:%20${name}`);
     // const formData = new FormData();
     // formData.append("name", name);
     // formData.append("nationality", nationality);
