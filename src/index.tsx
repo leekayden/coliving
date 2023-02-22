@@ -11,7 +11,7 @@ import HomeownerView from "./components/HomeownerView";
 import Error from "./components/Error";
 import TestForm from "./components/TestForm";
 import Carousel2 from "./components/Carousel2";
-import Settings from "./components/Settings.tsx";
+import Settings from "./components/Settings";
 
 const router = createBrowserRouter([
   {
