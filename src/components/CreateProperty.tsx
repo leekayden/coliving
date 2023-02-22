@@ -37,6 +37,7 @@ export default function FullScreenDialog() {
   };
 
   const nextId = PropertyList[PropertyList.length - 1].id + 1;
+  const paddedNextId = num.toString().padStart(5, '0');
   return (
     <div>
       <Button
@@ -79,7 +80,7 @@ export default function FullScreenDialog() {
             variant="standard"
             helperText="Automatically Generated"
             size="medium"
-            defaultValue={nextId}
+            defaultValue={paddedNextId}
             disabled={true}
             sx={{ width: 500 }}
           />
