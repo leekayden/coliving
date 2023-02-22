@@ -61,28 +61,29 @@ export default function FormDialog({ title }: FormDialogProps) {
   };
 
   const handleSubmit = () => {
-    const formData = new FormData();
-    formData.append("name", name);
-    formData.append("nationality", nationality);
-    formData.append("gender", gender);
-    formData.append("email", email);
-    formData.append("phone", phone);
-    formData.append("message", message);
+    window.open(`https://wa.me/6589204050/?text=Name:&nbsp;${name}`);
+    // const formData = new FormData();
+    // formData.append("name", name);
+    // formData.append("nationality", nationality);
+    // formData.append("gender", gender);
+    // formData.append("email", email);
+    // formData.append("phone", phone);
+    // formData.append("message", message);
 
-    const config = {
-      headers: {
-        "Content-Type": "application/json",
-      },
-    };
-    console.log(formData);
-    axios
-      .post(`https://wa.me/6589204050/?text=${name}`, formData, config)
-      .then((response) => {
-        console.log(response.data);
-      })
-      .catch((error) => {
-        console.log(error);
-      });
+    // const config = {
+    //   headers: {
+    //     "Content-Type": "application/json",
+    //   },
+    // };
+    // console.log(formData);
+    // axios
+    //   .post(`https://wa.me/6589204050/?text=${name}`, formData, config)
+    //   .then((response) => {
+    //     console.log(response.data);
+    //   })
+    //   .catch((error) => {
+    //     console.log(error);
+    //   });
   };
 
   const filteredList = PropertyList.find((item) => item.title === title);
