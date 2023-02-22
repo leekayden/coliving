@@ -15,7 +15,6 @@ import IconButton from "@mui/material/IconButton";
 import { usePageEffect } from "./components/usePageEffect";
 
 function App() {
-  // const titles = PropertyList.map(item => item.title);
   const [open, setOpen] = React.useState(!localStorage.getItem("alertClosed"));
   usePageEffect({ title: "Home | Eden CoSpaces" });
   return (
