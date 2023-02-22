@@ -36,6 +36,7 @@ export default function FullScreenDialog() {
     setOpen(false);
   };
 
+  const nextId = PropertyList[PropertyList.length - 1].id + 1;
   return (
     <div>
       <Button
@@ -78,8 +79,8 @@ export default function FullScreenDialog() {
             variant="standard"
             helperText="Automatically Generated"
             size="medium"
-            defaultValue="12345"
-            disabled
+            defaultValue={nextId}
+            disabled={true}
             sx={{ width: 500 }}
           />
         </div>
