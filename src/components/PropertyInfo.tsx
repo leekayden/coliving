@@ -145,7 +145,7 @@ export default function PropertyInfo({ identifier }: PropertyInfoProps) {
         </Table>
       </TableContainer>
       <Typography variant="h6">
-        WhatsApp Enquiry: {filteredList?.whatsappContact}
+        WhatsApp Enquiry: +65 {filteredList?.whatsappContact}
       </Typography>
     </div>
   );
