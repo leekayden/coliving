@@ -11,6 +11,9 @@ import HomeownerView from "./components/HomeownerView";
 import Error from "./components/Error";
 import Carousel2 from "./components/Carousel2";
 import Settings from "./components/Settings";
+import SignUp from "./components/SignUp";
+import SignIn from "./components/Login";
+import Gallery from "./components/Gallery";
 
 const router = createBrowserRouter([
   {
@@ -40,6 +43,18 @@ const router = createBrowserRouter([
   {
     path: "*",
     element: <Error errorCode={404} />,
+  },
+  {
+    path: "/signup",
+    element: <SignUp />,
+  },
+  {
+    path: "/login",
+    element: <SignIn />,
+  },
+  {
+    path: "/gallery",
+    element: <Gallery />,
   },
 ]);
 
