@@ -85,7 +85,8 @@ export default function NavBar({ appname, isHomeOwner, noNav }: NavBarProps) {
     { path: "", title: "Home" },
     { path: "properties" },
     { path: "solutions", title: "Why Us?" },
-    { path: "landlords/dashboard", title: "Landlords" },
+    { path: "landlords" },
+    { path: "tenants" }
   ]
   const [theme, setTheme] = React.useState("light");
   const handleThemeChange = () => {
@@ -239,7 +240,7 @@ export default function NavBar({ appname, isHomeOwner, noNav }: NavBarProps) {
               ))}
           <Box sx={{ flexGrow: 1 }} />
           <Box sx={{ display: { xs: "none", md: "flex" } }}>
-            <IconButton size="large" color="inherit" disabled>
+            {/* <IconButton size="large" color="inherit" disabled>
               <Badge badgeContent={0} color="error">
                 <MailIcon />
               </Badge>
@@ -248,7 +249,7 @@ export default function NavBar({ appname, isHomeOwner, noNav }: NavBarProps) {
               <Badge badgeContent={0} color="error">
                 <NotificationsIcon />
               </Badge>
-            </IconButton>
+            </IconButton> */}
             <IconButton
               size="large"
               edge="end"

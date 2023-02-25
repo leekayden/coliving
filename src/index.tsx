@@ -3,13 +3,12 @@ import ReactDOM from "react-dom/client";
 import "./index.css";
 import App from "./App";
 import reportWebVitals from "./reportWebVitals";
-import { createBrowserRouter, RouterProvider } from "react-router-dom";
+import { createBrowserRouter, RouterProvider, Navigate } from "react-router-dom";
 import { PropertyList } from "./global/data";
 import PropertyView from "./components/PropertyView";
 import { createTheme, ThemeProvider } from "@material-ui/core/styles";
 import HomeownerView from "./components/HomeownerView";
 import Error from "./components/Error";
-import TestForm from "./components/TestForm";
 import Carousel2 from "./components/Carousel2";
 import Settings from "./components/Settings";
 
@@ -17,6 +16,10 @@ const router = createBrowserRouter([
   {
     path: "/",
     element: <App />,
+  },
+  {
+    path: "/landlords",
+    element: <Navigate to="/landlords/dashboard" />,
   },
   {
     path: "/landlords/dashboard",
