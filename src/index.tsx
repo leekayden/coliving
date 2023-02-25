@@ -19,7 +19,7 @@ const router = createBrowserRouter([
     element: <App />,
   },
   {
-    path: "/homeowners/dashboard",
+    path: "/landlords/dashboard",
     element: <HomeownerView />,
   },
   {

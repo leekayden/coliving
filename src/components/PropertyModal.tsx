@@ -62,28 +62,6 @@ export default function FormDialog({ title }: FormDialogProps) {
 
   const handleSubmit = () => {
     window.open(`https://wa.me/6592976946/?text=Name:%20${name},%0AEmail:%20${email},%0APhone:%20${phone},%0AMessage:%20${message},%0ANationality:%20${nationality},%0AGender:%20${gender}`);
-    // const formData = new FormData();
-    // formData.append("name", name);
-    // formData.append("nationality", nationality);
-    // formData.append("gender", gender);
-    // formData.append("email", email);
-    // formData.append("phone", phone);
-    // formData.append("message", message);
-
-    // const config = {
-    //   headers: {
-    //     "Content-Type": "application/json",
-    //   },
-    // };
-    // console.log(formData);
-    // axios
-    //   .post(`https://wa.me/6589204050/?text=${name}`, formData, config)
-    //   .then((response) => {
-    //     console.log(response.data);
-    //   })
-    //   .catch((error) => {
-    //     console.log(error);
-    //   });
   };
 
   const filteredList = PropertyList.find((item) => item.title === title);

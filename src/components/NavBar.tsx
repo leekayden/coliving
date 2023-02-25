@@ -15,10 +15,11 @@ import MailIcon from "@mui/icons-material/Mail";
 import NotificationsIcon from "@mui/icons-material/Notifications";
 import MoreIcon from "@mui/icons-material/MoreVert";
 import Link from "@mui/material/Link";
-import Slider from "@mui/material/Slider";
 import { AppName } from "../global/definitions";
 import Chip from "@mui/material/Chip";
+import Button from "@mui/material/Button";
 import SideBar from "./SideBar";
+import { useNavigate } from "react-router-dom";
 
 const Search = styled("div")(({ theme }) => ({
   position: "relative",
@@ -64,12 +65,28 @@ const StyledInputBase = styled(InputBase)(({ theme }) => ({
 interface NavBarProps {
   appname?: string;
   isHomeOwner?: boolean;
+  noNav?: boolean;
 }
 
-export default function NavBar({
-  appname,
-  isHomeOwner,
-}: NavBarProps) {
+interface Link {
+  path: string;
+  title?: string;
+}
+
+export default function NavBar({ appname, isHomeOwner, noNav }: NavBarProps) {
+  const navigate = useNavigate();
+  const handleLink =
+    (path: string) => (event: React.MouseEvent<HTMLButtonElement>) => {
+      event.preventDefault();
+      navigate(`/${path}`);
+    };
+  // const links = ["home", "locations"];
+  const links: Link[] = [
+    { path: "", title: "Home" },
+    { path: "properties" },
+    { path: "solutions", title: "Why Us?" },
+    { path: "landlords/dashboard", title: "Landlords" },
+  ]
   const [theme, setTheme] = React.useState("light");
   const handleThemeChange = () => {
     setTheme(theme === "light" ? "dark" : "light");
@@ -208,6 +225,18 @@ export default function NavBar({
               inputProps={{ "aria-label": "search" }}
             />
           </Search>
+          {noNav
+            ? null
+            : links.map((link) => (
+                <Button
+                  key={link.path}
+                  variant="contained"
+                  onClick={handleLink(link.path.toLowerCase())}
+                  disableElevation
+                >
+                  {link.title ? link.title : link.path}
+                </Button>
+              ))}
           <Box sx={{ flexGrow: 1 }} />
           <Box sx={{ display: { xs: "none", md: "flex" } }}>
             <IconButton size="large" color="inherit" disabled>

@@ -14,6 +14,7 @@ import CloseIcon from "@mui/icons-material/Close";
 import IconButton from "@mui/material/IconButton";
 import { usePageEffect } from "./components/usePageEffect";
 import { isHomeownerAccount } from "./global/data";
+import Box from "@mui/material/Box";
 
 function App() {
   const [open, setOpen] = React.useState(!localStorage.getItem("alertClosed"));
