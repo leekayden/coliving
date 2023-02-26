@@ -57,7 +57,7 @@ export default function BasicTabs({ property }: BasicTabsProps) {
         <Tabs
           value={value}
           onChange={handleChange}
-          variant="scrollable"
+          // variant="scrollable"
           allowScrollButtonsMobile
           scrollButtons="auto"
         >
