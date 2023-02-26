@@ -11,6 +11,9 @@ import Typography from "@mui/material/Typography";
 import Container from "@mui/material/Container";
 import Modal from "./Modal";
 import { createTheme, ThemeProvider } from "@mui/material/styles";
+import TextField from "@mui/material/TextField";
+import Autocomplete from "@mui/material/Autocomplete";
+import { PropertyList } from "../global/data";
 
 const theme = createTheme();
 
@@ -39,6 +42,7 @@ export default function Gallery({ data }: GalleryProps) {
   const handleViewClick = (route: string) => {
     window.location.href = `/properties/${route}`;
   };
+  console.log(Array.isArray(PropertyList));
   return (
     <ThemeProvider theme={theme}>
       <CssBaseline />
@@ -48,7 +52,7 @@ export default function Gallery({ data }: GalleryProps) {
           sx={{
             bgcolor: "background.paper",
             pt: 8,
-            pb: 6,
+            // pb: 6,
           }}
         >
           <Container maxWidth="sm">
@@ -67,7 +71,7 @@ export default function Gallery({ data }: GalleryProps) {
               color="text.secondary"
               paragraph
             >
-              Here is a collection of our featured properties
+              Here is a collection of our featured properties...
             </Typography>
             <Stack
               sx={{ pt: 4 }}
@@ -75,8 +79,16 @@ export default function Gallery({ data }: GalleryProps) {
               spacing={2}
               justifyContent="center"
             >
-              {/* <Button variant="contained">Main call to action</Button> */}
-              {/* <Button variant="outlined">Secondary action</Button> */}
+              <Autocomplete
+                disablePortal
+                id="combo-box-demo"
+                options={PropertyList}
+                sx={{ width: 300 }}
+                getOptionLabel={(option) => option.title}
+                renderInput={(params) => (
+                  <TextField {...params} label="Search Properties" />
+                )}
+              />
             </Stack>
           </Container>
         </Box>
@@ -115,7 +127,12 @@ export default function Gallery({ data }: GalleryProps) {
                     >
                       View
                     </Button>
-                    <Modal id={data.id} isBookNow={true} modalTitle={data.title} modalTxt={data.description} />
+                    <Modal
+                      id={data.id}
+                      isBookNow={true}
+                      modalTitle={data.title}
+                      modalTxt={data.description}
+                    />
                   </CardActions>
                 </Card>
               </Grid>

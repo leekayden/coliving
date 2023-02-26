@@ -1,7 +1,8 @@
-function Footer() {
-  return (
-    <div>Footer</div>
-  )
-}
+import { AppName, year } from "../global/definitions";
+import "./Footer.css"
 
-export default Footer
+const Footer = () => {
+  return <footer>{`© Copyright ${year} ${AppName}`}</footer>;
+};
+
+export default Footer;
