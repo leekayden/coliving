@@ -52,14 +52,15 @@ export default function BasicTabs({ property }: BasicTabsProps) {
   const filteredList = PropertyList.find((item) => item.title === property);
 
   return (
-    <Box sx={{ width: "100%", padding: "7px" }}>
+    <Box sx={{ width: "200%", padding: "7px" }}>
       <Box sx={{ borderBottom: 1, borderColor: "divider" }}>
         <Tabs
+          visibleScrollbar={true}
           value={value}
           onChange={handleChange}
-          // variant="scrollable"
-          allowScrollButtonsMobile
-          scrollButtons="auto"
+          variant="scrollable"
+          // scrollButtons
+          // allowScrollButtonsMobile
         >
           <Tab label="Room Features" {...a11yProps(0)} />
           <Tab label="Apartment Features" {...a11yProps(1)} />

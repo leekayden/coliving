@@ -52,10 +52,10 @@ const router = createBrowserRouter([
     path: "/login",
     element: <SignIn />,
   },
-  // {
-  //   path: "/gallery",
-  //   element: <Gallery />,
-  // },
+  {
+    path: "/properties",
+    element: <Gallery data={PropertyList} showNav />,
+  },
 ]);
 
 interface RootProps {

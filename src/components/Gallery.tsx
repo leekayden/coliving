@@ -14,6 +14,8 @@ import { createTheme, ThemeProvider } from "@mui/material/styles";
 import TextField from "@mui/material/TextField";
 import Autocomplete from "@mui/material/Autocomplete";
 import { PropertyList } from "../global/data";
+import NavBar from "./NavBar";
+import { isHomeownerAccount } from "../global/data";
 
 const theme = createTheme();
 
@@ -36,16 +38,17 @@ interface Property {
 
 interface GalleryProps {
   data: Property[];
+  showNav?: boolean;
 }
 
-export default function Gallery({ data }: GalleryProps) {
+export default function Gallery({ data, showNav }: GalleryProps) {
   const handleViewClick = (route: string) => {
     window.location.href = `/properties/${route}`;
   };
-  console.log(Array.isArray(PropertyList));
   return (
     <ThemeProvider theme={theme}>
       <CssBaseline />
+      {showNav ? <NavBar isHomeOwner={isHomeownerAccount} /> : null}
       <main>
         {/* Hero unit */}
         <Box
