@@ -3,9 +3,7 @@ import "./App.css";
 import NavBar from "./components/NavBar";
 import { AppName } from "./global/definitions";
 import Carousel from "./components/Carousel";
-import Card from "./components/Card";
 import { PropertyList } from "./global/data";
-import { Grid } from "@material-ui/core";
 import Typography from "@mui/material/Typography";
 import Divider from "@mui/material/Divider";
 import Alert from "@mui/material/Alert";
@@ -14,6 +12,8 @@ import CloseIcon from "@mui/icons-material/Close";
 import IconButton from "@mui/material/IconButton";
 import { usePageEffect } from "./components/usePageEffect";
 import { isHomeownerAccount } from "./global/data";
+import Gallery from "./components/Gallery";
+import Footer from "./components/Footer";
 
 function App() {
   const [open, setOpen] = React.useState(!localStorage.getItem("alertClosed"));
@@ -47,7 +47,7 @@ function App() {
       <Typography variant="h3" gutterBottom>
         <Divider />
       </Typography>
-      <Grid container spacing={2} style={{ justifyContent: "center" }}>
+      {/* <Grid container spacing={2} style={{ justifyContent: "center" }}>
         {PropertyList.map((item) => (
           <Grid item xs={2}>
             <Card
@@ -59,7 +59,9 @@ function App() {
             />
           </Grid>
         ))}
-      </Grid>
+      </Grid> */}
+      <Gallery data={PropertyList} />
+      <Footer />
     </div>
   );
 }

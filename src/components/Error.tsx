@@ -12,6 +12,9 @@ export interface ErrorProps {
 
 export default function Error(props: ErrorProps) {
   const { showNavBar, errorCode, message } = props;
+  const handleHomeClick = () => {
+    window.location.href = "/";
+  }
   return (
     <div>
       {showNavBar ? <NavBar isHomeOwner={isHomeownerAccount} /> : null}
@@ -34,10 +37,11 @@ export default function Error(props: ErrorProps) {
                   ? message
                   : "An unknown error occurred, we will get to it as soon as possible."}
               </Typography>
-              <Button variant="contained">
-                <Link color="inherit" underline="none" href="/">
+              <Button variant="contained" onClick={handleHomeClick}>
+                {/* <Link color="inherit" underline="none" href="/">
                   Back Home
-                </Link>
+                </Link> */}
+                Back Home
               </Button>
             </Grid>
             {errorCode === 404 ? (
