@@ -9,6 +9,7 @@ import Stack from "@mui/material/Stack";
 import Box from "@mui/material/Box";
 import Typography from "@mui/material/Typography";
 import Container from "@mui/material/Container";
+import Modal from "./Modal";
 import { createTheme, ThemeProvider } from "@mui/material/styles";
 
 const theme = createTheme();
@@ -114,9 +115,7 @@ export default function Gallery({ data }: GalleryProps) {
                     >
                       View
                     </Button>
-                    <Button size="large" variant="contained">
-                      Enquire
-                    </Button>
+                    <Modal id={data.id} isBookNow={true} modalTitle={data.title} modalTxt={data.description} />
                   </CardActions>
                 </Card>
               </Grid>

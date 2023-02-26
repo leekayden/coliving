@@ -18,6 +18,7 @@
     "@types/react": "^18.0.26",
     "@types/react-dom": "^18.0.10",
     "axios": "^1.2.2",
+    "mdb-react-ui-kit": "^5.1.0",
     "react": "^18.2.0",
     "react-dom": "^18.2.0",
     "react-material-ui-carousel": "^3.4.2",
