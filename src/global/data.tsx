@@ -10,7 +10,7 @@ export let PropertyList = [
     nationalities: ["Singaporean"],
     route: "apple",
     price: 1900,
-    whatsappContact: "81234567",
+    whatsappContact: "92976946",
     extraDetails: [
       "Minimum rental period is three months",
       "Rental inclusive utilities, wifi and apartment common area cleaning",
@@ -29,7 +29,7 @@ export let PropertyList = [
     nationalities: ["Singaporean"],
     route: "banana",
     price: 1900,
-    whatsappContact: "81234567",
+    whatsappContact: "92976946",
     extraDetails: [
       "Minimum rental period is three months",
       "Rental inclusive utilities, wifi and apartment common area cleaning",
@@ -48,7 +48,7 @@ export let PropertyList = [
     nationalities: ["Singaporean"],
     route: "orange",
     price: 1900,
-    whatsappContact: "81234567",
+    whatsappContact: "92976946",
     extraDetails: [
       "Minimum rental period is three months",
       "Rental inclusive utilities, wifi and apartment common area cleaning",
