@@ -48,6 +48,7 @@ export default function Gallery({ data, showNav }: GalleryProps) {
   const [selectedOption, setSelectedOption] = useState(null);
   const handleOptionChange = (event, newValue) => {
     setSelectedOption(newValue);
+    console.log(newValue)
   };
   const filteredData = selectedOption
     ? data.filter((item) => item.title === selectedOption.title)
