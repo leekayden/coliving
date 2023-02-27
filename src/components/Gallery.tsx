@@ -46,7 +46,9 @@ export default function Gallery({ data, showNav }: GalleryProps) {
   const handleViewClick = (route: string) => {
     window.location.href = `/properties/${route}`;
   };
-  const [selectedOption, setSelectedOption] = useState<{ title: string }>({});
+  const [selectedOption, setSelectedOption] = useState<{ title: string }>({
+    title: "" // initial title
+  });  
   const handleOptionChange = (
     event: React.ChangeEvent<HTMLInputElement>,
     newValue: any
