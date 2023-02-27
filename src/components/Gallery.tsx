@@ -174,11 +174,11 @@ export default function Gallery({ data, showNav }: GalleryProps) {
             {data.map((data) => (
               <Grid item key={data.title} xs={12} sm={6} md={4}>
                 <Card
-                  sx={{
-                    height: "100%",
-                    display: "flex",
-                    flexDirection: "column",
-                  }}
+                  // sx={{
+                    // height: "100%",
+                    // display: "flex",
+                    // flexDirection: "column",
+                  // }}
                 >
                   <CardMedia
                     component="img"
