@@ -114,7 +114,7 @@ export default function Gallery({ data, showNav }: GalleryProps) {
                 options={data}
                 value={selectedOption}
                 onChange={handleOptionChange}
-                // sx={{ width: 300 }}
+                sx={{ width: 300 }}
                 getOptionLabel={(option) => option.title}
                 renderInput={(params) => (
                   <TextField {...params} label="Search Properties" />
