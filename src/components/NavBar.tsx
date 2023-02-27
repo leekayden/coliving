@@ -85,8 +85,8 @@ export default function NavBar({ appname, isHomeOwner, noNav }: NavBarProps) {
     { path: "", title: "Home" },
     { path: "properties" },
     { path: "solutions", title: "Why Us?" },
-    { path: "landlords" },
-    { path: "tenants" }
+    // { path: "landlords" },
+    // { path: "tenants" },
   ]
   const [theme, setTheme] = React.useState("light");
   const handleThemeChange = () => {

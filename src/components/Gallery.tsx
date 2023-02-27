@@ -1,3 +1,4 @@
+import { useState } from "react";
 import Button from "@mui/material/Button";
 import Card from "@mui/material/Card";
 import CardActions from "@mui/material/CardActions";
@@ -45,6 +46,21 @@ export default function Gallery({ data, showNav }: GalleryProps) {
   const handleViewClick = (route: string) => {
     window.location.href = `/properties/${route}`;
   };
+  const [selectedOption, setSelectedOption] = useState<{ title: string }>({
+    title: "", // initial title
+  });
+  const handleOptionChange = (
+    event: React.SyntheticEvent<Element, Event>,
+    newValue: { title: string } | null
+  ) => {
+    if (newValue) {
+      setSelectedOption(newValue);
+      console.log(newValue.title);
+    }
+  };
+  const filteredData = selectedOption?.title
+    ? data.filter((item) => item.title === selectedOption.title)
+    : data;
   return (
     <ThemeProvider theme={theme}>
       <CssBaseline />
@@ -82,7 +98,7 @@ export default function Gallery({ data, showNav }: GalleryProps) {
               spacing={2}
               justifyContent="center"
             >
-              <Autocomplete
+              {/* <Autocomplete
                 disablePortal
                 id="combo-box-demo"
                 options={PropertyList}
@@ -91,6 +107,18 @@ export default function Gallery({ data, showNav }: GalleryProps) {
                 renderInput={(params) => (
                   <TextField {...params} label="Search Properties" />
                 )}
+              /> */}
+              <Autocomplete
+                disablePortal
+                id="combo-box-demo"
+                options={data}
+                value={selectedOption}
+                onChange={handleOptionChange}
+                sx={{ width: 300 }}
+                getOptionLabel={(option) => option.title}
+                renderInput={(params) => (
+                  <TextField {...params} label="Search Properties" variant="filled" helperText="Search By Property Name" />
+                )}
               />
             </Stack>
           </Container>
@@ -98,14 +126,14 @@ export default function Gallery({ data, showNav }: GalleryProps) {
         <Container sx={{ py: 8 }} maxWidth="md">
           {/* End hero unit */}
           <Grid container spacing={4}>
-            {data.map((data) => (
+            {filteredData.map((data) => (
               <Grid item key={data.title} xs={12} sm={6} md={4}>
                 <Card
-                  sx={{
-                    height: "100%",
-                    display: "flex",
-                    flexDirection: "column",
-                  }}
+                // sx={{
+                // height: "100%",
+                // display: "flex",
+                // flexDirection: "column",
+                // }}
                 >
                   <CardMedia
                     component="img"
