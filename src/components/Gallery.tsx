@@ -45,12 +45,12 @@ export default function Gallery({ data, showNav }: GalleryProps) {
   const handleViewClick = (route: string) => {
     window.location.href = `/properties/${route}`;
   };
-  const [selectedOption, setSelectedOption] = useState(null);
+  const [selectedOption, setSelectedOption] = useState({});
   const handleOptionChange = (event, newValue) => {
     setSelectedOption(newValue);
-    console.log(newValue)
+    console.log(newValue);
   };
-  const filteredData = selectedOption
+  const filteredData = selectedOption?.title
     ? data.filter((item) => item.title === selectedOption.title)
     : data;
   return (
