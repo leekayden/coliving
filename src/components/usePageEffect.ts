@@ -30,7 +30,7 @@ export function usePageEffect(options?: Options, isCustom?: boolean, deps?: Reac
     //     page_title: options?.title ?? APP_NAME,
     //     page_path: `${location.pathname}${location.search}`,
     //   });
-    console.warn("Not supported: trackPageView")
+    // console.warn("Not supported: trackPageView")
     }
   }, [location]); /* eslint-disable-line react-hooks/exhaustive-deps */
 }
