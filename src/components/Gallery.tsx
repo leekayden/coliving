@@ -47,14 +47,16 @@ export default function Gallery({ data, showNav }: GalleryProps) {
     window.location.href = `/properties/${route}`;
   };
   const [selectedOption, setSelectedOption] = useState<{ title: string }>({
-    title: "" // initial title
-  });  
+    title: "", // initial title
+  });
   const handleOptionChange = (
-    event: React.ChangeEvent<HTMLInputElement>,
-    newValue: any
+    event: React.SyntheticEvent<Element, Event>,
+    newValue: { title: string } | null
   ) => {
-    setSelectedOption(newValue);
-    console.log(newValue);
+    if (newValue) {
+      setSelectedOption(newValue);
+      console.log(newValue.title);
+    }
   };
   const filteredData = selectedOption?.title
     ? data.filter((item) => item.title === selectedOption.title)
