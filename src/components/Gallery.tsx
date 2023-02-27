@@ -87,7 +87,7 @@ export default function Gallery({ data, showNav }: GalleryProps) {
                 id="combo-box-demo"
                 options={PropertyList}
                 sx={{ width: 300 }}
-                getOptionLabel={(option) => option.title}
+                getOptionLabel={(option) => option.title && option.description}
                 renderInput={(params) => (
                   <TextField {...params} label="Search Properties" />
                 )}
