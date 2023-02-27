@@ -42,6 +42,7 @@ interface GalleryProps {
 }
 
 export default function Gallery({ data, showNav }: GalleryProps) {
+  console.log(selectedOption)
   const handleViewClick = (route: string) => {
     window.location.href = `/properties/${route}`;
   };
