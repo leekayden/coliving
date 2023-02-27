@@ -117,7 +117,7 @@ export default function Gallery({ data, showNav }: GalleryProps) {
                 sx={{ width: 300 }}
                 getOptionLabel={(option) => option.title}
                 renderInput={(params) => (
-                  <TextField {...params} label="Search Properties" />
+                  <TextField {...params} label="Search Properties" variant="filled" />
                 )}
               />
             </Stack>
