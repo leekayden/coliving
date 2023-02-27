@@ -120,65 +120,20 @@ export default function Gallery({ data, showNav }: GalleryProps) {
                   <TextField {...params} label="Search Properties" />
                 )}
               />
-
-              <Grid container spacing={2} mt={2}>
-                {filteredData.map((data) => (
-                  <Grid item key={data.title} xs={12} sm={6} md={4}>
-                    <Card
-                      sx={{
-                        height: "100%",
-                        display: "flex",
-                        flexDirection: "column",
-                      }}
-                    >
-                      <CardMedia
-                        component="img"
-                        image="https://mui.com/static/images/cards/contemplative-reptile.jpg"
-                        alt={data.title}
-                      />
-                      <CardContent sx={{ flexGrow: 1 }}>
-                        <Typography gutterBottom variant="h5" component="h2">
-                          {data.title}
-                        </Typography>
-                        <Typography>
-                          {data.description
-                            ? data.description
-                            : "No description available"}
-                        </Typography>
-                      </CardContent>
-                      <CardActions sx={{ justifyContent: "space-between" }}>
-                        <Button
-                          size="large"
-                          variant="outlined"
-                          onClick={() => handleViewClick(data.route)}
-                        >
-                          View
-                        </Button>
-                        <Modal
-                          id={data.id}
-                          isBookNow={true}
-                          modalTitle={data.title}
-                          modalTxt={data.description}
-                        />
-                      </CardActions>
-                    </Card>
-                  </Grid>
-                ))}
-              </Grid>
             </Stack>
           </Container>
         </Box>
         <Container sx={{ py: 8 }} maxWidth="md">
           {/* End hero unit */}
           <Grid container spacing={4}>
-            {data.map((data) => (
+            {filteredData.map((data) => (
               <Grid item key={data.title} xs={12} sm={6} md={4}>
                 <Card
-                  // sx={{
-                    // height: "100%",
-                    // display: "flex",
-                    // flexDirection: "column",
-                  // }}
+                // sx={{
+                // height: "100%",
+                // display: "flex",
+                // flexDirection: "column",
+                // }}
                 >
                   <CardMedia
                     component="img"
