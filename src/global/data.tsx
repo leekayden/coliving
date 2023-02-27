@@ -1,4 +1,4 @@
-export let isHomeownerAccount = true
+export let isHomeownerAccount = false
 
 export let PropertyList = [
   {
