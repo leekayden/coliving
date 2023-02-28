@@ -14,13 +14,6 @@ import { usePageEffect } from "./components/usePageEffect";
 import { isHomeownerAccount } from "./global/data";
 import Gallery from "./components/Gallery";
 import Footer from "./components/Footer";
-import Card from "@mui/material/Card";
-import CardContent from "@mui/material/CardContent";
-import CardMedia from "@mui/material/CardMedia";
-import Typography from "@mui/material/Typography";
-import { Button, CardActionArea, CardActions } from "@mui/material";
-import EditIcon from "@mui/icons-material/Edit";
-import Grid from "@mui/material/Grid";
 
 function App() {
   const [open, setOpen] = React.useState(!localStorage.getItem("alertClosed"));
