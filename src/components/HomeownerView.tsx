@@ -22,7 +22,7 @@ function Homeowner() {
         <Divider textAlign="left">My Properties</Divider>
         <CreateProperty />
       </Typography>
-      {filteredList?.map((indentifier: any) => (
+      {filteredList?.map((identifier: any) => (
         <Grid container spacing={2}>
           <Grid item xs={2}>
             <Card sx={{ maxWidth: 345, padding: "7px" }}>
