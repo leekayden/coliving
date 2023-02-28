@@ -55,7 +55,6 @@ export default function Gallery({ data, showNav }: GalleryProps) {
   ) => {
     if (newValue) {
       setSelectedOption(newValue);
-      console.log(newValue.title);
     }
   };
   const filteredData = selectedOption?.title
@@ -109,6 +108,7 @@ export default function Gallery({ data, showNav }: GalleryProps) {
                 )}
               /> */}
               <Autocomplete
+                key={data.title}
                 disablePortal
                 id="combo-box-demo"
                 options={data}
