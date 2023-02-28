@@ -20,7 +20,7 @@ function Homeowner() {
     <div>
       <NavBar isHomeOwner={isHomeownerAccount} />
       <Typography variant="h3" gutterBottom sx={{ padding: "7px" }}>
-        <Divider textAlign="left">My Properties</Divider>
+        <Divider textAlign="center">My Properties</Divider>
         <CreateProperty />
       </Typography>
       <Container sx={{ py: 8, border: 1, borderColor: 'primary.main', borderRadius: 10 }} maxWidth="md">
