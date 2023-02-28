@@ -26,7 +26,7 @@ function Homeowner() {
       <Container sx={{ py: 8 }} maxWidth="md">
         <Grid container spacing={4}>
           {filteredList?.map((identifier: any) => (
-            <Grid item xs={12} sm={6} md={4}>
+            <Grid item key={identifier.title} xs={12} sm={6} md={4}>
               <Card sx={{ maxWidth: 345, padding: "7px" }}>
                 <CardActionArea>
                   <CardMedia component="img" height="140" image="" />
