@@ -3,7 +3,7 @@ import Typography from "@mui/material/Typography";
 import Divider from "@mui/material/Divider";
 import CreateProperty from "./CreateProperty";
 import HomeownerCard from "./HomeownerCard";
-import { PropertyList, isHomeownerAccount } from "../global/data";
+import { PropertyList, isHomeownerAccount, ownerId } from "../global/data";
 import Error from "./Error";
 import { forbiddenErrorMsg } from "../global/definitions";
 import Card from "@mui/material/Card";
@@ -15,7 +15,7 @@ import Grid from "@mui/material/Grid";
 
 function Homeowner() {
   let ownerId = 0;
-  const filteredList = PropertyList.filter((item) => item.ownerId === ownerId);
+  const identifier = PropertyList.filter((item) => item.ownerId === ownerId);
   return (
     <div>
       <NavBar isHomeOwner={isHomeownerAccount} />

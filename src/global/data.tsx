@@ -1,3 +1,4 @@
+export let ownerId = 0;
 export let isHomeownerAccount = false
 
 export let PropertyList = [
