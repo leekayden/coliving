@@ -85,9 +85,10 @@ export default function NavBar({ appname, isHomeOwner, noNav }: NavBarProps) {
     { path: "", title: "Home" },
     { path: "properties" },
     { path: "solutions", title: "Why Us?" },
-    // { path: "landlords" },
-    // { path: "tenants" },
+    { path: "landlords", landlord: true },
+    { path: "tenants" },
   ]
+  const filteredLinks = links.filter(link => !link.landlord);
   const [theme, setTheme] = React.useState("light");
   const handleThemeChange = () => {
     setTheme(theme === "light" ? "dark" : "light");
@@ -228,7 +229,7 @@ export default function NavBar({ appname, isHomeOwner, noNav }: NavBarProps) {
           </Search>
           {noNav
             ? null
-            : links.map((link) => (
+            : filteredLinks.map((link) => (
                 <Button
                   key={link.path}
                   variant="contained"
