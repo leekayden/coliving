@@ -14,7 +14,6 @@ import EditIcon from "@mui/icons-material/Edit";
 import Grid from "@mui/material/Grid";
 
 function Homeowner() {
-  let ownerId = 0;
   const identifier = PropertyList.filter((item) => item.ownerId === ownerId);
   return (
     <div>
