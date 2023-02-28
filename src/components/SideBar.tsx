@@ -56,15 +56,6 @@ export default function TemporaryDrawer() {
     return <Slide direction="up" ref={ref} {...props} />;
   });
 
-  const [open, setOpen] = React.useState(false);
-  const handleClickOpen = () => {
-    setOpen(true);
-  };
-
-  const handleClose = () => {
-    setOpen(false);
-  };
-
   const [state, setState] = React.useState({
     top: false,
     left: false,
@@ -98,7 +89,6 @@ export default function TemporaryDrawer() {
       </div>
       <Divider />
       <List>
-        <Tooltip title="Home" placement="right" arrow>
           <Link style={{ textDecoration: "none" }} color="inherit" href="/">
             <ListItem key="item1" disablePadding>
               <ListItemButton>
@@ -109,8 +99,6 @@ export default function TemporaryDrawer() {
               </ListItemButton>
             </ListItem>
           </Link>
-        </Tooltip>
-        <Tooltip title="Properties" placement="right" arrow>
           <Link style={{ textDecoration: "none" }} color="inherit" href="/">
             <ListItem key="item2" disablePadding>
               <ListItemButton>
@@ -121,11 +109,9 @@ export default function TemporaryDrawer() {
               </ListItemButton>
             </ListItem>
           </Link>
-        </Tooltip>
       </List>
       <Divider />
       <List>
-        <Tooltip title="Settings" placement="right" arrow>
           <Link
             style={{ textDecoration: "none" }}
             color="inherit"
@@ -140,12 +126,9 @@ export default function TemporaryDrawer() {
               </ListItemButton>
             </ListItem>
           </Link>
-        </Tooltip>
-        <Tooltip title="About" placement="right" arrow>
           <Link
             style={{ textDecoration: "none" }}
             color="inherit"
-            // onClick={handleClickOpen}
             href="/about"
           >
             <ListItem key="item4" disablePadding>
@@ -157,27 +140,6 @@ export default function TemporaryDrawer() {
               </ListItemButton>
             </ListItem>
           </Link>
-        </Tooltip>
-        {/* <Dialog
-          open={open}
-          TransitionComponent={Transition}
-          keepMounted
-          onClose={handleClose}
-          aria-describedby="alert-dialog-slide-description"
-        >
-          <DialogTitle>{"Use Google's location service?"}</DialogTitle>
-          <DialogContent>
-            <DialogContentText id="alert-dialog-slide-description">
-              Let Google help apps determine location. This means sending
-              anonymous location data to Google, even when no apps are running.
-            </DialogContentText>
-          </DialogContent>
-          <DialogActions>
-            <Button onClick={handleClose}>Disagree</Button>
-            <Button onClick={handleClose}>Agree</Button>
-          </DialogActions>
-        </Dialog> */}
-        <Tooltip title="Help" placement="right" arrow>
           <Link style={{ textDecoration: "none" }} color="inherit" href="/help">
             <ListItem key="item5" disablePadding>
               <ListItemButton>
@@ -188,8 +150,6 @@ export default function TemporaryDrawer() {
               </ListItemButton>
             </ListItem>
           </Link>
-        </Tooltip>
-        <Tooltip title="Give Feedback" placement="right" arrow>
           <Link
             style={{ textDecoration: "none" }}
             color="inherit"
@@ -204,11 +164,9 @@ export default function TemporaryDrawer() {
               </ListItemButton>
             </ListItem>
           </Link>
-        </Tooltip>
       </List>
       <Divider />
       <List>
-        <Tooltip title="Sign Up" placement="right" arrow>
           <Link
             color="inherit"
             href="/signup"
@@ -223,8 +181,6 @@ export default function TemporaryDrawer() {
               </ListItemButton>
             </ListItem>
           </Link>
-        </Tooltip>
-        <Tooltip title="Login" placement="right" arrow>
           <Link
             color="inherit"
             href="/login"
@@ -239,10 +195,8 @@ export default function TemporaryDrawer() {
               </ListItemButton>
             </ListItem>
           </Link>
-        </Tooltip>
       </List>
       <Divider />
-      <Tooltip title="Close" placement="right" arrow>
         <ListItem
           style={{ position: "absolute", bottom: 0 }}
           key={"Close"}
@@ -256,7 +210,6 @@ export default function TemporaryDrawer() {
             <ListItemText primary={"Close"} />
           </ListItemButton>
         </ListItem>
-      </Tooltip>
     </Box>
   );
 
@@ -264,15 +217,6 @@ export default function TemporaryDrawer() {
     <div>
       {(["left"] as const).map((anchor) => (
         <React.Fragment key={anchor}>
-          {/* <Button variant="contained" onClick={toggleDrawer(anchor, true)}>
-            <MenuIcon style={{ margin: "10px" }} />
-          </Button> */}
-          {/* <Tooltip
-            TransitionComponent={Fade}
-            TransitionProps={{ timeout: 600 }}
-            title={"Open Menu"}
-            style={{ userSelect: "none" }}
-          > */}
           <IconButton
             size="large"
             edge="start"
@@ -283,7 +227,6 @@ export default function TemporaryDrawer() {
           >
             <MenuIcon />
           </IconButton>
-          {/* </Tooltip> */}
 
           <Drawer
             anchor={anchor}
