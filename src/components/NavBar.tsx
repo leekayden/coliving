@@ -20,6 +20,7 @@ import Chip from "@mui/material/Chip";
 import Button from "@mui/material/Button";
 import SideBar from "./SideBar";
 import { useNavigate } from "react-router-dom";
+import { isHomeownerAccount } from "../global/data";
 
 const Search = styled("div")(({ theme }) => ({
   position: "relative",
@@ -230,7 +231,7 @@ export default function NavBar({ appname, isHomeOwner, noNav }: NavBarProps) {
           </Search>
           {noNav
             ? null
-            : filteredLinks.map((link) => (
+            : isHomeownerAccount ? (links.map((link) => (
                 <Button
                   key={link.path}
                   variant="contained"
@@ -239,7 +240,16 @@ export default function NavBar({ appname, isHomeOwner, noNav }: NavBarProps) {
                 >
                   {link.title ? link.title : link.path}
                 </Button>
-              ))}
+              ))) : (filteredLinks.map((link) => (
+                <Button
+                  key={link.path}
+                  variant="contained"
+                  onClick={handleLink(link.path.toLowerCase())}
+                  disableElevation
+                >
+                  {link.title ? link.title : link.path}
+                </Button>
+              )))}
           <Box sx={{ flexGrow: 1 }} />
           <Box sx={{ display: { xs: "none", md: "flex" } }}>
             {/* <IconButton size="large" color="inherit" disabled>
