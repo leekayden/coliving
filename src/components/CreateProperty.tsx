@@ -37,7 +37,7 @@ export default function FullScreenDialog() {
   };
 
   const nextId = PropertyList[PropertyList.length - 1].id + 1;
-  const paddedNextId = nextId.toString().padStart(5, '0');
+  const paddedNextId = nextId.toString().padStart(5, "0");
   return (
     <div>
       <Button
@@ -46,7 +46,7 @@ export default function FullScreenDialog() {
         variant="contained"
         onClick={handleClickOpen}
         startIcon={<AddIcon />}
-        sx={{ width: '50vw', display: 'block', justifyContent: 'center' }}
+        sx={{ width: "40vw", margin: "0 auto", display: "flex" }}
       >
         Add New
       </Button>

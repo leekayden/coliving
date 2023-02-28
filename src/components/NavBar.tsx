@@ -219,7 +219,7 @@ export default function NavBar({ appname, isHomeOwner, noNav }: NavBarProps) {
               {appname ? appname : AppName}
             </Link>
             &nbsp;
-            {isHomeOwner ? <Chip label="Home Owner" color="warning" /> : null}
+            {isHomeOwner ? <Chip label="Landlord" color="warning" /> : null}
           </Typography>
           <Search>
             <SearchIconWrapper>
@@ -235,7 +235,7 @@ export default function NavBar({ appname, isHomeOwner, noNav }: NavBarProps) {
             : isHomeownerAccount ? (links.map((link) => (
                 <Button
                   key={link.path}
-                  variant="contained"
+                  variant={link.disabled ? "outlined" : "contained"}
                   onClick={handleLink(link.path.toLowerCase())}
                   disableElevation
                   disabled={link.disabled}
@@ -245,7 +245,7 @@ export default function NavBar({ appname, isHomeOwner, noNav }: NavBarProps) {
               ))) : (filteredLinks.map((link) => (
                 <Button
                   key={link.path}
-                  variant="contained"
+                  variant={link.disabled ? "outlined" : "contained"}
                   onClick={handleLink(link.path.toLowerCase())}
                   disableElevation
                   disabled={link.disabled}
