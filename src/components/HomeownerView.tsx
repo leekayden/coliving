@@ -23,9 +23,9 @@ function Homeowner() {
         <Divider textAlign="left">My Properties</Divider>
         <CreateProperty />
       </Typography>
-      {filteredList?.map((identifier: any) => (
-        <Container sx={{ py: 8 }} maxWidth="md">
-          <Grid container spacing={4}>
+      <Container sx={{ py: 8 }} maxWidth="md">
+        <Grid container spacing={4}>
+          {filteredList?.map((identifier: any) => (
             <Grid item xs={12} sm={6} md={4}>
               <Card sx={{ maxWidth: 345, padding: "7px" }}>
                 <CardActionArea>
@@ -50,10 +50,9 @@ function Homeowner() {
                   </Button>
                 </CardActions>
               </Card>
-            </Grid>
-          </Grid>
-        </Container>
-      ))}
+            </Grid>))}
+        </Grid>
+      </Container>
     </div>
   );
 }
