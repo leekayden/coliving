@@ -17,8 +17,34 @@ function Homeowner() {
         <Divider textAlign="left">My Properties</Divider>
         <CreateProperty />
       </Typography>
-      {filteredList?.map((item: any) => (
-        <HomeownerCard key={item.title} identifier={item} />
+      {filteredList?.map((indentifier: any) => (
+        <Grid container spacing={2}>
+          <Grid item xs={2}>
+            <Card sx={{ maxWidth: 345, padding: "7px" }}>
+              <CardActionArea>
+                <CardMedia component="img" height="140" image="" />
+                <CardContent>
+                  <Typography gutterBottom variant="h5" component="div">
+                    {identifier.title}
+                  </Typography>
+                  <Typography variant="body2" color="text.secondary">
+                    {identifier.description}
+                  </Typography>
+                </CardContent>
+              </CardActionArea>
+              <CardActions>
+                <Button
+                  disableElevation
+                  color="primary"
+                  variant="contained"
+                  startIcon={<EditIcon />}
+                >
+                  Edit
+                </Button>
+              </CardActions>
+            </Card>
+          </Grid>
+        </Grid>
       ))}
     </div>
   );
