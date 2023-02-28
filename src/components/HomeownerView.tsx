@@ -6,6 +6,13 @@ import HomeownerCard from "./HomeownerCard";
 import { PropertyList, isHomeownerAccount } from "../global/data";
 import Error from "./Error";
 import { forbiddenErrorMsg } from "../global/definitions";
+import Card from "@mui/material/Card";
+import CardContent from "@mui/material/CardContent";
+import CardMedia from "@mui/material/CardMedia";
+import Typography from "@mui/material/Typography";
+import { Button, CardActionArea, CardActions } from "@mui/material";
+import EditIcon from "@mui/icons-material/Edit";
+import Grid from "@mui/material/Grid";
 
 function Homeowner() {
   let ownerId = 0;
