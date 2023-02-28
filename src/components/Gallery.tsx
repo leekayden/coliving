@@ -108,7 +108,7 @@ export default function Gallery({ data, showNav }: GalleryProps) {
                 )}
               /> */}
               <Autocomplete
-                key={data.title}
+                key={option.title}
                 disablePortal
                 id="combo-box-demo"
                 options={data}
