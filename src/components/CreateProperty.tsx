@@ -46,6 +46,7 @@ export default function FullScreenDialog() {
         variant="contained"
         onClick={handleClickOpen}
         startIcon={<AddIcon />}
+        sx={{ width: '50vw' }}
       >
         Add New
       </Button>
