@@ -23,7 +23,7 @@ function Homeowner() {
         <Divider textAlign="center">My Properties</Divider>
         <CreateProperty />
       </Typography>
-      <Container sx={{ py: 8, border: 1, borderColor: 'primary.main', borderRadius: 10 }} maxWidth="md">
+      <Container sx={{ py: 8, border: 5, borderColor: 'primary.main', borderRadius: 10 }} maxWidth="md">
         <Grid container spacing={4}>
           {filteredList?.map((identifier: any) => (
             <Grid item key={identifier.title} xs={12} sm={6} md={4}>
