@@ -39,27 +39,13 @@ function App() {
           }
           sx={{ mb: 2 }}
         >
-          This is a demo version of "{AppName}". Most of the data on this site is
-          fake. Some features are disabled or not working.
+          This is a demo version of "{AppName}". Some features are disabled or not functional.
         </Alert>
       </Collapse>
       <Carousel />
       <Typography variant="h3" gutterBottom>
         <Divider />
       </Typography>
-      {/* <Grid container spacing={2} style={{ justifyContent: "center" }}>
-        {PropertyList.map((item) => (
-          <Grid item xs={2}>
-            <Card
-              id={item.id}
-              title={item.title}
-              description={item.description}
-              propertyStats={item.status}
-              route={item.route}
-            />
-          </Grid>
-        ))}
-      </Grid> */}
       <Gallery data={PropertyList} />
       <Footer />
     </div>
