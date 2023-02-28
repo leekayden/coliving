@@ -237,6 +237,7 @@ export default function NavBar({ appname, isHomeOwner, noNav }: NavBarProps) {
                   variant="contained"
                   onClick={handleLink(link.path.toLowerCase())}
                   disableElevation
+                  disabled
                 >
                   {link.title ? link.title : link.path}
                 </Button>
