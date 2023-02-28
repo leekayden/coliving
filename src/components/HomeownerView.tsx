@@ -14,7 +14,7 @@ import EditIcon from "@mui/icons-material/Edit";
 import Grid from "@mui/material/Grid";
 
 function Homeowner() {
-  const identifier = PropertyList.filter((item) => item.ownerId === ownerId);
+  const filteredList = PropertyList.filter((item) => item.ownerId === ownerId);
   return (
     <div>
       <NavBar isHomeOwner={isHomeownerAccount} />
