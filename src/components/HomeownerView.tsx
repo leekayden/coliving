@@ -12,6 +12,7 @@ import CardMedia from "@mui/material/CardMedia";
 import { Button, CardActionArea, CardActions } from "@mui/material";
 import EditIcon from "@mui/icons-material/Edit";
 import Grid from "@mui/material/Grid";
+import Container from "@mui/material/Container";
 
 function Homeowner() {
   const filteredList = PropertyList.filter((item) => item.ownerId === ownerId);
@@ -23,33 +24,35 @@ function Homeowner() {
         <CreateProperty />
       </Typography>
       {filteredList?.map((identifier: any) => (
-        <Grid container spacing={2}>
-          <Grid item xs={2}>
-            <Card sx={{ maxWidth: 345, padding: "7px" }}>
-              <CardActionArea>
-                <CardMedia component="img" height="140" image="" />
-                <CardContent>
-                  <Typography gutterBottom variant="h5" component="div">
-                    {identifier.title}
-                  </Typography>
-                  <Typography variant="body2" color="text.secondary">
-                    {identifier.description}
-                  </Typography>
-                </CardContent>
-              </CardActionArea>
-              <CardActions>
-                <Button
-                  disableElevation
-                  color="primary"
-                  variant="contained"
-                  startIcon={<EditIcon />}
-                >
-                  Edit
-                </Button>
-              </CardActions>
-            </Card>
+        <Container sx={{ py: 8 }} maxWidth="md">
+          <Grid container spacing={4}>
+            <Grid item xs={2}>
+              <Card sx={{ maxWidth: 345, padding: "7px" }}>
+                <CardActionArea>
+                  <CardMedia component="img" height="140" image="" />
+                  <CardContent>
+                    <Typography gutterBottom variant="h5" component="div">
+                      {identifier.title}
+                    </Typography>
+                    <Typography variant="body2" color="text.secondary">
+                      {identifier.description}
+                    </Typography>
+                  </CardContent>
+                </CardActionArea>
+                <CardActions>
+                  <Button
+                    disableElevation
+                    color="primary"
+                    variant="contained"
+                    startIcon={<EditIcon />}
+                  >
+                    Edit
+                  </Button>
+                </CardActions>
+              </Card>
+            </Grid>
           </Grid>
-        </Grid>
+        </Container>
       ))}
     </div>
   );
