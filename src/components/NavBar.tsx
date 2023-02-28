@@ -71,6 +71,7 @@ interface NavBarProps {
 interface Link {
   path: string;
   title?: string;
+  landlord?: boolean;
 }
 
 export default function NavBar({ appname, isHomeOwner, noNav }: NavBarProps) {
