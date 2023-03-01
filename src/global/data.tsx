@@ -7,6 +7,7 @@ export let PropertyList = [
     ownerId: 0,
     title: "Apple",
     description: "🍎",
+    img: "https://",
     status: "For Rent",
     nationalities: ["Singaporean"],
     route: "apple",
