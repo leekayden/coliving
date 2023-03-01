@@ -1,5 +1,5 @@
 import * as React from "react";
-import { styled, alpha } from "@mui/material/styles";
+import { styled, alpha, createTheme } from "@mui/material/styles";
 import AppBar from "@mui/material/AppBar";
 import Box from "@mui/material/Box";
 import Toolbar from "@mui/material/Toolbar";
@@ -63,13 +63,25 @@ const StyledInputBase = styled(InputBase)(({ theme }) => ({
   },
 }));
 
+const theme = createTheme({
+  components: {
+    MuiAppBar: {
+      styleOverrides: {
+        colorPrimary: {
+          backgroundColor: "red"
+        }
+      }
+    }
+  }
+});
+
 interface NavBarProps {
   appname?: string;
   isHomeOwner?: boolean;
   noNav?: boolean;
 }
 
-interface Link {
+interface Linkbar {
   path: string;
   title?: string;
   landlord?: boolean;
@@ -84,7 +96,7 @@ export default function NavBar({ appname, isHomeOwner, noNav }: NavBarProps) {
       navigate(`/${path}`);
     };
   // const links = ["home", "locations"];
-  const links: Link[] = [
+  const links: Linkbar[] = [
     { path: "", title: "Home" },
     { path: "properties" },
     { path: "solutions", title: "Why Us?" },
@@ -93,9 +105,6 @@ export default function NavBar({ appname, isHomeOwner, noNav }: NavBarProps) {
   ]
   const filteredLinks = links.filter(link => !link.landlord);
   const [theme, setTheme] = React.useState("light");
-  const handleThemeChange = () => {
-    setTheme(theme === "light" ? "dark" : "light");
-  };
   const [anchorEl, setAnchorEl] = React.useState<null | HTMLElement>(null);
   const [mobileMoreAnchorEl, setMobileMoreAnchorEl] =
     React.useState<null | HTMLElement>(null);

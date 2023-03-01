@@ -6,7 +6,7 @@ import reportWebVitals from "./reportWebVitals";
 import { createBrowserRouter, RouterProvider, Navigate } from "react-router-dom";
 import { PropertyList } from "./global/data";
 import PropertyView from "./components/PropertyView";
-import { createTheme, ThemeProvider } from "@material-ui/core/styles";
+import { createTheme, ThemeProvider } from "@mui/material/styles";
 import HomeownerView from "./components/HomeownerView";
 import Error from "./components/Error";
 import Carousel2 from "./components/Carousel2";
@@ -69,10 +69,11 @@ interface RootProps {
 }
 
 function Root({ lightTheme, darkTheme }: RootProps) {
-  const [theme, setTheme] = useState("light");
+  const [theme, setTheme] = useState<"light" | "dark">("light");
+  console.log(theme)
 
   const toggleTheme = () => {
-    setTheme((prevTheme) => (prevTheme === "light" ? "dark" : "light"));
+    setTheme((prevTheme) => (prevTheme === "light" ? "light" : "dark"));
   };
 
   return (
@@ -86,33 +87,13 @@ function Root({ lightTheme, darkTheme }: RootProps) {
 
 const lightTheme = createTheme({
   palette: {
-    type: "light",
-    primary: {
-      main: "#3f51b5",
-    },
-    secondary: {
-      main: "#f50057",
-    },
-  },
-  typography: {
-    fontFamily: "Ubuntu",
-    fontWeightMedium: 600,
+    mode: 'light',
   },
 });
 
 const darkTheme = createTheme({
   palette: {
-    type: "dark",
-    primary: {
-      main: "#90caf9",
-    },
-    secondary: {
-      main: "#f48fb1",
-    },
-  },
-  typography: {
-    fontFamily: "Ubuntu",
-    fontWeightMedium: 600,
+    mode: 'dark',
   },
 });
 
