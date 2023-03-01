@@ -21,11 +21,9 @@ import FeedbackOutlinedIcon from "@mui/icons-material/FeedbackOutlined";
 import LoginIcon from "@mui/icons-material/Login";
 import AssignmentIndIcon from "@mui/icons-material/AssignmentInd";
 
-
 type Anchor = "top" | "left" | "bottom" | "right";
 
 export default function TemporaryDrawer() {
-
   const [state, setState] = React.useState({
     top: false,
     left: false,
@@ -47,6 +45,20 @@ export default function TemporaryDrawer() {
       setState({ ...state, [anchor]: open });
     };
 
+  const items = [
+    { route: "", title: "Home", icon: <HomeIcon /> },
+    { route: "properties", title: "Properties", icon: <LocalMallIcon /> },
+    { divider: true },
+    { route: "settings", title: "Settings", icon: <SettingsOutlinedIcon /> },
+    { route: "about", title: "About", icon: <InfoOutlinedIcon /> },
+    { route: "help", title: "Help", icon: <HelpCenterOutlinedIcon /> },
+    { route: "feedback", title: "Feedback", icon: <FeedbackOutlinedIcon /> },
+    { divider: true },
+    { route: "signup", title: "Sign Up", icon: <AssignmentIndIcon /> },
+    { route: "login", title: "Login", icon: <LoginIcon /> },
+    { divider: true },
+  ];
+
   const list = (anchor: Anchor) => (
     <Box
       sx={{ width: anchor === "top" || anchor === "bottom" ? "auto" : 250 }}
@@ -58,107 +70,28 @@ export default function TemporaryDrawer() {
         {AppName}
       </div>
       <Divider />
-      <List>
-        <Link style={{ textDecoration: "none" }} color="inherit" href="/">
-          <ListItem key="item1" disablePadding>
-            <ListItemButton>
-              <ListItemIcon>
-                <HomeIcon />
-              </ListItemIcon>
-              <ListItemText primary="Home" />
-            </ListItemButton>
-          </ListItem>
-        </Link>
-        <Link
-          style={{ textDecoration: "none" }}
-          color="inherit"
-          href="/properties"
-        >
-          <ListItem key="item2" disablePadding>
-            <ListItemButton>
-              <ListItemIcon>
-                <LocalMallIcon />
-              </ListItemIcon>
-              <ListItemText primary="Properties" />
-            </ListItemButton>
-          </ListItem>
-        </Link>
-      </List>
-      <Divider />
-      <List>
-        <Link
-          style={{ textDecoration: "none" }}
-          color="inherit"
-          href="/settings"
-        >
-          <ListItem key="item3" disablePadding>
-            <ListItemButton>
-              <ListItemIcon>
-                <SettingsOutlinedIcon />
-              </ListItemIcon>
-              <ListItemText primary="Settings" />
-            </ListItemButton>
-          </ListItem>
-        </Link>
-        <Link style={{ textDecoration: "none" }} color="inherit" href="/about">
-          <ListItem key="item4" disablePadding>
-            <ListItemButton>
-              <ListItemIcon>
-                <InfoOutlinedIcon />
-              </ListItemIcon>
-              <ListItemText primary="About" />
-            </ListItemButton>
-          </ListItem>
-        </Link>
-        <Link style={{ textDecoration: "none" }} color="inherit" href="/help">
-          <ListItem key="item5" disablePadding>
-            <ListItemButton>
-              <ListItemIcon>
-                <HelpCenterOutlinedIcon />
-              </ListItemIcon>
-              <ListItemText primary="Help" />
-            </ListItemButton>
-          </ListItem>
-        </Link>
-        <Link
-          style={{ textDecoration: "none" }}
-          color="inherit"
-          href="/feedback"
-        >
-          <ListItem key="item5" disablePadding>
-            <ListItemButton>
-              <ListItemIcon>
-                <FeedbackOutlinedIcon />
-              </ListItemIcon>
-              <ListItemText primary="Give Feedback" />
-            </ListItemButton>
-          </ListItem>
-        </Link>
-      </List>
-      <Divider />
-      <List>
-        <Link color="inherit" href="/signup" style={{ textDecoration: "none" }}>
-          <ListItem key="item1" disablePadding>
-            <ListItemButton>
-              <ListItemIcon>
-                <AssignmentIndIcon />
-              </ListItemIcon>
-              <ListItemText primary="Sign Up" />
-            </ListItemButton>
-          </ListItem>
-        </Link>
-        <Link color="inherit" href="/login" style={{ textDecoration: "none" }}>
-          <ListItem key="item2" disablePadding>
-            <ListItemButton>
-              <ListItemIcon>
-                <LoginIcon />
-              </ListItemIcon>
-              <ListItemText primary="Login" />
-            </ListItemButton>
-          </ListItem>
-        </Link>
-      </List>
-      <Divider />
+      {items.map((item) => (
+        <React.Fragment key={item.title}>
+          {item.divider ? (
+            <Divider />
+          ) : (
+            <List>
+              <Link
+                style={{ textDecoration: "none" }}
+                color="inherit"
+                href={`/${item.route}`}
+              >
+                <ListItem disablePadding>
+                  <ListItemButton>
+                    <ListItemIcon>{item.icon}</ListItemIcon>
+                    <ListItemText primary={item.title} />
+                  </ListItemButton>
+                </ListItem>
+              </Link>
+            </List>
+          )}
+        </React.Fragment>
+      ))}
       <ListItem
         style={{ position: "absolute", bottom: 0 }}
         key={"Close"}
