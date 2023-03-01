@@ -61,6 +61,7 @@ export default function Gallery({ data, showNav }: GalleryProps) {
   const filteredData = selectedOption?.title
     ? data.filter((item) => item.title === selectedOption.title)
     : data;
+  console.log(data.img)
   return (
     <ThemeProvider theme={theme}>
       <CssBaseline />
