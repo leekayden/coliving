@@ -7,7 +7,7 @@ export let PropertyList = [
     ownerId: 0,
     title: "Apple",
     description: "🍎",
-    img: "https://",
+    img: "https://mui.com/static/images/cards/paella.jpg",
     status: "For Rent",
     nationalities: ["Singaporean"],
     route: "apple",
