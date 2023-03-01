@@ -25,6 +25,7 @@ interface Property {
   ownerId: number;
   title: string;
   description: string;
+  img: string;
   status: string;
   nationalities: string[];
   route: string;
