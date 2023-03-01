@@ -141,7 +141,8 @@ export default function Gallery({ data, showNav }: GalleryProps) {
                 >
                   <CardMedia
                     component="img"
-                    image="https://mui.com/static/images/cards/contemplative-reptile.jpg"
+                    // image="https://mui.com/static/images/cards/contemplative-reptile.jpg"
+                    image={data.img ? data.img : "https://mui.com/static/images/cards/contemplative-reptile.jpg"}
                     alt={data.title}
                   />
                   <CardContent sx={{ flexGrow: 1 }}>
