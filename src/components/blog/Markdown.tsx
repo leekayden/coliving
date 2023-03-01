@@ -48,3 +48,13 @@
 // export default function Markdown(props: any) {
 //   return <ReactMarkdown options={options} {...props} />;
 // }
+
+import React from 'react'
+
+function Markdown() {
+  return (
+    <div>Markdown</div>
+  )
+}
+
+export default Markdown
