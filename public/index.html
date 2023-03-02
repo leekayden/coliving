@@ -2,24 +2,78 @@
 <html lang="en">
 
 <head>
-  <meta charset="UTF-8">
-  <meta http-equiv="X-UA-Compatible" content="IE=edge">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Document</title>
+  <meta charset="utf-8" />
+  <link rel="icon" href="%PUBLIC_URL%/favicon.ico" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <meta name="theme-color" content="#000000" />
+  <meta name="description" content="Eden CoSpaces" />
+  <link rel="apple-touch-icon" href="%PUBLIC_URL%/logo192.png" />
+  <link rel="manifest" href="%PUBLIC_URL%/manifest.json" />
+  <title>Eden CoSpaces</title>
 </head>
 
 <body>
-  <p id="output">
-    </h1>
-    <script>
-      let str = "";  // initialize an empty string
-      const outputElement = document.getElementById("output");  // get the HTML element to display the output
+  <noscript>Please enable JavaScript to run this app.</noscript>
+  <div id="root">
+    <div class="progress"></div>
+  </div>
 
-      setInterval(() => {
-        str += "a";  // add the letter "a" to the string
-        outputElement.innerHTML = str;  // display the updated string in the HTML element
-      }, 500);
-    </script>
+  <style>
+    body {
+      overflow-x: hidden;
+    }
+
+    .progress {
+      position: relative;
+      width: 89.6px;
+      height: 89.6px;
+      border-radius: 50%;
+      border: 4.5px solid #474bff;
+      box-sizing: content-box;
+
+      margin: auto;
+      position: absolute;
+      top: 50%;
+      left: 50%;
+      transform: translate(-50%, -50%);
+    }
+
+    .progress:before {
+      content: "";
+      position: absolute;
+      width: 4.5px;
+      height: 38.1px;
+      top: 9px;
+      left: 42.6px;
+      background: #474bff;
+      border-radius: 2.2px;
+      transform-origin: 2.25px 37px;
+      animation: progress-t59zy9 2s linear infinite;
+    }
+
+    .progress:after {
+      content: "";
+      position: absolute;
+      width: 4.5px;
+      height: 24.6px;
+      top: 22.4px;
+      left: 42.6px;
+      background: #474bff;
+      border-radius: 2.2px;
+      transform-origin: 2.25px 23.5px;
+      animation: progress-t59zy9 12s linear infinite;
+    }
+
+    @keyframes progress-t59zy9 {
+      0% {
+        tranform: rotate(0deg);
+      }
+
+      100% {
+        transform: rotate(360deg);
+      }
+    }
+  </style>
 </body>
 
 </html>

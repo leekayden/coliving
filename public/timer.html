@@ -2,59 +2,24 @@
 <html lang="en">
 
 <head>
-    <meta charset="UTF-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Document</title>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
 </head>
 
 <body>
-    <div>
-        <h1>Stopwatch</h1>
-        <h2 id="timer">00:00:00</h2>
-        <button id="start">Start</button>
-        <button id="stop">Stop</button>
-    </div>
+  <p id="output">
+    </h1>
+    <script>
+      let str = "";  // initialize an empty string
+      const outputElement = document.getElementById("output");  // get the HTML element to display the output
+
+      setInterval(() => {
+        str += "a";  // add the letter "a" to the string
+        outputElement.innerHTML = str;  // display the updated string in the HTML element
+      }, 500);
+    </script>
 </body>
-
-<script>
-    let timerInterval; // variable to hold the interval ID
-
-    // function to update the timer
-    function updateTimer() {
-        let hours = 0, minutes = 0, seconds = 0;
-        return function () {
-            seconds++;
-            if (seconds === 60) {
-                seconds = 0;
-                minutes++;
-                if (minutes === 60) {
-                    minutes = 0;
-                    hours++;
-                }
-            }
-            const h = hours < 10 ? "0" + hours : hours;
-            const m = minutes < 10 ? "0" + minutes : minutes;
-            const s = seconds < 10 ? "0" + seconds : seconds;
-            document.getElementById("timer").textContent = `${h}:${m}:${s}`;
-        }
-    }
-
-    // function to start the stopwatch
-    function startTimer() {
-        const update = updateTimer();
-        timerInterval = setInterval(update, 1000); // update every second
-    }
-
-    // function to stop the stopwatch
-    function stopTimer() {
-        clearInterval(timerInterval);
-    }
-
-    // add event listeners to buttons
-    document.getElementById("start").addEventListener("click", startTimer);
-    document.getElementById("stop").addEventListener("click", stopTimer);
-
-</script>
 
 </html>
