@@ -143,7 +143,11 @@ export default function Gallery({ data, showNav }: GalleryProps) {
                   <CardMedia
                     component="img"
                     // image="https://mui.com/static/images/cards/contemplative-reptile.jpg"
-                    image={data.img ? data.img : "https://mui.com/static/images/cards/contemplative-reptile.jpg"}
+                    image={
+                      data.img
+                        ? data.img
+                        : "https://res.cloudinary.com/kayden/image/upload/c_pad,b_auto:predominant,fl_preserve_transparency/v1677907411/icon-image-not-found-free-vector_bdfcct.jpg"
+                    }
                     alt={data.title}
                   />
                   <CardContent sx={{ flexGrow: 1 }}>
