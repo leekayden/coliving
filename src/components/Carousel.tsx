@@ -43,9 +43,10 @@ interface CarouselComponentProps {
   noViewBtn?: boolean;
   title?: string;
   status?: string;
+  editMode?: boolean | null | undefined;
 }
 
-const CarouselComponent = ({ mainTxt, noViewBtn, title, status }: CarouselComponentProps) => {
+const CarouselComponent = ({ mainTxt, noViewBtn, title, status, editMode }: CarouselComponentProps) => {
   const [settings] = useState<SettingsT>(DefaultSettingsT);
 
   return (
@@ -80,6 +81,7 @@ const CarouselComponent = ({ mainTxt, noViewBtn, title, status }: CarouselCompon
               noViewBtn={noViewBtn}
               title={title}
               status={status}
+              editMode={editMode}
             />
           );
         })}
@@ -97,6 +99,7 @@ interface BannerProps {
   noViewBtn?: boolean;
   title?: string;
   status?: string;
+  editMode?: boolean | null | undefined;
 }
 
 const Banner = (props: BannerProps) => {

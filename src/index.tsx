@@ -9,12 +9,11 @@ import PropertyView from "./components/PropertyView";
 import { createTheme, ThemeProvider } from "@mui/material/styles";
 import HomeownerView from "./components/HomeownerView";
 import Error from "./components/Error";
-import Carousel2 from "./components/Carousel2";
 import Settings from "./components/Settings";
 import SignUp from "./components/SignUp";
 import SignIn from "./components/Login";
 import Gallery from "./components/Gallery";
-// import Blog from "./components/blog/Blog";
+import Blog from "./components/blog/Blog";
 
 const router = createBrowserRouter([
   {
@@ -28,10 +27,6 @@ const router = createBrowserRouter([
   {
     path: "/landlords/dashboard",
     element: <HomeownerView />,
-  },
-  {
-    path: "/testform",
-    element: <Carousel2 />,
   },
   ...PropertyList.map((item) => ({
     path: `/properties/${item.route}`,
@@ -57,10 +52,10 @@ const router = createBrowserRouter([
     path: "/properties",
     element: <Gallery data={PropertyList} showNav />,
   },
-  // {
-  //   path: "/blog",
-  //   element: <Blog />,
-  // },
+  {
+    path: "/solutions",
+    element: <Blog />,
+  },
 ]);
 
 interface RootProps {

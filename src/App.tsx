@@ -17,7 +17,7 @@ import Footer from "./components/Footer";
 
 function App() {
   const [open, setOpen] = React.useState(!localStorage.getItem("alertClosed"));
-  usePageEffect({ title: "Home | Eden CoSpaces" });
+  usePageEffect({ title: `Home | ${AppName}` });
   return (
     <div className="App">
       <NavBar appname={AppName} isHomeOwner={isHomeownerAccount} />

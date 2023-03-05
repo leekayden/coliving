@@ -17,9 +17,10 @@ import { Currency } from "../global/definitions";
 
 interface PropertyViewProps {
   id: number;
+  editMode?: boolean;
 }
 
-function PropertyView({ id }: PropertyViewProps) {
+function PropertyView({ id, editMode }: PropertyViewProps) {
   usePageEffect({ title: PropertyList[id].title });
   return (
     <div>
@@ -29,10 +30,12 @@ function PropertyView({ id }: PropertyViewProps) {
         title={PropertyList[id].title}
         status={PropertyList[id].status}
         noViewBtn
+        editMode={editMode || isHomeownerAccount}
       />
       <Grid container spacing={3} justifyContent="space-between">
         <Grid item xs={12} sm={6}>
           <PropertyTabs property={PropertyList[id].title} />
+          {editMode || isHomeownerAccount ? "Edit" : null}
         </Grid>
         {/* <PropertyOverview title={PropertyList[id].title} /> */}
         <Card sx={{ maxWidth: 400 }} elevation={0}>

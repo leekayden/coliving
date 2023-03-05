@@ -11,7 +11,7 @@ footer {
 
 @media (min-height: 100vh) {
   footer {
-    position: absolute;
+    position: relative;
   }
 }
 
