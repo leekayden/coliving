@@ -117,7 +117,7 @@ const Banner = (props: BannerProps) => {
   let items = [];
   const redirectToUrl = (url: string) => {
     window.location.pathname = url;
-  }
+  };
   const content = (
     <Grid item xs={4} key="content">
       <CardContent className="Content">
@@ -134,13 +134,7 @@ const Banner = (props: BannerProps) => {
             className="ViewButton"
             onClick={() => redirectToUrl(`/properties/${props.route}`)}
           >
-            {/* <Link
-              color="inherit"
-              underline="none"
-              href={`/properties/${props.route}`}
-            > */}
-              View Now
-            {/* </Link> */}
+            View Now
           </Button>
         )}
       </CardContent>
