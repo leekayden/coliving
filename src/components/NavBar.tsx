@@ -21,6 +21,8 @@ import Button from "@mui/material/Button";
 import SideBar from "./SideBar";
 import { useNavigate } from "react-router-dom";
 import { isHomeownerAccount } from "../global/data";
+import TextField from '@mui/material/TextField';
+import Autocomplete from '@mui/material/Autocomplete';
 
 const Search = styled("div")(({ theme }) => ({
   position: "relative",
