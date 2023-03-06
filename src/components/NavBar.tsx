@@ -68,11 +68,11 @@ const theme = createTheme({
     MuiAppBar: {
       styleOverrides: {
         colorPrimary: {
-          backgroundColor: "red"
-        }
-      }
-    }
-  }
+          backgroundColor: "red",
+        },
+      },
+    },
+  },
 });
 
 interface NavBarProps {
@@ -102,8 +102,8 @@ export default function NavBar({ appname, isHomeOwner, noNav }: NavBarProps) {
     { path: "solutions", title: "Why Us?" },
     { path: "landlords", landlord: true },
     { path: "tenants", disabled: true },
-  ]
-  const filteredLinks = links.filter(link => !link.landlord);
+  ];
+  const filteredLinks = links.filter((link) => !link.landlord);
   const [theme, setTheme] = React.useState("light");
   const [anchorEl, setAnchorEl] = React.useState<null | HTMLElement>(null);
   const [mobileMoreAnchorEl, setMobileMoreAnchorEl] =
@@ -230,10 +230,31 @@ export default function NavBar({ appname, isHomeOwner, noNav }: NavBarProps) {
               inputProps={{ "aria-label": "search" }}
             />
           </Search> */}
-          
+          <Autocomplete
+            id="property-autocomplete"
+            options={PropertyList}
+            getOptionLabel={(option) => option.title}
+            renderInput={(params) => (
+              <TextField
+                {...params}
+                label="Search Properties"
+                variant="outlined"
+                InputProps={{
+                  ...params.InputProps,
+                  startAdornment: (
+                    <>
+                      <SearchIcon />
+                    </>
+                  ),
+                  "aria-label": "search",
+                }}
+              />
+            )}
+          />
           {noNav
             ? null
-            : isHomeownerAccount ? (links.map((link) => (
+            : isHomeownerAccount
+            ? links.map((link) => (
                 <Button
                   key={link.path}
                   variant={link.disabled ? "outlined" : "contained"}
@@ -243,7 +264,8 @@ export default function NavBar({ appname, isHomeOwner, noNav }: NavBarProps) {
                 >
                   {link.title ? link.title : link.path}
                 </Button>
-              ))) : (filteredLinks.map((link) => (
+              ))
+            : filteredLinks.map((link) => (
                 <Button
                   key={link.path}
                   variant={link.disabled ? "outlined" : "contained"}
@@ -253,7 +275,7 @@ export default function NavBar({ appname, isHomeOwner, noNav }: NavBarProps) {
                 >
                   {link.title ? link.title : link.path}
                 </Button>
-              )))}
+              ))}
           <Box sx={{ flexGrow: 1 }} />
           <Box sx={{ display: { xs: "none", md: "flex" } }}>
             {/* <IconButton size="large" color="inherit" disabled>
