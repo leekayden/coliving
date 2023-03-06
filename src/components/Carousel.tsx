@@ -15,6 +15,11 @@ import { CarouselItems, CarouselItemsType } from "../global/data";
 import Box, { BoxProps } from "@mui/material/Box";
 import { useNavigate } from "react-router-dom";
 
+const navigate = useNavigate();
+const redirectToUrl = (url) => {
+  navigate.push(url);
+};
+
 function Item(props: BoxProps) {
   const { sx, ...other } = props;
   return (
@@ -108,11 +113,6 @@ interface BannerProps {
   status?: string;
   editMode?: boolean | null | undefined;
 }
-
-const navigate = useNavigate();
-const redirectToUrl = (url) => {
-  navigate.push(url);
-};
 
 const Banner = (props: BannerProps) => {
   const contentPosition = props.contentPosition
