@@ -115,7 +115,7 @@ const Banner = (props: BannerProps) => {
   const totalItems: number = props.length ? props.length : 3;
   const mediaLength = totalItems - 1;
   let items = [];
-  const redirectToUrl = (url) => {
+  const redirectToUrl = (url: string) => {
     window.location.pathname = url;
   }
   const content = (
