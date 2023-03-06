@@ -226,7 +226,7 @@ export default function NavBar({ appname, isHomeOwner, noNav }: NavBarProps) {
               <SearchIcon />
             </SearchIconWrapper>
             <StyledInputBase
-              placeholder="Search…"
+              placeholder="Search Properties"
               inputProps={{ "aria-label": "search" }}
             />
           </Search>
