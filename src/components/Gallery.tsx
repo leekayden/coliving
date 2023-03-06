@@ -17,6 +17,7 @@ import Autocomplete from "@mui/material/Autocomplete";
 import { PropertyList } from "../global/data";
 import NavBar from "./NavBar";
 import { isHomeownerAccount } from "../global/data";
+import "./Gallery.css";
 
 const theme = createTheme();
 
@@ -153,7 +154,12 @@ export default function Gallery({ data, showNav }: GalleryProps) {
                     height={148}
                   />
                   <CardContent sx={{ flexGrow: 1 }}>
-                    <Typography gutterBottom variant="h5" component="h2" style={{ userSelect: "none" }}>
+                    <Typography
+                      gutterBottom
+                      variant="h5"
+                      component="h2"
+                      style={{ userSelect: "none" }}
+                    >
                       {data.title}
                     </Typography>
                     <Typography>
