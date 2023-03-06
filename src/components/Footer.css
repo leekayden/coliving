@@ -5,8 +5,7 @@ footer {
   right: 0;
   padding: 8px;
   text-align: center;
-  /* border-top-left-radius: 17px;
-     border-top-right-radius: 17px; */
+  user-select: none;
 }
 
 @media (min-height: 100vh) {
