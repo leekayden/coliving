@@ -13,7 +13,7 @@ import {
 import { useState, useEffect } from "react";
 import { CarouselItems, CarouselItemsType } from "../global/data";
 import Box, { BoxProps } from "@mui/material/Box";
-import { useHistory } from "react-router-dom";
+import { useNavigate } from "react-router-dom";
 
 function Item(props: BoxProps) {
   const { sx, ...other } = props;
@@ -110,8 +110,8 @@ interface BannerProps {
 }
 
 const redirectToUrl = (url) => {
-  const history = useHistory();
-  history.push(url);
+  const navigate = useNavigate();
+  navigate.push(url);
 };
 
 const Banner = (props: BannerProps) => {
