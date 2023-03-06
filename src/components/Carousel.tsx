@@ -109,8 +109,8 @@ interface BannerProps {
   editMode?: boolean | null | undefined;
 }
 
+const navigate = useNavigate();
 const redirectToUrl = (url) => {
-  const navigate = useNavigate();
   navigate.push(url);
 };
 
