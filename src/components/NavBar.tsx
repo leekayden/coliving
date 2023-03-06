@@ -221,7 +221,7 @@ export default function NavBar({ appname, isHomeOwner, noNav }: NavBarProps) {
             &nbsp;
             {isHomeOwner ? <Chip label="Landlord" color="warning" /> : null}
           </Typography>
-          <Search>
+          {/* <Search>
             <SearchIconWrapper>
               <SearchIcon />
             </SearchIconWrapper>
@@ -229,7 +229,8 @@ export default function NavBar({ appname, isHomeOwner, noNav }: NavBarProps) {
               placeholder="Search Properties"
               inputProps={{ "aria-label": "search" }}
             />
-          </Search>
+          </Search> */}
+          
           {noNav
             ? null
             : isHomeownerAccount ? (links.map((link) => (
