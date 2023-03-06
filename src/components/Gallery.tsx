@@ -149,6 +149,8 @@ export default function Gallery({ data, showNav }: GalleryProps) {
                         : "https://res.cloudinary.com/kayden/image/upload/c_pad,b_auto:predominant,fl_preserve_transparency/v1677907411/icon-image-not-found-free-vector_bdfcct.jpg"
                     }
                     alt={data.title}
+                    width={263}
+                    height={148}
                   />
                   <CardContent sx={{ flexGrow: 1 }}>
                     <Typography gutterBottom variant="h5" component="h2">
