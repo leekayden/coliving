@@ -10,9 +10,10 @@ import {
   Button,
   Link,
 } from "@mui/material";
-import { useState } from "react";
+import { useState, useEffect } from "react";
 import { CarouselItems, CarouselItemsType } from "../global/data";
 import Box, { BoxProps } from "@mui/material/Box";
+import { useHistory } from "react-router-dom";
 
 function Item(props: BoxProps) {
   const { sx, ...other } = props;
@@ -46,7 +47,13 @@ interface CarouselComponentProps {
   editMode?: boolean | null | undefined;
 }
 
-const CarouselComponent = ({ mainTxt, noViewBtn, title, status, editMode }: CarouselComponentProps) => {
+const CarouselComponent = ({
+  mainTxt,
+  noViewBtn,
+  title,
+  status,
+  editMode,
+}: CarouselComponentProps) => {
   const [settings] = useState<SettingsT>(DefaultSettingsT);
 
   return (
@@ -102,6 +109,11 @@ interface BannerProps {
   editMode?: boolean | null | undefined;
 }
 
+const redirectToUrl = (url) => {
+  const history = useHistory();
+  history.push(url);
+};
+
 const Banner = (props: BannerProps) => {
   const contentPosition = props.contentPosition
     ? props.contentPosition
@@ -117,16 +129,22 @@ const Banner = (props: BannerProps) => {
           {props.title ? props.title : props.item.Name}
         </Typography>
 
-        <Typography className="Caption">{props.status ? props.status : props.item.Caption}</Typography>
+        <Typography className="Caption">
+          {props.status ? props.status : props.item.Caption}
+        </Typography>
         {props.noViewBtn ? null : (
-          <Button variant="outlined" className="ViewButton">
-            <Link
+          <Button
+            variant="outlined"
+            className="ViewButton"
+            onClick={() => redirectToUrl(`/properties/${props.route}`)}
+          >
+            {/* <Link
               color="inherit"
               underline="none"
               href={`/properties/${props.route}`}
-            >
+            > */}
               View Now
-            </Link>
+            {/* </Link> */}
           </Button>
         )}
       </CardContent>
