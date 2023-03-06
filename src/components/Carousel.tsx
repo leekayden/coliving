@@ -10,15 +10,9 @@ import {
   Button,
   Link,
 } from "@mui/material";
-import { useState, useEffect } from "react";
+import { useState } from "react";
 import { CarouselItems, CarouselItemsType } from "../global/data";
 import Box, { BoxProps } from "@mui/material/Box";
-import { useNavigate } from "react-router-dom";
-
-const navigate = useNavigate();
-const redirectToUrl = (url) => {
-  navigate.push(url);
-};
 
 function Item(props: BoxProps) {
   const { sx, ...other } = props;
