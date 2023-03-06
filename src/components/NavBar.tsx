@@ -223,7 +223,7 @@ export default function NavBar({ appname, isHomeOwner, noNav }: NavBarProps) {
             &nbsp;
             {isHomeOwner ? <Chip label="Landlord" color="warning" /> : null}
           </Typography>
-          {/* <Search>
+          <Search>
             <SearchIconWrapper>
               <SearchIcon />
             </SearchIconWrapper>
@@ -231,8 +231,8 @@ export default function NavBar({ appname, isHomeOwner, noNav }: NavBarProps) {
               placeholder="Search Properties"
               inputProps={{ "aria-label": "search" }}
             />
-          </Search> */}
-          <Autocomplete
+          </Search>
+          {/* <Autocomplete
             id="property-autocomplete"
             options={PropertyList}
             getOptionLabel={(option) => option.title}
@@ -252,7 +252,7 @@ export default function NavBar({ appname, isHomeOwner, noNav }: NavBarProps) {
                 }}
               />
             )}
-          />
+          /> */}
           {noNav
             ? null
             : isHomeownerAccount
