@@ -232,27 +232,6 @@ export default function NavBar({ appname, isHomeOwner, noNav }: NavBarProps) {
               inputProps={{ "aria-label": "search" }}
             />
           </Search>
-          {/* <Autocomplete
-            id="property-autocomplete"
-            options={PropertyList}
-            getOptionLabel={(option) => option.title}
-            renderInput={(params) => (
-              <TextField
-                {...params}
-                label="Search Properties"
-                variant="outlined"
-                InputProps={{
-                  ...params.InputProps,
-                  startAdornment: (
-                    <>
-                      <SearchIcon />
-                    </>
-                  ),
-                  "aria-label": "search",
-                }}
-              />
-            )}
-          /> */}
           {noNav
             ? null
             : isHomeownerAccount
