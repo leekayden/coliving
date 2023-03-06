@@ -33,7 +33,7 @@ export let PropertyList = [
     ownerId: 0,
     title: "Banana",
     description: "🍌",
-    img: "https://mui.com/static/images/cards/paella.jpg",
+    img: "https://res.cloudinary.com/kayden/image/upload/v1672909158/1-livingroom_xhsgac.jpg",
     status: "For Sale",
     nationalities: ["Singaporean"],
     route: "banana",
