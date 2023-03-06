@@ -114,8 +114,10 @@ const Banner = (props: BannerProps) => {
     : "left";
   const totalItems: number = props.length ? props.length : 3;
   const mediaLength = totalItems - 1;
-
   let items = [];
+  const redirectToUrl = (url) => {
+    window.location.pathname = url;
+  }
   const content = (
     <Grid item xs={4} key="content">
       <CardContent className="Content">
