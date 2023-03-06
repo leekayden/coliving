@@ -152,13 +152,14 @@ export default function Gallery({ data, showNav }: GalleryProps) {
                     alt={data.title}
                     width={263}
                     height={148}
+                    sx={{ userSelect: "none" }}
                   />
                   <CardContent sx={{ flexGrow: 1 }} className="left">
                     <Typography
                       gutterBottom
                       variant="h5"
                       component="h2"
-                      style={{ userSelect: "none" }}
+                      sx={{ userSelect: "none" }}
                     >
                       {data.title}
                     </Typography>
