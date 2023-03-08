@@ -7,7 +7,7 @@ function QuadEqSolver() {
   const [c, setC] = useState("");
   const [result, setResult] = useState("");
 
-  function fractionFromDecimal(decimal) {
+  function fractionFromDecimal(decimal: number) {
     const gcd = (a, b) => {
       if (b === 0) {
         return a;
