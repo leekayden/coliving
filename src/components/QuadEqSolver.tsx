@@ -1,7 +1,7 @@
 import React, { useState } from "react";
 import TextField from '@mui/material/TextField';
 
-function QuadEdSolver() {
+function QuadEqSolver() {
   const [a, setA] = useState("");
   const [b, setB] = useState("");
   const [c, setC] = useState("");
@@ -33,4 +33,4 @@ function QuadEdSolver() {
   );
 }
 
-export default QuadEdSolver;
+export default QuadEqSolver;
