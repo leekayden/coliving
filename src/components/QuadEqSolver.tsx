@@ -8,7 +8,7 @@ function QuadEqSolver() {
   const [result, setResult] = useState("");
 
   const solveEquation = () => {
-    const discriminant = b * b - 4 * a * c;
+    const discriminant = b * b - 4 * Number(a) * Number(c);
     if (discriminant < 0) {
       setResult("No real solutions.");
     } else if (discriminant === 0) {
