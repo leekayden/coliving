@@ -17,13 +17,14 @@ function QuadEqSolver() {
     } else {
       const x1 = (-b + Math.sqrt(+discriminant)) / (2 * +a);
       const x2 = (-b - Math.sqrt(+discriminant)) / (2 * +a);
-      setResult(`x1 = ${x1}, x2 = ${x2}`);
+      setResult(`x1 = ${x1}, x2 = ${x2}, ${x1 = (-b + Math.sqrt(discriminant)) / (2 * a)}`);
     }
   };
 
   return (
     <div>
       <p>Enter in the form of ax^2 + bx + c</p>
+      <br />
       <TextField id="outlined-basic-a" label="a" variant="outlined" value={a} onChange={(e) => setA(e.target.value)} />
       <TextField id="outlined-basic-b" label="b" variant="outlined" value={b} onChange={(e) => setB(e.target.value)} />
       <TextField id="outlined-basic-c" label="c" variant="outlined" value={c} onChange={(e) => setC(e.target.value)} />
