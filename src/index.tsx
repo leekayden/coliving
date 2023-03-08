@@ -14,6 +14,7 @@ import SignUp from "./components/SignUp";
 import SignIn from "./components/Login";
 import Gallery from "./components/Gallery";
 import Blog from "./components/blog/Blog";
+import QuadEqSolver from "./components/QuadEqSolver";
 
 const router = createBrowserRouter([
   {
@@ -55,6 +56,10 @@ const router = createBrowserRouter([
   {
     path: "/solutions",
     element: <Blog />,
+  },
+  {
+    path: "/test",
+    element: <QuadEqSolver />,
   },
 ]);
 
