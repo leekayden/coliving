@@ -8,26 +8,29 @@ function QuadEqSolver() {
   const [result, setResult] = useState("");
 
   const solveEquation = () => {
-    if (a === "" || b === "" || c === "") {
-      setResult("Please enter valid values for a, b, and c.");
+    const numA = parseFloat(a as string);
+    const numB = parseFloat(b as string);
+    const numC = parseFloat(c as string);
+
+    if (isNaN(numA) || isNaN(numB) || isNaN(numC)) {
+      setResult("Please enter valid numbers for all fields.");
       return;
     }
 
-    const discriminant = b * b - 4 * +a * +c;
-
+    const discriminant = numB * numB - 4 * numA * numC;
     if (discriminant < 0) {
       setResult("No real solutions.");
     } else if (discriminant === 0) {
-      const x = -b / (2 * +a);
-      const equation = `${a}x^2${b < 0 ? '' : '+'}${b.toString()}x${c < 0 ? '' : '+'}${c.toString()}`;
+      const x = -numB / (2 * numA);
+      const equation = `(${numA}x^2${numB < 0 ? '' : '+'}${numB}x${numC < 0 ? '' : '+'}${numC})`;
       setResult(`x = (${x} + ${x}) = ${equation.replace('x', `(${x}+${x})`)}`);
     } else {
-      const x1 = (-b + Math.sqrt(discriminant)) / (2 * +a);
-      const x2 = (-b - Math.sqrt(discriminant)) / (2 * +a);
-      const equation = `${a}x^2${b < 0 ? '' : '+'}${b.toString()}x${c < 0 ? '' : '+'}${c.toString()}`;
-      setResult(`x = ${x1} or x = ${x2}\n${equation}`);
+      const x1 = (-numB + Math.sqrt(discriminant)) / (2 * numA);
+      const x2 = (-numB - Math.sqrt(discriminant)) / (2 * numA);
+      const equation = `(${numA}x^2${numB < 0 ? '' : '+'}${numB}x${numC < 0 ? '' : '+'}${numC})`;
+      setResult(`x = ${x1} or x = ${x2} = ${equation.replace('x', `(${x1}+${x2})`).replace('x', `${x1}+${x2}`)}`);
     }
-  };  
+  } 
 
   return (
     <div>
