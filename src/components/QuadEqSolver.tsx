@@ -8,15 +8,15 @@ function QuadEqSolver() {
   const [result, setResult] = useState("");
 
   const solveEquation = () => {
-    const discriminant = Number(b) * Number(b) - 4 * Number(a) * Number(c);
+    const discriminant = +b * +b - 4 * +a * +c;
     if (discriminant < 0) {
       setResult("No real solutions.");
     } else if (discriminant === 0) {
-      const x = (-b + Math.sqrt(discriminant)) / (2 * a);
+      const x = (-b + Math.sqrt(+discriminant)) / (2 * +a);
       setResult(`x = ${x}`);
     } else {
-      const x1 = (-b + Math.sqrt(discriminant)) / (2 * a);
-      const x2 = (-b - Math.sqrt(discriminant)) / (2 * a);
+      const x1 = (-b + Math.sqrt(+discriminant)) / (2 * +a);
+      const x2 = (-b - Math.sqrt(+discriminant)) / (2 * +a);
       setResult(`x1 = ${x1}, x2 = ${x2}`);
     }
   };
