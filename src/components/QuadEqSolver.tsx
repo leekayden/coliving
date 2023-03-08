@@ -12,14 +12,16 @@ function QuadEqSolver() {
     if (discriminant < 0) {
       setResult("No real solutions.");
     } else if (discriminant === 0) {
-      const x = (-b + Math.sqrt(+discriminant)) / (2 * +a);
-      setResult(`x = ${x}`);
+      const x = -b / (2 * +a);
+      const equation = `${a}x^2${b < 0 ? '' : '+'}${b}x${c < 0 ? '' : '+'}${c}`;
+      setResult(`x = (${x} + ${x}) = ${equation.replace('x', `(${x}+${x})`)}`);
     } else {
-      const x1 = (-b + Math.sqrt(+discriminant)) / (2 * +a);
-      const x2 = (-b - Math.sqrt(+discriminant)) / (2 * +a);
-      setResult(`x1 = ${x1}, x2 = ${x2}`);
+      const x1 = (-b + Math.sqrt(discriminant)) / (2 * +a);
+      const x2 = (-b - Math.sqrt(discriminant)) / (2 * +a);
+      const equation = `${a}x^2${b < 0 ? '' : '+'}${b}x${c < 0 ? '' : '+'}${c}`;
+      setResult(`x = (${x1} + ${x2}) = ${equation.replace('x', `(${x1}+${x2})`)}`);
     }
-  };
+  };  
 
   return (
     <div>
