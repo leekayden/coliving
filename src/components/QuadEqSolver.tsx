@@ -7,6 +7,22 @@ function QuadEqSolver() {
   const [c, setC] = useState("");
   const [result, setResult] = useState("");
 
+  function fractionFromDecimal(decimal) {
+    const gcd = (a, b) => {
+      if (b === 0) {
+        return a;
+      }
+      return gcd(b, a % b);
+    };
+    const precision = 1000000;
+    let num = Math.round(decimal * precision);
+    let den = precision;
+    const divisor = gcd(num, den);
+    num /= divisor;
+    den /= divisor;
+    return `${num}/${den}`;
+  }
+
   const solveEquation = () => {
     const discriminant = +b * +b - 4 * +a * +c;
     if (discriminant < 0) {
@@ -17,13 +33,14 @@ function QuadEqSolver() {
     } else {
       const x1 = (-b + Math.sqrt(+discriminant)) / (2 * +a);
       const x2 = (-b - Math.sqrt(+discriminant)) / (2 * +a);
-      setResult(`x1 = ${x1}, x2 = ${x2}`);
+      setResult(`x1 = ${x1}, x2 = ${x2}, ${fractionFromDecimal(x1)}`);
     }
   };
 
   return (
     <div>
       <p>Enter in the form of ax^2 + bx + c</p>
+      <br/>
       <TextField id="outlined-basic-a" label="a" variant="outlined" value={a} onChange={(e) => setA(e.target.value)} />
       <TextField id="outlined-basic-b" label="b" variant="outlined" value={b} onChange={(e) => setB(e.target.value)} />
       <TextField id="outlined-basic-c" label="c" variant="outlined" value={c} onChange={(e) => setC(e.target.value)} />
