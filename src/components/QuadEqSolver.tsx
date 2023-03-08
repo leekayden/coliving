@@ -8,7 +8,7 @@ const QuadraticEquationSolver = () => {
   const [result, setResult] = useState<string>("");
 
   const solveEquation = () => {
-    const discriminant = b * b - 4 * Number(a) * Number(c);
+    const discriminant = Number(b) * Number(b) - 4 * Number(a) * Number(c);
     if (discriminant < 0) {
       setResult("No real solutions.");
     } else if (discriminant === 0) {
