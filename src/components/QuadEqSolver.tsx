@@ -17,7 +17,7 @@ function QuadEqSolver() {
     } else {
       const x1 = (-b + Math.sqrt(+discriminant)) / (2 * +a);
       const x2 = (-b - Math.sqrt(+discriminant)) / (2 * +a);
-      setResult(`x1 = ${x1}, x2 = ${x2}, ${"-", (-b + Math.sqrt(discriminant)) / (2 * +a)}`);
+      setResult(`x1 = ${x1}, x2 = ${x2}, ${-1 * (-b + Math.sqrt(discriminant)) / (2 * +a)}`);
     }
   };
 
