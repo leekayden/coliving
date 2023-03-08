@@ -8,23 +8,22 @@ function QuadEqSolver() {
   const [result, setResult] = useState("");
 
   const solveEquation = () => {
-    const discriminant = b * b - 4 * Number(a) * Number(c);
+    const discriminant = Number(b) * Number(b) - 4 * Number(a) * Number(c);
     if (discriminant < 0) {
       setResult("No real solutions.");
     } else if (discriminant === 0) {
-      const x = -b / (2 * +a);
-      const equation = `${a}x^2${b < 0 ? "" : "+"}${b}x${c < 0 ? "" : "+"}${c}`;
+      const x = -Number(b) / (2 * Number(a));
+      const equation = `${Number(a)}x^2${Number(b) < 0 ? "" : "+"}${Number(
+        b
+      )}x${Number(c) < 0 ? "" : "+"}${Number(c)}`;
       setResult(`x = (${x} + ${x}) = ${equation.replace("x", `(${x}+${x})`)}`);
     } else {
-      const x1 = (-b + Math.sqrt(discriminant)) / (2 * +a);
-      const x2 = (-b - Math.sqrt(discriminant)) / (2 * +a);
-      const equation = `${a}x^2${b < 0 ? "" : "+"}${b}x${c < 0 ? "" : "+"}${c}`;
-      setResult(
-        `x = (${x1} , ${x2}) = ${equation.replace(
-          "x",
-          `(${x1.toFixed(2)},${x2.toFixed(2)})`
-        )}`
-      );
+      const x1 = (-Number(b) + Math.sqrt(discriminant)) / (2 * Number(a));
+      const x2 = (-Number(b) - Math.sqrt(discriminant)) / (2 * Number(a));
+      const equation = `${Number(a)}x^2${Number(b) < 0 ? "" : "+"}${Number(
+        b
+      )}x${Number(c) < 0 ? "" : "+"}${Number(c)}`;
+      setResult(`x1 = ${x1}, x2 = ${x2} => ${equation}`);
     }
   };
 
