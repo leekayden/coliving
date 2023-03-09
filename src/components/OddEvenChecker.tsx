@@ -5,9 +5,9 @@ function OddEvenChecker() {
 
   const checkOddEven = () => {
     if (number === "") {
-      alert("Please enter a number.");
-    } else if (isNaN(+number)) {
-      alert("Please enter a valid number.");
+      alert("Please enter an integer.");
+    } else if (isNaN(+number) || !Number.isInteger(number)) {
+      alert("Please enter a valid integer.");
     } else if (number === 0) {
       alert("The number is even. P.S. the identity of 0 is under debate, but for now, it's even.")
     } else {
