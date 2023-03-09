@@ -17,6 +17,7 @@ import Blog from "./components/blog/Blog";
 import QuadEqSolver from "./components/QuadEqSolver";
 import OddEvenChecker from "./components/OddEvenChecker";
 import MultipleChecker from "./components/MultipleChecker";
+import SimultaneousEquations from "./components/SimulSolver";
 
 const router = createBrowserRouter([
   {
@@ -74,6 +75,10 @@ const router = createBrowserRouter([
   {
     path: "/tools/math/multiple",
     element: <MultipleChecker />,
+  },
+  {
+    path: "/tools/math/simul",
+    element: <SimultaneousEquations />,
   },
 ]);
 
