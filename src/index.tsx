@@ -104,13 +104,13 @@ function Root({ lightTheme, darkTheme }: RootProps) {
   );
 }
 
-const lightTheme = createTheme({
+let lightTheme = createTheme({
   palette: {
     mode: 'light',
   },
 });
 
-const darkTheme = createTheme({
+let darkTheme = createTheme({
   palette: {
     mode: 'dark',
   },
