@@ -122,13 +122,24 @@ const SimultaneousEquations: React.FC = () => {
           mt: 4,
         }}
       >
-        <TextField
+        {/* <TextField
           label="Equation 1 (ax + by = c)"
           variant="outlined"
           size="small"
           type="number"
           value={equations.a}
           onChange={(e) => handleChange(e, "a")}
+          sx={{ mb: 1 }}
+        /> */}
+        <TextField
+          label="Equation 1 (ax + by = c)"
+          variant="outlined"
+          size="small"
+          type="number"
+          value={equations.a}
+          onChange={(e) =>
+            handleChange(e as React.ChangeEvent<HTMLInputElement>, "a")
+          }
           sx={{ mb: 1 }}
         />
         <TextField
