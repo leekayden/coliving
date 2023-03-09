@@ -1,165 +1,150 @@
 import React, { useState } from "react";
 import {
+  TextField,
+  Select,
+  MenuItem,
+  InputLabel,
+  FormControl,
   Box,
   Button,
-  FormControl,
-  FormControlLabel,
-  FormLabel,
-  Radio,
-  RadioGroup,
-  TextField,
-  Typography,
 } from "@mui/material";
 
-interface SimultaneousEquationsProps {}
+interface Equation {
+  a: number;
+  b: number;
+  c: number;
+}
 
-const SimultaneousEquations: React.FC<SimultaneousEquationsProps> = ({}) => {
-  const [equation1, setEquation1] = useState("");
-  const [equation2, setEquation2] = useState("");
+const SimultaneousEquationSolver: React.FC = () => {
+  const [equation1, setEquation1] = useState<Equation>({ a: 0, b: 0, c: 0 });
+  const [equation2, setEquation2] = useState<Equation>({ a: 0, b: 0, c: 0 });
   const [method, setMethod] = useState<"elimination" | "substitution">(
     "elimination"
   );
-  const [solution, setSolution] = useState<string>("");
+  const [solution, setSolution] = useState("");
 
-  const solveEquations = () => {
-    let x: number, y: number;
-    let steps: string[] = [];
-
-    // Parse equations into the form ax + by = c
-    const [a1, b1, c1] = parseEquation(equation1);
-    const [a2, b2, c2] = parseEquation(equation2);
-
-    if (method === "elimination") {
-      // Solve using elimination method
-      if (a1 / a2 !== b1 / b2) {
-        // Eliminate x variable
-        const factor = a2 / a1;
-        let newB2 = b2 - b1 * factor;
-        const newC2 = c2 - c1 * factor;
-        steps.push(`Multiply equation 1 by ${factor} and subtract from equation 2:`);
-        steps.push(`${a2}x + ${newB2}y = ${newC2}`);
-        // Solve for y variable
-        y = newC2 / newB2;
-        steps.push(`Solve for y: y = ${y}`);
-        // Solve for x variable
-        x = (c1 - b1 * y) / a1;
-        steps.push(`Solve for x: x = ${x}`);
-      } else {
-        setSolution("Cannot use elimination method here :(");
-        return;
-      }
+  const handleInputChange = (
+    e: React.ChangeEvent<HTMLInputElement>,
+    equationIndex: number,
+    coeffName: keyof Equation
+  ) => {
+    const value = parseFloat(e.target.value);
+    if (isNaN(value)) return;
+    if (equationIndex === 0) {
+      setEquation1({ ...equation1, [coeffName]: value });
     } else {
-      // Solve using substitution method
-      if (a1 !== 0 && a2 !== 0 && b1 / a1 !== b2 / a2) {
-        // Solve for y variable in equation 1
-        const y1 = (c1 - a1 * x) / b1;
-        steps.push(`Solve equation 1 for y: y = ${y1}`);
-        // Substitute y variable into equation 2
-        const eq2 = b2 * x + a2 * y1 - c2;
-        steps.push(`Substitute y into equation 2: ${eq2} = 0`);
-        // Solve for x variable
-        x = eq2 / a2;
-        steps.push(`Solve for x: x = ${x}`);
-        // Solve for y variable
-        y = y1;
-        steps.push(`Substitute x into equation 1: ${a1}x + ${b1}y = ${c1}`);
-        steps.push(`Solve for y: y = ${y}`);
-      } else {
-        setSolution("Cannot use substitution method");
-        return;
-      }
+      setEquation2({ ...equation2, [coeffName]: value });
     }
-
-    // Display solution
-    setSolution(
-      `Solution: x = ${x.toFixed(2)}, y = ${y.toFixed(
-        2
-      )}\n\nSteps:\n${steps.join("\n")}`
-    );
   };
 
-  const parseEquation = (equation: string): [number, number, number] => {
-    // Split equation into terms
-    const terms = equation.split(/(?=[+-])/);
-    // Parse each term into coefficient and variable
-    const [a, b, c] = terms.map((term) => {
-      const coefficient = term.match(/[-]?\d+/)
-        ? parseInt(term.match(/[-]?\d+/)![0])
-        : 1;
-      const variable = term.includes("x") ? "x" : "y";
-      return variable === "x"
-        ? coefficient
-        : variable === "y"
-        ? coefficient
-        : 0;
-    });
-    return [a, b, c];
+  const solveEquations = () => {
+    let solutionText = "";
+    let x = 0;
+    let y = 0;
+
+    if (method === "elimination") {
+      const coefficientRatio = equation1.a / equation2.a;
+      const elimCoeff = coefficientRatio * equation2.b;
+      const newEquation2 = { a: equation2.a, b: equation2.b, c: equation2.c };
+      newEquation2.b = newEquation2.b * coefficientRatio;
+      newEquation2.c = newEquation2.c * coefficientRatio;
+
+      const elimEquation = { a: equation1.a, b: equation1.b, c: equation1.c };
+      elimEquation.b = elimEquation.b - newEquation2.b;
+      elimEquation.c = elimEquation.c - newEquation2.c;
+
+      y = elimEquation.c / elimEquation.b;
+      x = (equation1.c - equation1.b * y) / equation1.a;
+    } else {
+      x =
+        (equation1.c - equation1.b * (equation2.c / equation2.b)) /
+        (equation1.a - equation1.b * (equation2.a / equation2.b));
+      y = (equation2.c - equation2.a * x) / equation2.b;
+    }
+
+    solutionText = `x = ${x}, y = ${y}`;
+
+    setSolution(solutionText);
   };
 
   return (
-    <Box sx={{ display: "flex", justifyContent: "center", mt: 10 }}>
-      <Box
-        sx={{
-          display: "flex",
-          flexDirection: "column",
-          alignItems: "center",
-          width: "80%",
-        }}
-      >
-        <Typography variant="h4" mb={4}>
-          Simultaneous Equations Solver
-        </Typography>
-        <FormControl component="fieldset" sx={{ mb: 4 }}>
-          <FormLabel component="legend">Select method:</FormLabel>
-          <RadioGroup
-            row
-            aria-label="method"
-            name="method"
+    <Box display="flex" flexDirection="column" alignItems="center">
+      <h2>Simultaneous Equation Solver</h2>
+      <Box display="flex" justifyContent="center" mb={2}>
+        <FormControl sx={{ m: 1, minWidth: 120 }}>
+          <InputLabel>Method</InputLabel>
+          <Select
             value={method}
-            onChange={(e) => setMethod(e.target.value as any)}
+            onChange={(e) =>
+              setMethod(e.target.value as "elimination" | "substitution")
+            }
           >
-            <FormControlLabel
-              value="elimination"
-              control={<Radio />}
-              label="Elimination"
-            />
-            <FormControlLabel
-              value="substitution"
-              control={<Radio />}
-              label="Substitution"
-            />
-          </RadioGroup>
+            <MenuItem value="elimination">Elimination</MenuItem>
+            <MenuItem value="substitution">Substitution</MenuItem>
+          </Select>
         </FormControl>
-        <FormControl sx={{ width: "100%", mb: 4 }}>
+      </Box>
+      <Box display="flex" justifyContent="space-around" mb={2} width="100%">
+        <Box>
           <TextField
-            label="Equation 1"
+            label="Equation 1 - Coefficient of x"
+            type="number"
             variant="outlined"
-            placeholder="Enter equation"
-            value={equation1}
-            onChange={(e) => setEquation1(e.target.value)}
+            value={equation1.a}
+            onChange={(e) => handleInputChange(e, 0, "a")}
           />
-        </FormControl>
-        <FormControl sx={{ width: "100%", mb: 4 }}>
           <TextField
-            label="Equation 2"
+            label="Equation 1 - Coefficient of y"
+            type="number"
             variant="outlined"
-            placeholder="Enter equation"
-            value={equation2}
-            onChange={(e) => setEquation2(e.target.value)}
+            value={equation1.b}
+            onChange={(e) => handleInputChange(e, 0, "b")}
           />
-        </FormControl>
-        <Button variant="contained" onClick={solveEquations}>
-          Solve
-        </Button>
+          <TextField
+            label="Equation 1 - Constant"
+            type="number"
+            variant="outlined"
+            value={equation1.c}
+            onChange={(e) => handleInputChange(e, 0, "c")}
+          />
+        </Box>
+        <Box>
+          <TextField
+            label="Equation 2 - Coefficient of x"
+            type="number"
+            variant="outlined"
+            value={equation2.a}
+            onChange={(e) => handleInputChange(e, 1, "a")}
+          />
+          <TextField
+            label="Equation 2 - Coefficient of y"
+            type="number"
+            variant="outlined"
+            value={equation2.b}
+            onChange={(e) => handleInputChange(e, 1, "b")}
+          />
+          <TextField
+            label="Equation 2 - Constant"
+            type="number"
+            variant="outlined"
+            value={equation2.c}
+            onChange={(e) => handleInputChange(e, 1, "c")}
+          />
+        </Box>
+      </Box>
+      <Button variant="contained" onClick={solveEquations}>
+        Solve
+      </Button>
+      <Box mt={2}>
         {solution && (
-          <Box sx={{ mt: 4 }}>
-            <Typography variant="h6">Solution:</Typography>
-            <Typography sx={{ whiteSpace: "pre-line" }}>{solution}</Typography>
-          </Box>
+          <div>
+            <h3>Solution:</h3>
+            <p>{solution}</p>
+          </div>
         )}
       </Box>
     </Box>
   );
 };
 
-export default SimultaneousEquations;
+export default SimultaneousEquationSolver;
