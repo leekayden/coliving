@@ -45,7 +45,7 @@ const SimultaneousEquations: React.FC<SimultaneousEquationsProps> = ({}) => {
         x = (c1 - b1 * y) / a1;
         steps.push(`Solve for x: x = ${x}`);
       } else {
-        setSolution("Cannot use elimination method");
+        setSolution("Cannot use elimination method here :(");
         return;
       }
     } else {
