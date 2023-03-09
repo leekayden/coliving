@@ -20,7 +20,7 @@ function OddEvenChecker() {
         type="number"
         placeholder="Enter a number"
         value={number}
-        onChange={(e) => setNumber(e.target.value)}
+        onChange={(e) => setNumber(Number(e.target.value))}
       />
       <button onClick={checkOddEven}>Check</button>
     </div>
