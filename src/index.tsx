@@ -16,6 +16,7 @@ import Gallery from "./components/Gallery";
 import Blog from "./components/blog/Blog";
 import QuadEqSolver from "./components/QuadEqSolver";
 import OddEvenChecker from "./components/OddEvenChecker";
+import MultipleChecker from "./components/MultipleChecker";
 
 const router = createBrowserRouter([
   {
@@ -69,6 +70,10 @@ const router = createBrowserRouter([
   {
     path: "/tools/math/oddeven",
     element: <OddEvenChecker />,
+  },
+  {
+    path: "/tools/math/multiple",
+    element: <MultipleChecker />,
   },
 ]);
 
