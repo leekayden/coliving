@@ -147,7 +147,9 @@ const SimultaneousEquations: React.FC = () => {
           size="small"
           type="number"
           value={equations.b}
-          onChange={(e) => handleChange(e, "b")}
+          onChange={(e) =>
+            handleChange(e as React.ChangeEvent<HTMLInputElement>, "b")
+          }
           sx={{ mb: 1 }}
         />
         <TextField
@@ -155,7 +157,9 @@ const SimultaneousEquations: React.FC = () => {
           size="small"
           type="number"
           value={equations.c}
-          onChange={(e) => handleChange(e, "c")}
+          onChange={(e) =>
+            handleChange(e as React.ChangeEvent<HTMLInputElement>, "c")
+          }
           sx={{ mb: 2 }}
         />
         <TextField
@@ -164,7 +168,9 @@ const SimultaneousEquations: React.FC = () => {
           size="small"
           type="number"
           value={equations.d}
-          onChange={(e) => handleChange(e, "d")}
+          onChange={(e) =>
+            handleChange(e as React.ChangeEvent<HTMLInputElement>, "d")
+          }
           sx={{ mb: 1 }}
         />
         <TextField
@@ -172,7 +178,9 @@ const SimultaneousEquations: React.FC = () => {
           size="small"
           type="number"
           value={equations.e}
-          onChange={(e) => handleChange(e, "e")}
+          onChange={(e) =>
+            handleChange(e as React.ChangeEvent<HTMLInputElement>, "e")
+          }
           sx={{ mb: 1 }}
         />
         <TextField
@@ -180,7 +188,9 @@ const SimultaneousEquations: React.FC = () => {
           size="small"
           type="number"
           value={equations.f}
-          onChange={(e) => handleChange(e, "f")}
+          onChange={(e) =>
+            handleChange(e as React.ChangeEvent<HTMLInputElement>, "f")
+          }
           sx={{ mb: 2 }}
         />
         <Button variant="contained" onClick={solveEquations}>
