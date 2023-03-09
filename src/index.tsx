@@ -15,6 +15,7 @@ import SignIn from "./components/Login";
 import Gallery from "./components/Gallery";
 import Blog from "./components/blog/Blog";
 import QuadEqSolver from "./components/QuadEqSolver";
+import OddEvenChecker from "./components/OddEvenChecker";
 
 const router = createBrowserRouter([
   {
@@ -59,7 +60,15 @@ const router = createBrowserRouter([
   },
   {
     path: "/test",
+    element: <Navigate to="/tools/math" />,
+  },
+  {
+    path: "/tools/math/quadratic",
     element: <QuadEqSolver />,
+  },
+  {
+    path: "/tools/math/oddeven",
+    element: <OddEvenChecker />,
   },
 ]);
 
