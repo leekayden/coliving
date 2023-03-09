@@ -1,7 +1,7 @@
 import React, { useState } from "react";
-import TextField from '@mui/material/TextField';
+import TextField from "@mui/material/TextField";
 
-function QuadEqSolver() {
+function QuadEqSolverComponent() {
   const [a, setA] = useState("");
   const [b, setB] = useState("");
   const [c, setC] = useState("");
@@ -17,7 +17,11 @@ function QuadEqSolver() {
     } else {
       const x1 = (-b + Math.sqrt(+discriminant)) / (2 * +a);
       const x2 = (-b - Math.sqrt(+discriminant)) / (2 * +a);
-      setResult(`x1 = ${x1}, x2 = ${x2}, ${-1 * (-b + Math.sqrt(discriminant)) / (2 * +a)}`);
+      setResult(
+        `x1 = ${x1}, x2 = ${x2}, ${
+          (-1 * (-b + Math.sqrt(discriminant))) / (2 * +a)
+        }`
+      );
     }
   };
 
@@ -25,12 +29,45 @@ function QuadEqSolver() {
     <div>
       <p>Enter in the form of ax^2 + bx + c</p>
       <br />
-      <TextField id="outlined-basic-a" label="a" variant="outlined" value={a} onChange={(e) => setA(e.target.value)} />
-      <TextField id="outlined-basic-b" label="b" variant="outlined" value={b} onChange={(e) => setB(e.target.value)} />
-      <TextField id="outlined-basic-c" label="c" variant="outlined" value={c} onChange={(e) => setC(e.target.value)} />
+      <TextField
+        id="outlined-basic-a"
+        label="a"
+        variant="outlined"
+        value={a}
+        onChange={(e) => setA(e.target.value)}
+      />
+      <TextField
+        id="outlined-basic-b"
+        label="b"
+        variant="outlined"
+        value={b}
+        onChange={(e) => setB(e.target.value)}
+      />
+      <TextField
+        id="outlined-basic-c"
+        label="c"
+        variant="outlined"
+        value={c}
+        onChange={(e) => setC(e.target.value)}
+      />
       <button onClick={solveEquation}>Solve</button>
       <p>{result}</p>
     </div>
+  );
+}
+
+function QuadEqSolver() {
+  let checked = true;
+  return (
+    <Box sx={{ display: "flex" }}>
+      <Grow
+        in={checked}
+        style={{ transformOrigin: "0 0 0" }}
+        {...(checked ? { timeout: 1000 } : {})}
+      >
+        <QuadEqSolverComponent />
+      </Grow>
+    </Box>
   );
 }
 
