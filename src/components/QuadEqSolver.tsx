@@ -1,9 +1,9 @@
 import React, { useState } from "react";
 import TextField from "@mui/material/TextField";
-import Grow from '@mui/material/Grow';
-import Box from '@mui/material/Box';
+import Grow from "@mui/material/Grow";
+import Box from "@mui/material/Box";
 
-function QuadEqSolverComponent() {
+function QuadEqSolver() {
   const [a, setA] = useState("");
   const [b, setB] = useState("");
   const [c, setC] = useState("");
@@ -19,11 +19,7 @@ function QuadEqSolverComponent() {
     } else {
       const x1 = (-b + Math.sqrt(+discriminant)) / (2 * +a);
       const x2 = (-b - Math.sqrt(+discriminant)) / (2 * +a);
-      setResult(
-        `x1 = ${x1}, x2 = ${x2}, ${
-          (-1 * (-b + Math.sqrt(discriminant))) / (2 * +a)
-        }`
-      );
+      setResult(`x1 = ${x1}, x2 = ${x2}`);
     }
   };
 
@@ -55,21 +51,6 @@ function QuadEqSolverComponent() {
       <button onClick={solveEquation}>Solve</button>
       <p>{result}</p>
     </div>
-  );
-}
-
-function QuadEqSolver() {
-  let checked = true;
-  return (
-    <Box sx={{ display: "flex" }}>
-      <Grow
-        in={checked}
-        style={{ transformOrigin: "0 0 0" }}
-        {...(checked ? { timeout: 1000 } : {})}
-      >
-        <QuadEqSolverComponent />
-      </Grow>
-    </Box>
   );
 }
 
