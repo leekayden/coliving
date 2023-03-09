@@ -34,14 +34,12 @@ const SimultaneousEquations: React.FC<SimultaneousEquationsProps> = ({}) => {
       if (a1 / a2 !== b1 / b2) {
         // Eliminate x variable
         const factor = a2 / a1;
-        let b2 = b2 - b1 * factor;
-        const c2 = c2 - c1 * factor;
-        steps.push(
-          `Multiply equation 1 by ${factor} and subtract from equation 2:`
-        );
-        steps.push(`${a2}x + ${b2}y = ${c2}`);
+        let newB2 = b2 - b1 * factor;
+        const newC2 = c2 - c1 * factor;
+        steps.push(`Multiply equation 1 by ${factor} and subtract from equation 2:`);
+        steps.push(`${a2}x + ${newB2}y = ${newC2}`);
         // Solve for y variable
-        y = c2 / b2;
+        y = newC2 / newB2;
         steps.push(`Solve for y: y = ${y}`);
         // Solve for x variable
         x = (c1 - b1 * y) / a1;
