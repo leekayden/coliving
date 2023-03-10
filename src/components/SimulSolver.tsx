@@ -22,7 +22,7 @@ const SimultaneousEquations: React.FC = () => {
     f: 0,
   });
   const [method, setMethod] = useState<"elimination" | "substitution">(
-    "elimination"
+    "substitution"
   );
   const [solution, setSolution] = useState<{
     x: number | string;
