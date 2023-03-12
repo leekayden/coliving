@@ -18,6 +18,7 @@ import QuadEqSolver from "./components/QuadEqSolver";
 import OddEvenChecker from "./components/OddEvenChecker";
 import MultipleChecker from "./components/MultipleChecker";
 import SimultaneousEquationSolver from "./components/SimulSolver";
+import Tools from "./components/Tools"
 
 const router = createBrowserRouter([
   {
@@ -63,6 +64,10 @@ const router = createBrowserRouter([
   {
     path: "/test",
     element: <Navigate to="/tools/math" />,
+  },
+  {
+    path: "/tools",
+    element: <Tools />,
   },
   {
     path: "/tools/math/quadratic",

@@ -21,8 +21,8 @@ import Button from "@mui/material/Button";
 import SideBar from "./SideBar";
 import { useNavigate } from "react-router-dom";
 import { isHomeownerAccount } from "../global/data";
-import TextField from '@mui/material/TextField';
-import Autocomplete from '@mui/material/Autocomplete';
+import TextField from "@mui/material/TextField";
+import Autocomplete from "@mui/material/Autocomplete";
 
 const Search = styled("div")(({ theme }) => ({
   position: "relative",
@@ -104,6 +104,7 @@ export default function NavBar({ appname, isHomeOwner, noNav }: NavBarProps) {
     { path: "solutions", title: "Why Us?" },
     { path: "landlords", landlord: true },
     { path: "tenants", disabled: true },
+    { path: "tools" },
   ];
   const filteredLinks = links.filter((link) => !link.landlord);
   const [theme, setTheme] = React.useState("light");

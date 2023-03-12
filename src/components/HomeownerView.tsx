@@ -2,7 +2,6 @@ import NavBar from "./NavBar";
 import Typography from "@mui/material/Typography";
 import Divider from "@mui/material/Divider";
 import CreateProperty from "./CreateProperty";
-import HomeownerCard from "./HomeownerCard";
 import { PropertyList, isHomeownerAccount, ownerId } from "../global/data";
 import Error from "./Error";
 import { forbiddenErrorMsg } from "../global/definitions";

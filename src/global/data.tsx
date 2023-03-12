@@ -1,11 +1,10 @@
 export let ownerId = 0;
-export let isHomeownerAccount = true
-
-export let fName = "Adolf"
-export let lName = "Hitler"
-export let location = "Germany"
-export let email = "hitler@nazi.org"
-export let password = "AdolfTrain123"
+export let isHomeownerAccount = true;
+export let fName = "Adolf";
+export let lName = "Hitler";
+export let location = "Germany";
+export let email = "hitler@nazi.org";
+export let password = "AdolfTrain123";
 
 export let PropertyList = [
   {
@@ -70,6 +69,15 @@ export let PropertyList = [
   },
 ];
 
+export let ToolList = [
+  {
+    id: 1,
+    title: "Quadratic",
+    description: "Solve quadratic expressions",
+    route: "quadratic",
+  },
+];
+
 export type CarouselItemsType = {
   Name: string;
   Caption: string;
@@ -113,7 +121,8 @@ export const PropertyCarouselItems: PropertyCarouselItemsType[] = [
     description: "A PDF Reader specially designed for musicians.",
     color: "#64ACC8",
     href: "https://github.com/Learus/Lear-Music-Reader",
-    imgUrl: "https://res.cloudinary.com/kayden/image/upload/v1672909150/1-master_f3dj1n.jpg"
+    imgUrl:
+      "https://res.cloudinary.com/kayden/image/upload/v1672909150/1-master_f3dj1n.jpg",
   },
   {
     name: "Hash Code 2019",
@@ -121,22 +130,25 @@ export const PropertyCarouselItems: PropertyCarouselItemsType[] = [
       "My Solution on the 2019 Hash Code by Google Slideshow problem.",
     color: "#7D85B1",
     href: "https://github.com/Learus/HashCode2019",
-    imgUrl: "https://res.cloudinary.com/kayden/image/upload/v1672909158/1-livingroom_xhsgac.jpg"
+    imgUrl:
+      "https://res.cloudinary.com/kayden/image/upload/v1672909158/1-livingroom_xhsgac.jpg",
   },
   {
     name: "Terrio",
     description: "A exciting mobile game game made in the Unity Engine.",
     color: "#CE7E78",
     href: "https://play.google.com/store/apps/details?id=com.Brewery.Terrio",
-    imgUrl: "https://res.cloudinary.com/kayden/image/upload/v1672909150/1-master_f3dj1n.jpg"
+    imgUrl:
+      "https://res.cloudinary.com/kayden/image/upload/v1672909150/1-master_f3dj1n.jpg",
   },
   {
     name: "React Carousel",
     description: "A Generic carousel UI component for React using material ui.",
     color: "#C9A27E",
     href: "https://github.com/Learus/react-material-ui-carousel",
-    imgUrl: "https://res.cloudinary.com/kayden/image/upload/v1672909158/1-livingroom_xhsgac.jpg"
+    imgUrl:
+      "https://res.cloudinary.com/kayden/image/upload/v1672909158/1-livingroom_xhsgac.jpg",
   },
 ];
 
-export const enquireExternal = false
+export const enquireExternal = false;
