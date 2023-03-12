@@ -69,16 +69,25 @@ export let PropertyList = [
   },
 ];
 
-export let ToolList = [
+type ToolListType = {
+  id?: number;
+  title: string;
+  description?: string;
+  route?: string;
+  imgUrl?: string;
+}
+
+export let ToolList: ToolListType[] = [
   {
     id: 1,
     title: "Quadratic",
     description: "Solve quadratic expressions",
     route: "quadratic",
+    imgUrl: ""
   },
 ];
 
-export type CarouselItemsType = {
+type CarouselItemsType = {
   Name: string;
   Caption: string;
   contentPosition: "left" | "right" | "middle";
