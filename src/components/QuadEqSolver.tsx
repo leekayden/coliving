@@ -32,18 +32,25 @@ function QuadEqSolver() {
         alignItems: "center",
       }}
     >
-      <div>
+      <div
+        style={{
+          display: "flex",
+          flexDirection: "column",
+          alignItems: "center",
+          textAlign: "center",
+        }}
+      >
         <Typography variant="body1">
           Enter in the form of <Superscript text="ax" superscript="2" /> + bx +
           c
         </Typography>
-        <br />
         <TextField
           id="outlined-basic-a"
           label="a"
           variant="outlined"
           value={a}
           onChange={(e) => setA(e.target.value)}
+          style={{ display: "block", marginBottom: "10px" }}
         />
         <TextField
           id="outlined-basic-b"
@@ -51,6 +58,7 @@ function QuadEqSolver() {
           variant="outlined"
           value={b}
           onChange={(e) => setB(e.target.value)}
+          style={{ display: "block", marginBottom: "10px" }}
         />
         <TextField
           id="outlined-basic-c"
@@ -58,6 +66,7 @@ function QuadEqSolver() {
           variant="outlined"
           value={c}
           onChange={(e) => setC(e.target.value)}
+          style={{ display: "block", marginBottom: "10px" }}
         />
         <Button onClick={solveEquation} variant="contained">
           Solve

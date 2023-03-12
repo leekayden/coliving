@@ -2,13 +2,14 @@ import { ReactComponentType } from "../global/data";
 import ToolViewBar from "./ToolViewBar";
 
 interface ToolViewProps {
+  title?: string;
   component: ReactComponentType;
 }
 
-function ToolView({ component: Component }: ToolViewProps) {
+function ToolView({ component: Component, title }: ToolViewProps) {
   return (
     <div>
-      <ToolViewBar />
+      <ToolViewBar title={title} />
       <br />
       <Component />
     </div>

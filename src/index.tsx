@@ -17,6 +17,7 @@ import Blog from "./components/blog/Blog"
 import Tools from "./components/Tools"
 import { ToolList } from "./global/data";
 import ToolView from "./components/ToolView";
+import YouTubeDownloader from "./components/YoutubeDownloader";
 
 const router = createBrowserRouter([
   {
@@ -69,8 +70,12 @@ const router = createBrowserRouter([
   },
   ...ToolList.map((item) => ({
     path: `/tools/${item.cat}/${item.route}`,
-    element: <ToolView component={item.component} />
+    element: <ToolView component={item.component} title={item.title} />
   })),
+  {
+    path: "/test",
+    element: <YouTubeDownloader />,
+  },
 ]);
 
 interface RootProps {
