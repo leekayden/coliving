@@ -61,10 +61,6 @@ const router = createBrowserRouter([
     element: <Blog />,
   },
   {
-    path: "/test",
-    element: <Navigate to="/tools/math" />,
-  },
-  {
     path: "/tools",
     element: <Tools />,
   },
@@ -74,7 +70,7 @@ const router = createBrowserRouter([
   })),
   {
     path: "/test",
-    element: <YouTubeDownloader />,
+    element: <YouTubeDownloader videoId="hOdnfnJGQQg" />,
   },
 ]);
 
