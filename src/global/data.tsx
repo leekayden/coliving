@@ -69,25 +69,35 @@ export let PropertyList = [
   },
 ];
 
+export type ReactComponentType =
+  | React.FunctionComponent<any>
+  | React.ComponentClass<any, any>;
+
 type ToolListType = {
-  id?: number;
   title: string;
   description?: string;
+  cat: "math";
   route?: string;
   imgUrl?: string;
-}
+  component?: ReactComponentType;
+};
 
 export let ToolList: ToolListType[] = [
   {
-    id: 1,
     title: "Quadratic",
     description: "Solve quadratic expressions",
+    cat: "math",
     route: "quadratic",
-    imgUrl: ""
+  },
+  {
+    title: "Even or Odd",
+    description: "Find out if a number is even or odd",
+    cat: "math",
+    route: "oddeven",
   },
 ];
 
-type CarouselItemsType = {
+export type CarouselItemsType = {
   Name: string;
   Caption: string;
   contentPosition: "left" | "right" | "middle";
