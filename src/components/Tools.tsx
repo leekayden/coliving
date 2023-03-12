@@ -8,32 +8,40 @@ import Grid from "@mui/material/Grid";
 import { CardActionArea } from "@mui/material";
 import { ToolList } from "../global/data";
 
-export default function ActionAreaCard() {
+export default function Tools() {
   return (
     <div>
       <NavBar />
       <br />
-      <Container sx={{ py: 8, border: 5, borderColor: 'primary.main', borderRadius: 10 }} maxWidth="md">
+      <Container
+        sx={{ py: 8, border: 5, borderColor: "primary.main", borderRadius: 10 }}
+        maxWidth="md"
+      >
         <Grid container>
-          <Card raised sx={{ maxWidth: 345 }}>
-            <CardActionArea>
-              <CardMedia
-                component="img"
-                height="140"
-                image="/static/images/cards/contemplative-reptile.jpg"
-                alt="green iguana"
-              />
-              <CardContent>
-                <Typography gutterBottom variant="h5" component="div">
-                  Lizard
-                </Typography>
-                <Typography variant="body2" color="text.secondary">
-                  Lizards are a widespread group of squamate reptiles, with over
-                  6,000 species, ranging across all continents except Antarctica
-                </Typography>
-              </CardContent>
-            </CardActionArea>
-          </Card>
+          {ToolList.map((data) => {
+            return (
+              <Grid item xs={12} md={6} lg={4} key={data.id}>
+                <Card sx={{ height: "100%", display: "flex", flexDirection: "column" }}>
+                  <CardActionArea>
+                    <CardMedia
+                      component="img"
+                      height="140"
+                    //   image={data.imageUrl}
+                      alt={data.title}
+                    />
+                    <CardContent sx={{ flexGrow: 1 }}>
+                      <Typography gutterBottom variant="h5" component="div">
+                        {data.title}
+                      </Typography>
+                      <Typography variant="body2" color="text.secondary">
+                        {data.description}
+                      </Typography>
+                    </CardContent>
+                  </CardActionArea>
+                </Card>
+              </Grid>
+            );
+          })}
         </Grid>
       </Container>
     </div>
