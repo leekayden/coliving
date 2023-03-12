@@ -13,12 +13,10 @@ import Settings from "./components/Settings";
 import SignUp from "./components/SignUp";
 import SignIn from "./components/Login";
 import Gallery from "./components/Gallery";
-import Blog from "./components/blog/Blog";
-import QuadEqSolver from "./components/QuadEqSolver";
-import OddEvenChecker from "./components/OddEvenChecker";
-import MultipleChecker from "./components/MultipleChecker";
-import SimultaneousEquationSolver from "./components/SimulSolver";
+import Blog from "./components/blog/Blog"
 import Tools from "./components/Tools"
+import { ToolList } from "./global/data";
+import ToolView from "./components/ToolView";
 
 const router = createBrowserRouter([
   {
@@ -32,6 +30,10 @@ const router = createBrowserRouter([
   {
     path: "/landlords/dashboard",
     element: <HomeownerView />,
+  },
+  {
+    path: "/properties",
+    element: <Gallery data={PropertyList} showNav />,
   },
   ...PropertyList.map((item) => ({
     path: `/properties/${item.route}`,
@@ -54,10 +56,6 @@ const router = createBrowserRouter([
     element: <SignIn />,
   },
   {
-    path: "/properties",
-    element: <Gallery data={PropertyList} showNav />,
-  },
-  {
     path: "/solutions",
     element: <Blog />,
   },
@@ -69,22 +67,10 @@ const router = createBrowserRouter([
     path: "/tools",
     element: <Tools />,
   },
-  {
-    path: "/tools/math/quadratic",
-    element: <QuadEqSolver />,
-  },
-  {
-    path: "/tools/math/oddeven",
-    element: <OddEvenChecker />,
-  },
-  {
-    path: "/tools/math/multiple",
-    element: <MultipleChecker />,
-  },
-  {
-    path: "/tools/math/simul",
-    element: <SimultaneousEquationSolver />,
-  },
+  ...ToolList.map((item) => ({
+    path: `/tools/${item.cat}/${item.route}`,
+    element: <ToolView component={item.component} />
+  })),
 ]);
 
 interface RootProps {

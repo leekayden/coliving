@@ -1,3 +1,8 @@
+import QuadEqSolver from "../components/QuadEqSolver";
+import OddEvenChecker from "../components/OddEvenChecker";
+import MultipleChecker from "../components/MultipleChecker";
+import SimultaneousEquationSolver from "../components/SimulSolver";
+
 export let ownerId = 0;
 export let isHomeownerAccount = true;
 export let fName = "Adolf";
@@ -79,7 +84,7 @@ type ToolListType = {
   cat: "math";
   route?: string;
   imgUrl?: string;
-  component?: ReactComponentType;
+  component: ReactComponentType;
 };
 
 export let ToolList: ToolListType[] = [
@@ -88,12 +93,28 @@ export let ToolList: ToolListType[] = [
     description: "Solve quadratic expressions",
     cat: "math",
     route: "quadratic",
+    component: QuadEqSolver,
   },
   {
     title: "Even or Odd",
     description: "Find out if a number is even or odd",
     cat: "math",
     route: "oddeven",
+    component: OddEvenChecker,
+  },
+  {
+    title: "Multiple Checker",
+    description: "Find out if a number is a multiple of another number",
+    cat: "math",
+    route: "multiple",
+    component: MultipleChecker,
+  },
+  {
+    title: "Simultaneous Equations",
+    description: "Solve simultaneous equations (BETA). This is not functional yet.",
+    cat: "math",
+    route: "simul",
+    component: SimultaneousEquationSolver,
   },
 ];
 

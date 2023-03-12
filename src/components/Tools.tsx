@@ -15,10 +15,17 @@ export default function Tools() {
       <NavBar />
       <br />
       <Container
-        sx={{ py: 8, border: 5, borderColor: "primary.main", borderRadius: 10 }}
+        sx={{
+          display: "flex",
+          justifyContent: "center",
+          py: 8,
+          border: 5,
+          borderColor: "primary.main",
+          borderRadius: 10,
+        }}
         maxWidth="md"
       >
-        <Grid container spacing={2}>
+        <Grid container spacing={2} justifyContent="center">
           {ToolList.map((data) => (
             <Grid item xs={12} md={6} lg={4} key={data.title}>
               <Link
