@@ -1,7 +1,7 @@
 import React from "react";
-import UserInformation from "./UserInfo";
+import UserInfo from "./UserInfo";
 
-const App: React.FC = () => {
+const CallUserInfo: React.FC = () => {
   const [userAgent, setUserAgent] = React.useState("");
   const [ipAddress, setIpAddress] = React.useState("");
   const [screenWidth, setScreenWidth] = React.useState(0);
@@ -48,7 +48,7 @@ const App: React.FC = () => {
 
   return (
     <div>
-      <UserInformation
+      <UserInfo
         userAgent={userAgent}
         ipAddress={ipAddress}
         screenWidth={screenWidth}
@@ -60,4 +60,4 @@ const App: React.FC = () => {
   );
 };
 
-export default App;
+export default CallUserInfo;
