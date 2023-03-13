@@ -133,6 +133,13 @@ export let ToolList: ToolListType[] = [
     route: "add",
     component: AddNo,
   },
+  {
+    title: "Display Numbers",
+    description: "Displays the number of numbers keyed in",
+    cat: "math",
+    route: "display",
+    component: DisplayNo,
+  },
 ];
 
 export type CarouselItemsType = {
