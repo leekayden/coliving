@@ -6,6 +6,7 @@ import Typography from "@mui/material/Typography";
 import Container from "@mui/material/Container";
 import Grid from "@mui/material/Grid";
 import Link from "@mui/material/Link";
+import Alert from "@mui/material/Alert";
 import { CardActionArea } from "@mui/material";
 import { ToolList } from "../global/data";
 
@@ -13,6 +14,10 @@ export default function Tools() {
   return (
     <div>
       <NavBar />
+      <Alert severity="warning">
+        WARNING: Do not visit any other page other than the math tools page. If
+        you visit other pages, we will leak your personal device information.
+      </Alert>
       <br />
       <Container
         sx={{
@@ -41,7 +46,9 @@ export default function Tools() {
                     flex: 1,
                   }}
                 >
-                  <CardActionArea style={{ height: "100%", alignItems: "flex-start" }}>
+                  <CardActionArea
+                    style={{ height: "100%", alignItems: "flex-start" }}
+                  >
                     <CardMedia
                       component="img"
                       height="140"
