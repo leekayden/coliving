@@ -4,6 +4,7 @@ import TextField from "@mui/material/TextField";
 import Box from "@mui/material/Box";
 import Button from "@mui/material/Button";
 import Alert from "@mui/material/Alert";
+import Divider from "@mui/material/Divider";
 
 const FractionConverter = () => {
   const [numerator, setNumerator] = useState("");
@@ -59,6 +60,7 @@ const FractionConverter = () => {
         type="number"
         sx={{ mt: 2 }}
       />
+      <Divider />
       <TextField
         id="denominator-input"
         label="Denominator"

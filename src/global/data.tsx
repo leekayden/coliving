@@ -143,8 +143,8 @@ export let ToolList: ToolListType[] = [
     component: DisplayNo,
   },
   {
-    title: "Rational Number Converter",
-    description: "Converts any rational number into simplest fraction",
+    title: "Fraction Simplifier",
+    description: "Simplifies fraction",
     cat: "math",
     route: "fraction-converter",
     component: FractionConverter,
