@@ -72,7 +72,8 @@ function QuadEqSolver() {
           Solve
         </Button>
         <Typography variant="body1">
-          {isNaN(+result) ? "Not a number!" : result}
+          {/* {isNaN(+result) ? "Not a number!" : result} */}
+          {result}
         </Typography>
       </div>
     </div>
