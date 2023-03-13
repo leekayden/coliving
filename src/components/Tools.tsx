@@ -38,6 +38,7 @@ export default function Tools() {
                     height: "100%",
                     display: "flex",
                     flexDirection: "column",
+                    flex: 1,
                   }}
                 >
                   <CardActionArea style={{ height: "100%" }}>
