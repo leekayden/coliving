@@ -16,7 +16,7 @@ const CallUserInfo: React.FC = () => {
       .then((response) => response.json())
       .then((data) => setIpAddress(data.ip));
 
-    // Get the screen size
+    // Get screen size
     setScreenWidth(window.screen.width);
     setScreenHeight(window.screen.height);
   }, []);
