@@ -1,5 +1,14 @@
 import React from "react";
-import { Box, Table, TableBody, TableCell, TableContainer, TableHead, TableRow } from "@mui/material";
+import {
+  Box,
+  Table,
+  TableBody,
+  TableCell,
+  TableContainer,
+  TableHead,
+  TableRow,
+  Typography,
+} from "@mui/material";
 
 interface UserInformationProps {
   userAgent: string;
@@ -20,6 +29,7 @@ const UserInformation: React.FC<UserInformationProps> = ({
 }) => {
   return (
     <Box sx={{ maxWidth: 800, margin: "auto" }}>
+      <Typography variant="h3">We use this information for research purposes</Typography>
       <TableContainer>
         <Table>
           <TableHead>
@@ -39,11 +49,17 @@ const UserInformation: React.FC<UserInformationProps> = ({
             </TableRow>
             <TableRow>
               <TableCell>Screen size</TableCell>
-              <TableCell>{screenWidth}px x {screenHeight}px</TableCell>
+              <TableCell>
+                {screenWidth}px x {screenHeight}px
+              </TableCell>
             </TableRow>
             <TableRow>
               <TableCell>Location</TableCell>
-              <TableCell>{city && country ? `${city}, ${country}` : "Unknown"}</TableCell>
+              <TableCell>
+                {city && country
+                  ? `${city}, ${country}`
+                  : "Information not available"}
+              </TableCell>
             </TableRow>
           </TableBody>
         </Table>
