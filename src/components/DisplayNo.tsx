@@ -8,7 +8,7 @@ const NumberCounter = () => {
 
   const handleInputChange = (event: React.ChangeEvent<HTMLInputElement>) => {
     const input = event.target.value;
-    const regex = /[0-9]+/g;
+    const regex = /[0-9]/g;
     const matches = input.match(regex);
     const numbersCount = matches ? matches.length : 0;
     setCount(numbersCount);
