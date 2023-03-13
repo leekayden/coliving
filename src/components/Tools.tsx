@@ -1,4 +1,3 @@
-import NavBar from "./NavBar";
 import Card from "@mui/material/Card";
 import CardContent from "@mui/material/CardContent";
 import CardMedia from "@mui/material/CardMedia";
@@ -9,11 +8,12 @@ import Link from "@mui/material/Link";
 import Alert from "@mui/material/Alert";
 import { CardActionArea } from "@mui/material";
 import { ToolList } from "../global/data";
+import ToolViewBar from "./ToolViewBar";
 
 export default function Tools() {
   return (
     <div>
-      <NavBar />
+      <ToolViewBar />
       <Alert severity="warning">
         WARNING: Do not visit any other page other than the math tools page. If
         you visit other pages, we will leak your personal device information.
