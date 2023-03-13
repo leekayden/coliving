@@ -50,6 +50,8 @@ const CallUserInfo: React.FC = () => {
       ipAddress={ipAddress}
       screenWidth={screenWidth}
       screenHeight={screenHeight}
+      city={city}
+      country={country}
     />
   );
 };
