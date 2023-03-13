@@ -1,5 +1,5 @@
 import React from "react";
-import UserInformation from "./UserInformation";
+import UserInformation from "./UserInfo";
 
 const CallUserInfo: React.FC = () => {
   const [userAgent, setUserAgent] = React.useState<string>("");
