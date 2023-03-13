@@ -112,6 +112,13 @@ export let ToolList: ToolListType[] = [
     component: MultipleChecker,
   },
   {
+    title: "Multiple Checker (2)",
+    description: "Find out if a number is a multiple of 3, 4, 5, 6, 7, 8, 9 or 10",
+    cat: "math",
+    route: "multiple2",
+    component: MultipleChecker,
+  },
+  {
     title: "Simultaneous Equations",
     description: "Solve simultaneous equations (BETA). This is not functional yet.",
     cat: "math",
