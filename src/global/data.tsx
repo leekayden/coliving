@@ -2,6 +2,7 @@ import QuadEqSolver from "../components/QuadEqSolver";
 import OddEvenChecker from "../components/OddEvenChecker";
 import MultipleChecker from "../components/MultipleChecker";
 import SimultaneousEquationSolver from "../components/SimulSolver";
+import AddNo from "../components/AddNo";
 
 export let ownerId = 0;
 export let isHomeownerAccount = true;
@@ -115,6 +116,13 @@ export let ToolList: ToolListType[] = [
     cat: "math",
     route: "simul",
     component: SimultaneousEquationSolver,
+  },
+  {
+    title: "Add Numbers",
+    description: "Add 2 numbers together",
+    cat: "math",
+    route: "add",
+    component: AddNo,
   },
 ];
 
