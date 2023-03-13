@@ -5,6 +5,7 @@ import MultipleCheckerv2 from "../components/MultipleCheckerv2";
 import SimultaneousEquationSolver from "../components/SimulSolver";
 import AddNo from "../components/AddNo";
 import DisplayNo from "../components/DisplayNo";
+import FractionConverter from "../components/FractionConverter";
 
 export let ownerId = 0;
 export let isHomeownerAccount = true;
