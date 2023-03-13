@@ -41,7 +41,7 @@ export default function Tools() {
                     flex: 1,
                   }}
                 >
-                  <CardActionArea style={{ height: "100%" }}>
+                  <CardActionArea style={{ height: "100%", alignItems: "flex-start" }}>
                     <CardMedia
                       component="img"
                       height="140"
