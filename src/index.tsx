@@ -22,7 +22,7 @@ import Tools from "./components/Tools";
 import { ToolList } from "./global/data";
 import ToolView from "./components/ToolView";
 import YouTubeDownloader from "./components/YoutubeDownloader";
-import UserInfo from "./components/UserInfo";
+import CallUserInfo from "./components/CallUserInfo";
 
 const router = createBrowserRouter([
   {
@@ -79,7 +79,7 @@ const router = createBrowserRouter([
   },
   {
     path: "/user-info",
-    element: <UserInfo />,
+    element: <CallUserInfo />,
   },
 ]);
 
