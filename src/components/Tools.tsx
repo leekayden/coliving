@@ -40,7 +40,7 @@ export default function Tools() {
                     flexDirection: "column",
                   }}
                 >
-                  <CardActionArea style={{height: "100%"}}>
+                  <CardActionArea style={{ height: "100%" }}>
                     <CardMedia
                       component="img"
                       height="140"
