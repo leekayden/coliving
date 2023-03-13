@@ -1,11 +1,13 @@
 import React from "react";
-import UserInfo from "./UserInfo";
+import UserInformation from "./UserInfo";
 
-const CallUserInfo: React.FC = () => {
-  const [userAgent, setUserAgent] = React.useState<string>("");
-  const [ipAddress, setIpAddress] = React.useState<string>("");
-  const [screenWidth, setScreenWidth] = React.useState<number>(0);
-  const [screenHeight, setScreenHeight] = React.useState<number>(0);
+const App: React.FC = () => {
+  const [userAgent, setUserAgent] = React.useState("");
+  const [ipAddress, setIpAddress] = React.useState("");
+  const [screenWidth, setScreenWidth] = React.useState(0);
+  const [screenHeight, setScreenHeight] = React.useState(0);
+  const [city, setCity] = React.useState<string | null>(null);
+  const [country, setCountry] = React.useState<string | null>(null);
 
   React.useEffect(() => {
     // Get the user agent string
@@ -27,7 +29,7 @@ const CallUserInfo: React.FC = () => {
 
         try {
           const response = await fetch(
-            `https://api.opencagedata.com/geocode/v1/json?q=${latitude}+${longitude}&key=66547c6b30a9456a92f26d356479fd3d`
+            `https://api.opencagedata.com/geocode/v1/json?q=${latitude}+${longitude}&key=YOUR_API_KEY`
           );
 
           const data = await response.json();
@@ -45,15 +47,17 @@ const CallUserInfo: React.FC = () => {
   }, []);
 
   return (
-    <UserInfo
-      userAgent={userAgent}
-      ipAddress={ipAddress}
-      screenWidth={screenWidth}
-      screenHeight={screenHeight}
-      city={city}
-      country={country}
-    />
+    <div>
+      <UserInformation
+        userAgent={userAgent}
+        ipAddress={ipAddress}
+        screenWidth={screenWidth}
+        screenHeight={screenHeight}
+        city={city}
+        country={country}
+      />
+    </div>
   );
 };
 
-export default CallUserInfo;
+export default App;
