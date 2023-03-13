@@ -130,7 +130,9 @@ export default function NavBar({ appname, isHomeOwner, noNav }: NavBarProps) {
   const handleMenuClose = ({ route }: handleMenuCloseProps) => {
     setAnchorEl(null);
     handleMobileMenuClose();
-    {route ? window.location.href = `/${route}` : null}
+    if (route) {
+      window.location.href = `/${route}`
+    }
   };
 
   const handleMobileMenuOpen = (event: React.MouseEvent<HTMLElement>) => {
