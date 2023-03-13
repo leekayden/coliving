@@ -26,8 +26,8 @@ export default function Tools() {
         maxWidth="md"
       >
         <Grid container spacing={2} justifyContent="center">
-          {ToolList.map((data) => (
-            <Grid item xs={12} md={6} lg={4} key={data.title}>
+          <Grid item xs={12} md={6} lg={4} key={data.title}>
+            {ToolList.map((data) => (
               <Link
                 color="inherit"
                 underline="none"
@@ -64,8 +64,8 @@ export default function Tools() {
                   </CardActionArea>
                 </Card>
               </Link>
-            </Grid>
-          ))}
+            ))}
+          </Grid>
         </Grid>
       </Container>
     </div>
