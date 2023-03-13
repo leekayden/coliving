@@ -3,7 +3,11 @@ import ReactDOM from "react-dom/client";
 import "./index.css";
 import App from "./App";
 import reportWebVitals from "./reportWebVitals";
-import { createBrowserRouter, RouterProvider, Navigate } from "react-router-dom";
+import {
+  createBrowserRouter,
+  RouterProvider,
+  Navigate,
+} from "react-router-dom";
 import { PropertyList } from "./global/data";
 import PropertyView from "./components/PropertyView";
 import { createTheme, ThemeProvider } from "@mui/material/styles";
@@ -13,11 +17,12 @@ import Settings from "./components/Settings";
 import SignUp from "./components/SignUp";
 import SignIn from "./components/Login";
 import Gallery from "./components/Gallery";
-import Blog from "./components/blog/Blog"
-import Tools from "./components/Tools"
+import Blog from "./components/blog/Blog";
+import Tools from "./components/Tools";
 import { ToolList } from "./global/data";
 import ToolView from "./components/ToolView";
 import YouTubeDownloader from "./components/YoutubeDownloader";
+import UserInfo from "./components/UserInfo";
 
 const router = createBrowserRouter([
   {
@@ -66,23 +71,25 @@ const router = createBrowserRouter([
   },
   ...ToolList.map((item) => ({
     path: `/tools/${item.cat}/${item.route}`,
-    element: <ToolView component={item.component} title={item.title} />
+    element: <ToolView component={item.component} title={item.title} />,
   })),
   {
     path: "/test",
     element: <YouTubeDownloader videoId="hOdnfnJGQQg" />,
   },
+  {
+    path: "/user-info",
+    element: <UserInfo />,
+  },
 ]);
 
 interface RootProps {
-  lightTheme?: any,
-  darkTheme?: any,
+  lightTheme?: any;
+  darkTheme?: any;
 }
 
 function Root({ lightTheme, darkTheme }: RootProps) {
   const [theme, setTheme] = useState<"light" | "dark">("light");
-  console.log(theme)
-
   const toggleTheme = () => {
     setTheme((prevTheme) => (prevTheme === "light" ? "light" : "dark"));
   };
@@ -98,13 +105,13 @@ function Root({ lightTheme, darkTheme }: RootProps) {
 
 let lightTheme = createTheme({
   palette: {
-    mode: 'light',
+    mode: "light",
   },
 });
 
 let darkTheme = createTheme({
   palette: {
-    mode: 'dark',
+    mode: "dark",
   },
 });
 
