@@ -123,9 +123,14 @@ export default function NavBar({ appname, isHomeOwner, noNav }: NavBarProps) {
     setMobileMoreAnchorEl(null);
   };
 
-  const handleMenuClose = () => {
+  interface handleMenuCloseProps {
+    route?: string;
+  }
+
+  const handleMenuClose = ({ route }: handleMenuCloseProps) => {
     setAnchorEl(null);
     handleMobileMenuClose();
+    {route ? window.location.href = `/${route}` : null}
   };
 
   const handleMobileMenuOpen = (event: React.MouseEvent<HTMLElement>) => {
@@ -150,8 +155,8 @@ export default function NavBar({ appname, isHomeOwner, noNav }: NavBarProps) {
       open={isMenuOpen}
       onClose={handleMenuClose}
     >
-      <MenuItem onClick={handleMenuClose}>Profile</MenuItem>
-      <MenuItem onClick={handleMenuClose}>My account</MenuItem>
+      <MenuItem onClick={() => handleMenuClose("settings")}>My account</MenuItem>
+      <MenuItem onClick={() => handleMenuClose("user-info")}>My info</MenuItem>
     </Menu>
   );
 
