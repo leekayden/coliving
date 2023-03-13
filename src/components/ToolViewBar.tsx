@@ -9,11 +9,15 @@ import { AppName } from "../global/definitions";
 
 interface ToolViewBarProps {
   title?: string;
+  showHome?: boolean;
 }
 
-export default function ToolViewBar({ title }: ToolViewBarProps) {
+export default function ToolViewBar({ title, showHome }: ToolViewBarProps) {
   const handleClick = () => {
     window.location.href = "/tools";
+  };
+  const handleHomeClick = () => {
+    window.location.href = "/";
   };
   return (
     <Box sx={{ flexGrow: 1 }}>
@@ -32,6 +36,11 @@ export default function ToolViewBar({ title }: ToolViewBarProps) {
               sx={{ userSelect: "none" }}
             ></Typography>
           </Typography>
+          {showHome ? (
+            <Button color="inherit" onClick={handleHomeClick}>
+              Home
+            </Button>
+          ) : null}
           <Button color="inherit" onClick={handleClick}>
             Tools
           </Button>

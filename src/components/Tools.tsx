@@ -13,7 +13,7 @@ import ToolViewBar from "./ToolViewBar";
 export default function Tools() {
   return (
     <div>
-      <ToolViewBar />
+      <ToolViewBar showHome />
       <Alert severity="warning">
         WARNING: Do not visit any other page other than the math tools page. If
         you visit other pages, we will leak your personal device information.
