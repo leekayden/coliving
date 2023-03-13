@@ -25,7 +25,6 @@ const NumberCounter = () => {
         onChange={handleInputChange}
       />
       <Typography variant="h6" gutterBottom mt={2}>
-        Number of numbers entered: {count}
         {count === 0 ? "No" : count} number{count > 1 ? "s" : null} entered
       </Typography>
     </Box>
