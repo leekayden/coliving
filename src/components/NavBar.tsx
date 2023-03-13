@@ -157,8 +157,8 @@ export default function NavBar({ appname, isHomeOwner, noNav }: NavBarProps) {
       open={isMenuOpen}
       onClose={handleMenuClose}
     >
-      <MenuItem onClick={() => handleMenuClose("settings")}>My account</MenuItem>
-      <MenuItem onClick={() => handleMenuClose("user-info")}>My info</MenuItem>
+      <MenuItem onClick={() => handleMenuClose({ route: "settings" })}>My account</MenuItem>
+      <MenuItem onClick={() => handleMenuClose({ route: "user-info" })}>My info</MenuItem>
     </Menu>
   );
 
