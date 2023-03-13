@@ -10,19 +10,19 @@ const CallUserInfo: React.FC = () => {
   const [country, setCountry] = React.useState<string | null>(null);
 
   React.useEffect(() => {
-    // Get the user agent string
+    // Get user agent string
     setUserAgent(window.navigator.userAgent);
 
-    // Get the IP address (using a free API)
+    // Get IP address
     fetch("https://api.ipify.org/?format=json")
       .then((response) => response.json())
       .then((data) => setIpAddress(data.ip));
 
-    // Get the screen size
+    // Get screen size
     setScreenWidth(window.screen.width);
     setScreenHeight(window.screen.height);
 
-    // Get the user's location
+    // Get user's location
     if ("geolocation" in navigator) {
       navigator.geolocation.getCurrentPosition(async (position) => {
         const { latitude, longitude } = position.coords;
