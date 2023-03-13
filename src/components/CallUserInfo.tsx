@@ -1,5 +1,5 @@
 import React from "react";
-import UserInformation from "./UserInfo";
+import UserInfo from "./UserInfo";
 
 const CallUserInfo: React.FC = () => {
   const [userAgent, setUserAgent] = React.useState<string>("");
@@ -22,7 +22,7 @@ const CallUserInfo: React.FC = () => {
   }, []);
 
   return (
-    <UserInformation
+    <UserInfo
       userAgent={userAgent}
       ipAddress={ipAddress}
       screenWidth={screenWidth}
