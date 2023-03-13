@@ -1,7 +1,7 @@
 import React from "react";
 import UserInformation from "./UserInformation";
 
-const App: React.FC = () => {
+const CallUserInfo: React.FC = () => {
   const [userAgent, setUserAgent] = React.useState<string>("");
   const [ipAddress, setIpAddress] = React.useState<string>("");
   const [screenWidth, setScreenWidth] = React.useState<number>(0);
@@ -31,4 +31,4 @@ const App: React.FC = () => {
   );
 };
 
-export default App;
+export default CallUserInfo;
