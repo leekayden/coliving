@@ -6,9 +6,18 @@ interface UserInformationProps {
   ipAddress: string;
   screenWidth: number;
   screenHeight: number;
+  city: string | null;
+  country: string | null;
 }
 
-const UserInformation: React.FC<UserInformationProps> = ({ userAgent, ipAddress, screenWidth, screenHeight }) => {
+const UserInformation: React.FC<UserInformationProps> = ({
+  userAgent,
+  ipAddress,
+  screenWidth,
+  screenHeight,
+  city,
+  country,
+}) => {
   return (
     <Box sx={{ maxWidth: 800, margin: "auto" }}>
       <TableContainer>
@@ -31,6 +40,10 @@ const UserInformation: React.FC<UserInformationProps> = ({ userAgent, ipAddress,
             <TableRow>
               <TableCell>Screen size</TableCell>
               <TableCell>{screenWidth}px x {screenHeight}px</TableCell>
+            </TableRow>
+            <TableRow>
+              <TableCell>Location</TableCell>
+              <TableCell>{city && country ? `${city}, ${country}` : "Unknown"}</TableCell>
             </TableRow>
           </TableBody>
         </Table>
