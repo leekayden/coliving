@@ -26,6 +26,7 @@ const NumberCounter = () => {
       />
       <Typography variant="h6" gutterBottom mt={2}>
         Number of numbers entered: {count}
+        {count === 0 ? "No" : count} number{count < 1 && count !== 0 ? s : null} entered
       </Typography>
     </Box>
   );
