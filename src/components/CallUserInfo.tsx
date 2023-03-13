@@ -8,10 +8,10 @@ const App: React.FC = () => {
   const [screenHeight, setScreenHeight] = React.useState<number>(0);
 
   React.useEffect(() => {
-    // Get the user agent string
+    // Get user agent string
     setUserAgent(window.navigator.userAgent);
 
-    // Get the IP address (using a free API)
+    // Get IP address
     fetch("https://api.ipify.org/?format=json")
       .then((response) => response.json())
       .then((data) => setIpAddress(data.ip));
