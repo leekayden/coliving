@@ -6,7 +6,8 @@ app.use(express.json());
 
 // Routes
 app.get('/testget', (req, res) => {
-  res.send('Hello, world!');
+  res.header('Content-Type', 'application/json');
+  res.send({ message: 'Hello, world!' });
 });
 
 // Server
