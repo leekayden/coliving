@@ -20,7 +20,7 @@ function App() {
   usePageEffect({ title: `Home | ${AppName}` });
   return (
     <div className="App">
-      <NavBar appname={AppName} isHomeOwner={isLandlordAccount} />
+      <NavBar appname={AppName} isLandlord={isLandlordAccount} />
       <Collapse in={open}>
         <Alert
           severity="warning"

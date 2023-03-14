@@ -17,7 +17,7 @@ export default function Error(props: ErrorProps) {
   }
   return (
     <div>
-      {showNavBar ? <NavBar isHomeOwner={isLandlordAccount} /> : null}
+      {showNavBar ? <NavBar isLandlord={isLandlordAccount} /> : null}
       <Box
         sx={{
           display: "flex",

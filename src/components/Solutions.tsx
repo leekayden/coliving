@@ -4,7 +4,7 @@ import { isLandlordAccount } from "../global/data";
 function Solutions() {
   return (
     <div>
-      <NavBar isHomeOwner={isLandlordAccount} />
+      <NavBar isLandlord={isLandlordAccount} />
     </div>
   );
 }

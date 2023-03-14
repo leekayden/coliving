@@ -24,7 +24,7 @@ function PropertyView({ id, editMode }: PropertyViewProps) {
   usePageEffect({ title: PropertyList[id].title });
   return (
     <div>
-      <NavBar isHomeOwner={isLandlordAccount} />
+      <NavBar isLandlord={isLandlordAccount} />
       <Carousel
         mainTxt={null}
         title={PropertyList[id].title}

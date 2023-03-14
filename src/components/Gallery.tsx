@@ -65,7 +65,7 @@ export default function Gallery({ data, showNav }: GalleryProps) {
   return (
     <ThemeProvider theme={theme}>
       <CssBaseline />
-      {showNav ? <NavBar isHomeOwner={isLandlordAccount} /> : null}
+      {showNav ? <NavBar isLandlord={isLandlordAccount} /> : null}
       <main>
         {/* Hero unit */}
         <Box

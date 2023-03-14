@@ -65,7 +65,7 @@ const StyledInputBase = styled(InputBase)(({ theme }) => ({
 
 interface NavBarProps {
   appname?: string;
-  isHomeOwner?: boolean;
+  isLandlord?: boolean;
   noNav?: boolean;
 }
 
@@ -76,7 +76,7 @@ interface Linkbar {
   disabled?: boolean;
 }
 
-export default function NavBar({ appname, isHomeOwner, noNav }: NavBarProps) {
+export default function NavBar({ appname, isLandlord, noNav }: NavBarProps) {
   const navigate = useNavigate();
   const handleLink =
     (path: string) => (event: React.MouseEvent<HTMLButtonElement>) => {
@@ -219,7 +219,7 @@ export default function NavBar({ appname, isHomeOwner, noNav }: NavBarProps) {
               {appname ? appname : AppName}
             </Link>
             &nbsp;
-            {isHomeOwner ? <Chip label="Landlord" color="warning" /> : null}
+            {isLandlord ? <Chip label="Landlord" color="warning" /> : null}
           </Typography>
           <Search>
             <SearchIconWrapper>
@@ -275,7 +275,7 @@ export default function NavBar({ appname, isHomeOwner, noNav }: NavBarProps) {
               aria-haspopup="true"
               onClick={handleProfileMenuOpen}
               color="inherit"
-              disabled={isHomeOwner ? false : true}
+              disabled={isLandlord ? false : true}
             >
               <AccountCircle />
             </IconButton>

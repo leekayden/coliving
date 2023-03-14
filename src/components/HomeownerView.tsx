@@ -17,7 +17,7 @@ function Homeowner() {
   const filteredList = PropertyList.filter((item) => item.ownerId === ownerId);
   return (
     <div>
-      <NavBar isHomeOwner={isLandlordAccount} />
+      <NavBar isLandlord={isLandlordAccount} />
       <Typography variant="h3" gutterBottom sx={{ padding: "7px" }}>
         <Divider textAlign="center">My Properties</Divider>
         <CreateProperty />
@@ -59,7 +59,7 @@ function Homeowner() {
 function Guest() {
   return (
     <div>
-      <NavBar isHomeOwner={isLandlordAccount} />
+      <NavBar isLandlord={isLandlordAccount} />
       <Error errorCode={403} message={forbiddenErrorMsg} />
     </div>
   );
