@@ -11,7 +11,7 @@ const TestServer: React.FC = () => {
 
   useEffect(() => {
     axios
-      .get(`${apiEndpoint}/test`)
+      .get(`${apiEndpoint}test`)
       .then((response: { data: TestResponse }) => {
         console.log(response, response.data)
         setResponse(response.data)
