@@ -1,6 +1,5 @@
 import { Box, Button, Container, Typography } from "@mui/material";
 import Grid from "@mui/material/Grid";
-import Link from "@mui/material/Link";
 import NavBar from "./NavBar";
 import { isLandlordAccount } from "../global/data";
 

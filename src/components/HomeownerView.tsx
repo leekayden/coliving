@@ -15,6 +15,9 @@ import Container from "@mui/material/Container";
 
 function Homeowner() {
   const filteredList = PropertyList.filter((item) => item.ownerId === ownerId);
+  const goToProperty = (identifier: any) => {
+    window.location.href = `/${identifier}`
+  }
   return (
     <div>
       <NavBar isLandlord={isLandlordAccount} />
@@ -27,7 +30,7 @@ function Homeowner() {
           {filteredList?.map((identifier: any) => (
             <Grid item key={identifier.title} xs={12} sm={6} md={4}>
               <Card sx={{ maxWidth: 345, padding: "7px" }}>
-                <CardActionArea>
+                <CardActionArea onClick={() => console.log("hello")}>
                   <CardMedia component="img" height="140" image="" />
                   <CardContent>
                     <Typography gutterBottom variant="h5" component="div">
@@ -69,12 +72,10 @@ interface HomeownerViewProps {
   isLandlordAccountArg?: boolean;
 }
 
-function HomeownerView({ isLandlordAccountArg }: HomeownerViewProps) {
+export default function HomeownerView({ isLandlordAccountArg }: HomeownerViewProps) {
   if (isLandlordAccount || isLandlordAccountArg === true) {
     return <Homeowner />;
   } else {
     return <Guest />;
   }
 }
-
-export default HomeownerView;
