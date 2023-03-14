@@ -41,7 +41,7 @@ function App() {
         >
           This is a demo version of "{AppName}". Some features are disabled or not functional.
         </Alert>
-        <Alert severity="info">For Devs: Currently in development: Server (coliving-server)</Alert>
+        <Alert severity="info">For Devs: Currently in development: server (coliving-server)</Alert>
       </Collapse>
       <Carousel />
       <Typography variant="h3" gutterBottom>
