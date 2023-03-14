@@ -89,7 +89,7 @@ export default function SignUp() {
                   <TextField
                     required
                     fullWidth
-                    disabled={countryName || countryCode !== "undefined" ? true : true}
+                    disabled={countryName || countryCode === "undefined" ? true : true}
                     id="location"
                     label="Location"
                     name="location"
