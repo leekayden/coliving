@@ -13,7 +13,7 @@ export let fName = "Adolf";
 export let lName = "Hitler";
 export let location = "Germany";
 export let email = "hitler@nazi.org";
-export let password = "AdolfTrain123";
+export let password = "AdolfHitler123";
 
 export let PropertyList = [
   {
