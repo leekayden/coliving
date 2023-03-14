@@ -60,7 +60,7 @@ Start the server
   npm start
 ```
 
-## Server Side
+### Server Side
 
 ## Deployment
 
