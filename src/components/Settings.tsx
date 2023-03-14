@@ -89,12 +89,13 @@ export default function SignUp() {
                   <TextField
                     required
                     fullWidth
+                    disabled={countryName || countryCode !== "undefined" ? true : true}
                     id="location"
                     label="Location"
                     name="location"
                     autoComplete="location"
                     helperText="Automatically Detected"
-                    defaultValue={`${countryName} (${countryCode})`}
+                    defaultValue={`${countryName && countryCode ? `${countryName} (${countryCode})` : 'Loading...'}`}
                   />
                 </Grid>
                 <Grid item xs={12}>
