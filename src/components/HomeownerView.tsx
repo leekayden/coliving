@@ -16,7 +16,7 @@ import Container from "@mui/material/Container";
 function Homeowner() {
   const filteredList = PropertyList.filter((item) => item.ownerId === ownerId);
   const goToProperty = (identifier: any) => {
-    window.location.href = `/${identifier}`
+    window.location.href = `/properties/${identifier}`
   }
   return (
     <div>
@@ -30,7 +30,7 @@ function Homeowner() {
           {filteredList?.map((identifier: any) => (
             <Grid item key={identifier.title} xs={12} sm={6} md={4}>
               <Card sx={{ maxWidth: 345, padding: "7px" }}>
-                <CardActionArea onClick={() => console.log("hello")}>
+                <CardActionArea onClick={() => goToProperty(identifier.route)}>
                   <CardMedia component="img" height="140" image="" />
                   <CardContent>
                     <Typography gutterBottom variant="h5" component="div">

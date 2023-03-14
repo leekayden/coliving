@@ -80,6 +80,7 @@ export default function TemporaryDrawer() {
                 style={{ textDecoration: "none" }}
                 color="inherit"
                 href={`/${item.route}`}
+                key={item.title}
               >
                 <ListItem disablePadding>
                   <ListItemButton>
