@@ -12,20 +12,33 @@ import { Button, CardActionArea, CardActions } from "@mui/material";
 import EditIcon from "@mui/icons-material/Edit";
 import Grid from "@mui/material/Grid";
 import Container from "@mui/material/Container";
+import { Edit } from "@mui/icons-material";
 
 function Homeowner() {
   const filteredList = PropertyList.filter((item) => item.ownerId === ownerId);
   const goToProperty = (identifier: any) => {
-    window.location.href = `/properties/${identifier}`
-  }
+    window.location.href = `/properties/${identifier}`;
+  };
   return (
     <div>
       <NavBar isLandlord={isLandlordAccount} />
+      <Button
+        size="large"
+        disableElevation
+        variant="contained"
+        startIcon={<Edit />}
+        sx={{ width: "40vw", margin: "0 auto", display: "flex" }}
+      >
+        Edit Template
+      </Button>
       <Typography variant="h3" gutterBottom sx={{ padding: "7px" }}>
         <Divider textAlign="center">My Properties</Divider>
         <CreateProperty />
       </Typography>
-      <Container sx={{ py: 8, border: 5, borderColor: 'primary.main', borderRadius: 10 }} maxWidth="md">
+      <Container
+        sx={{ py: 8, border: 5, borderColor: "primary.main", borderRadius: 10 }}
+        maxWidth="md"
+      >
         <Grid container spacing={4}>
           {filteredList?.map((identifier: any) => (
             <Grid item key={identifier.title} xs={12} sm={6} md={4}>
@@ -52,7 +65,8 @@ function Homeowner() {
                   </Button>
                 </CardActions>
               </Card>
-            </Grid>))}
+            </Grid>
+          ))}
         </Grid>
       </Container>
     </div>
@@ -72,7 +86,9 @@ interface HomeownerViewProps {
   isLandlordAccountArg?: boolean;
 }
 
-export default function HomeownerView({ isLandlordAccountArg }: HomeownerViewProps) {
+export default function HomeownerView({
+  isLandlordAccountArg,
+}: HomeownerViewProps) {
   if (isLandlordAccount || isLandlordAccountArg === true) {
     return <Homeowner />;
   } else {

@@ -42,17 +42,6 @@ export default function FullScreenDialog() {
         disableElevation
         variant="contained"
         onClick={handleClickOpen}
-        startIcon={<Edit />}
-        sx={{ width: "40vw", margin: "0 auto", display: "flex" }}
-      >
-        Edit Template
-      </Button>
-      <br />
-      <Button
-        size="large"
-        disableElevation
-        variant="contained"
-        onClick={handleClickOpen}
         startIcon={<AddIcon />}
         sx={{ width: "40vw", margin: "0 auto", display: "flex" }}
       >
