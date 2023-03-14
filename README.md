@@ -61,6 +61,7 @@ Start the server
 ```
 
 ### Server Side
+Check [https://github.com/leekayden/coliving-server](https://github.com/leekayden/coliving-server)
 
 ## Deployment
 
