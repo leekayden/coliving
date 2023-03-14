@@ -12,7 +12,10 @@ const TestServer: React.FC = () => {
   useEffect(() => {
     axios
       .get(`${apiEndpoint}/test`)
-      .then((response: { data: TestResponse }) => setResponse(response.data))
+      .then((response: { data: TestResponse }) => {
+        console.log(response, response.data)
+        setResponse(response.data)
+      })
       .catch((error) => console.log(error));
   }, []);
 
