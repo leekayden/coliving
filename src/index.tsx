@@ -17,7 +17,6 @@ import Settings from "./components/Settings";
 import SignUp from "./components/SignUp";
 import SignIn from "./components/Login";
 import Gallery from "./components/Gallery";
-import Blog from "./components/blog/Blog";
 import Tools from "./components/Tools";
 import { ToolList } from "./global/data";
 import ToolView from "./components/ToolView";
