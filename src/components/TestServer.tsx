@@ -21,7 +21,8 @@ const TestServer: React.FC = () => {
 
   return (
     <div>
-      <p>Response received: {response.message}</p>
+      <h1>Status: {response.message ? "Received" : "Waiting"}</h1> 
+      <p>Response: {response.message ? response.message : "Fetching..."}</p>
     </div>
   );
 };
