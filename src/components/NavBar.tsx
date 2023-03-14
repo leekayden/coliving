@@ -1,5 +1,5 @@
 import * as React from "react";
-import { styled, alpha, createTheme } from "@mui/material/styles";
+import { styled, alpha } from "@mui/material/styles";
 import AppBar from "@mui/material/AppBar";
 import Box from "@mui/material/Box";
 import Toolbar from "@mui/material/Toolbar";
