@@ -13,11 +13,19 @@ import { createTheme, ThemeProvider } from "@mui/material/styles";
 import Footer from "./Footer";
 import NavBar from "./NavBar";
 import SettingsOutlinedIcon from "@mui/icons-material/SettingsOutlined";
-import { fName, lName, location, email, password, isLandlordAccount } from "../global/data";
+import {
+  fName,
+  lName,
+  email,
+  password,
+  isLandlordAccount,
+} from "../global/data";
+import useUserLocation from "./useUserLocation";
 
 const theme = createTheme();
 
 export default function SignUp() {
+  const { countryCode, countryName } = useUserLocation();
   const handleSubmit = (event: React.FormEvent<HTMLFormElement>) => {
     event.preventDefault();
     const data = new FormData(event.currentTarget);
@@ -85,7 +93,8 @@ export default function SignUp() {
                     label="Location"
                     name="location"
                     autoComplete="location"
-                    defaultValue={location}
+                    helperText="Automatically Detected"
+                    defaultValue={`${countryName} (${countryCode})`}
                   />
                 </Grid>
                 <Grid item xs={12}>

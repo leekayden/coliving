@@ -1,3 +1,4 @@
+
 import QuadEqSolver from "../components/QuadEqSolver";
 import OddEvenChecker from "../components/OddEvenChecker";
 import MultipleChecker from "../components/MultipleChecker";
