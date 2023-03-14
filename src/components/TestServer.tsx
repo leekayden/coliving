@@ -1,16 +1,17 @@
-import React, { useState, useEffect } from 'react';
-import axios from 'axios';
-import { apiEndpoint } from '../global/definitions';
+import React, { useState, useEffect } from "react";
+import axios from "axios";
+import { apiEndpoint } from "../global/definitions";
 
 interface TestResponse {
   message: string;
 }
 
 const TestServer: React.FC = () => {
-  const [response, setResponse] = useState<TestResponse>({ message: '' });
+  const [response, setResponse] = useState<TestResponse>({ message: "" });
 
   useEffect(() => {
-    axios.get(`${apiEndpoint}/test`)
+    axios
+      .get(`${apiEndpoint}/test`)
       .then((response: { data: TestResponse }) => setResponse(response.data))
       .catch((error) => console.log(error));
   }, []);
