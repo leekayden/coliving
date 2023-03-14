@@ -11,6 +11,7 @@ import AddIcon from "@mui/icons-material/Add";
 import TextField from "@mui/material/TextField";
 import { TransitionProps } from "@mui/material/transitions";
 import { PropertyList } from "../global/data";
+import { Edit } from "@mui/icons-material";
 
 const Transition = React.forwardRef(function Transition(
   props: TransitionProps & {
@@ -36,6 +37,17 @@ export default function FullScreenDialog() {
   const paddedNextId = nextId.toString().padStart(5, "0");
   return (
     <div>
+      <Button
+        size="large"
+        disableElevation
+        variant="contained"
+        onClick={handleClickOpen}
+        startIcon={<Edit />}
+        sx={{ width: "40vw", margin: "0 auto", display: "flex" }}
+      >
+        Edit Template
+      </Button>
+      <br />
       <Button
         size="large"
         disableElevation
