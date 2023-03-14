@@ -17,7 +17,7 @@ const TestServer: React.FC = () => {
 
   return (
     <div>
-      <p>{response.message}</p>
+      <p>Response received: {response.message}</p>
     </div>
   );
 };
