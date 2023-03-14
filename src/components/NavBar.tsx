@@ -117,7 +117,7 @@ export default function NavBar({ appname, isHomeOwner, noNav }: NavBarProps) {
     setAnchorEl(null);
     handleMobileMenuClose();
     if (route) {
-      window.location.href = `/${route}`
+      window.location.href = `/${route}`;
     }
   };
 
@@ -143,8 +143,12 @@ export default function NavBar({ appname, isHomeOwner, noNav }: NavBarProps) {
       open={isMenuOpen}
       onClose={handleMenuClose}
     >
-      <MenuItem onClick={() => handleMenuClose({ route: "settings" })}>My Account</MenuItem>
-      <MenuItem onClick={() => handleMenuClose({ route: "user-info" })}>My Info</MenuItem>
+      <MenuItem onClick={() => handleMenuClose({ route: "settings" })}>
+        My Account
+      </MenuItem>
+      <MenuItem onClick={() => handleMenuClose({ route: "user-info" })}>
+        My Info
+      </MenuItem>
     </Menu>
   );
 
