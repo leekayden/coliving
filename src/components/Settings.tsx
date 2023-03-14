@@ -13,7 +13,7 @@ import { createTheme, ThemeProvider } from "@mui/material/styles";
 import Footer from "./Footer";
 import NavBar from "./NavBar";
 import SettingsOutlinedIcon from "@mui/icons-material/SettingsOutlined";
-import { fName, lName, location, email, password } from "../global/data";
+import { fName, lName, location, email, password, isLandlordAccount } from "../global/data";
 
 const theme = createTheme();
 
@@ -109,6 +109,19 @@ export default function SignUp() {
                     id="password"
                     autoComplete="new-password"
                     defaultValue={password}
+                  />
+                </Grid>
+                <Grid item xs={12}>
+                  <TextField
+                    required
+                    fullWidth
+                    disabled
+                    name="account-type"
+                    label="Account Type"
+                    type="account-type"
+                    id="account-type"
+                    helperText="You cannot change this setting"
+                    defaultValue={isLandlordAccount ? "Landlord" : "Tenant"}
                   />
                 </Grid>
                 <Grid item xs={12}>
