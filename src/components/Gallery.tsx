@@ -16,7 +16,7 @@ import TextField from "@mui/material/TextField";
 import Autocomplete from "@mui/material/Autocomplete";
 import { PropertyList } from "../global/data";
 import NavBar from "./NavBar";
-import { isHomeownerAccount } from "../global/data";
+import { isLandlordAccount } from "../global/data";
 import "./Gallery.css";
 
 const theme = createTheme();
@@ -65,7 +65,7 @@ export default function Gallery({ data, showNav }: GalleryProps) {
   return (
     <ThemeProvider theme={theme}>
       <CssBaseline />
-      {showNav ? <NavBar isHomeOwner={isHomeownerAccount} /> : null}
+      {showNav ? <NavBar isHomeOwner={isLandlordAccount} /> : null}
       <main>
         {/* Hero unit */}
         <Box

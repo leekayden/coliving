@@ -8,7 +8,7 @@ import FractionConverter from "../components/FractionConverter";
 import AddNumbers from "../components/AddNumbers";
 
 export let ownerId = 0;
-export let isHomeownerAccount = true;
+export let isLandlordAccount = true;
 export let fName = "Adolf";
 export let lName = "Hitler";
 export let location = "Germany";

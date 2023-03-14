@@ -11,7 +11,7 @@ import Collapse from "@mui/material/Collapse";
 import CloseIcon from "@mui/icons-material/Close";
 import IconButton from "@mui/material/IconButton";
 import { usePageEffect } from "./components/usePageEffect";
-import { isHomeownerAccount } from "./global/data";
+import { isLandlordAccount } from "./global/data";
 import Gallery from "./components/Gallery";
 import Footer from "./components/Footer";
 
@@ -20,7 +20,7 @@ function App() {
   usePageEffect({ title: `Home | ${AppName}` });
   return (
     <div className="App">
-      <NavBar appname={AppName} isHomeOwner={isHomeownerAccount} />
+      <NavBar appname={AppName} isHomeOwner={isLandlordAccount} />
       <Collapse in={open}>
         <Alert
           severity="warning"
@@ -31,7 +31,7 @@ function App() {
               size="small"
               onClick={() => {
                 setOpen(false);
-                localStorage.setItem('alertClosed', true.toString());
+                localStorage.setItem("alertClosed", true.toString());
               }}
             >
               <CloseIcon fontSize="inherit" />
@@ -39,9 +39,12 @@ function App() {
           }
           sx={{ mb: 2 }}
         >
-          This is a demo version of "{AppName}". Some features are disabled or not functional.
+          This is a demo version of "{AppName}". Some features are disabled or
+          not functional.
         </Alert>
-        <Alert severity="info">For Devs: Currently in development: server (coliving-server)</Alert>
+        <Alert severity="info">
+          For Devs: Currently in development: server (coliving-server)
+        </Alert>
       </Collapse>
       <Carousel />
       <Typography variant="h3" gutterBottom>

@@ -2,7 +2,7 @@ import NavBar from "./NavBar";
 import Typography from "@mui/material/Typography";
 import Divider from "@mui/material/Divider";
 import CreateProperty from "./CreateProperty";
-import { PropertyList, isHomeownerAccount, ownerId } from "../global/data";
+import { PropertyList, isLandlordAccount, ownerId } from "../global/data";
 import Error from "./Error";
 import { forbiddenErrorMsg } from "../global/definitions";
 import Card from "@mui/material/Card";
@@ -17,7 +17,7 @@ function Homeowner() {
   const filteredList = PropertyList.filter((item) => item.ownerId === ownerId);
   return (
     <div>
-      <NavBar isHomeOwner={isHomeownerAccount} />
+      <NavBar isHomeOwner={isLandlordAccount} />
       <Typography variant="h3" gutterBottom sx={{ padding: "7px" }}>
         <Divider textAlign="center">My Properties</Divider>
         <CreateProperty />
@@ -59,18 +59,18 @@ function Homeowner() {
 function Guest() {
   return (
     <div>
-      <NavBar isHomeOwner={isHomeownerAccount} />
+      <NavBar isHomeOwner={isLandlordAccount} />
       <Error errorCode={403} message={forbiddenErrorMsg} />
     </div>
   );
 }
 
 interface HomeownerViewProps {
-  isHomeownerAccountArg?: boolean;
+  isLandlordAccountArg?: boolean;
 }
 
-function HomeownerView({ isHomeownerAccountArg }: HomeownerViewProps) {
-  if (isHomeownerAccount || isHomeownerAccountArg === true) {
+function HomeownerView({ isLandlordAccountArg }: HomeownerViewProps) {
+  if (isLandlordAccount || isLandlordAccountArg === true) {
     return <Homeowner />;
   } else {
     return <Guest />;

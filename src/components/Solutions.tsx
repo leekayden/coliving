@@ -1,9 +1,10 @@
 import NavBar from "./NavBar";
+import { isLandlordAccount } from "../global/data";
 
 function Solutions() {
   return (
     <div>
-      <NavBar />
+      <NavBar isHomeOwner={isLandlordAccount} />
     </div>
   );
 }

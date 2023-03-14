@@ -20,7 +20,7 @@ import Chip from "@mui/material/Chip";
 import Button from "@mui/material/Button";
 import SideBar from "./SideBar";
 import { useNavigate } from "react-router-dom";
-import { isHomeownerAccount } from "../global/data";
+import { isLandlordAccount } from "../global/data";
 
 const Search = styled("div")(({ theme }) => ({
   position: "relative",
@@ -232,7 +232,7 @@ export default function NavBar({ appname, isHomeOwner, noNav }: NavBarProps) {
           </Search>
           {noNav
             ? null
-            : isHomeownerAccount
+            : isLandlordAccount
             ? links.map((link) => (
                 <Button
                   key={link.path}

@@ -5,7 +5,7 @@ import Carousel from "./Carousel";
 import Grid from "@material-ui/core/Grid";
 import { usePageEffect } from "./usePageEffect";
 import { AppName } from "../global/definitions";
-import { isHomeownerAccount } from "../global/data";
+import { isLandlordAccount } from "../global/data";
 import Card from "@mui/material/Card";
 import CardActions from "@mui/material/CardActions";
 import CardContent from "@mui/material/CardContent";
@@ -24,18 +24,18 @@ function PropertyView({ id, editMode }: PropertyViewProps) {
   usePageEffect({ title: PropertyList[id].title });
   return (
     <div>
-      <NavBar isHomeOwner={isHomeownerAccount} />
+      <NavBar isHomeOwner={isLandlordAccount} />
       <Carousel
         mainTxt={null}
         title={PropertyList[id].title}
         status={PropertyList[id].status}
         noViewBtn
-        editMode={editMode || isHomeownerAccount}
+        editMode={editMode || isLandlordAccount}
       />
       <Grid container spacing={3} justifyContent="space-between">
         <Grid item xs={12} sm={6}>
           <PropertyTabs property={PropertyList[id].title} />
-          {editMode || isHomeownerAccount ? "Edit" : null}
+          {editMode || isLandlordAccount ? "Edit" : null}
         </Grid>
         {/* <PropertyOverview title={PropertyList[id].title} /> */}
         <Card sx={{ maxWidth: 400 }} elevation={0}>
