@@ -1,4 +1,6 @@
 import React, { useState, useEffect } from 'react';
+import axios from 'axios';
+import { apiEndpoint } from '../global/definitions';
 
 interface TestResponse {
   message: string;
@@ -8,9 +10,8 @@ const TestServer: React.FC = () => {
   const [response, setResponse] = useState<TestResponse>({ message: '' });
 
   useEffect(() => {
-    fetch('/testget')
-      .then((res) => res.json())
-      .then((data: TestResponse) => setResponse(data))
+    axios.get(`${apiEndpoint}/test`)
+      .then((response: { data: TestResponse }) => setResponse(response.data))
       .catch((error) => console.log(error));
   }, []);
 
