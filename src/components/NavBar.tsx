@@ -89,7 +89,7 @@ export default function NavBar({ appname, isHomeOwner, noNav }: NavBarProps) {
     { path: "properties" },
     { path: "solutions", title: "Why Us?" },
     { path: "landlords", landlord: true },
-    { path: "tenants", disabled: true },
+    // { path: "tenants", disabled: true },
     { path: "tools" },
   ];
   const filteredLinks = links.filter((link) => !link.landlord);
