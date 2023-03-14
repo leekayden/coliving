@@ -22,6 +22,7 @@ function Homeowner() {
   return (
     <div>
       <NavBar isLandlord={isLandlordAccount} />
+      <br />
       <Button
         size="large"
         disableElevation
