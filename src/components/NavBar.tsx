@@ -88,9 +88,9 @@ export default function NavBar({ appname, isLandlord, noNav }: NavBarProps) {
     { path: "", title: "Home" },
     { path: "properties" },
     { path: "solutions", title: "Why Us?" },
+    { path: "tools" },
     { path: "landlords", landlord: true },
     // { path: "tenants", disabled: true },
-    { path: "tools" },
   ];
   const filteredLinks = links.filter((link) => !link.landlord);
   const [theme, setTheme] = React.useState("light");
