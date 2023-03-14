@@ -23,6 +23,7 @@ import { ToolList } from "./global/data";
 import ToolView from "./components/ToolView";
 import TestServer from "./components/TestServer";
 import CallUserInfo from "./components/CallUserInfo";
+import Solutions from "./components/Solutions";
 
 const router = createBrowserRouter([
   {
@@ -63,7 +64,7 @@ const router = createBrowserRouter([
   },
   {
     path: "/solutions",
-    element: <Blog />,
+    element: <Solutions />,
   },
   {
     path: "/tools",
