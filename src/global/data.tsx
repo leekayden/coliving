@@ -1,7 +1,6 @@
 import QuadEqSolver from "../components/QuadEqSolver";
 import OddEvenChecker from "../components/OddEvenChecker";
 import MultipleChecker from "../components/MultipleChecker";
-import MultipleCheckerv2 from "../components/MultipleCheckerv2";
 import SimultaneousEquationSolver from "../components/SimulSolver";
 import AddNo from "../components/AddNo";
 import DisplayNo from "../components/DisplayNo";
