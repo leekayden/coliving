@@ -24,6 +24,7 @@ import TestServer from "./components/TestServer";
 import CallUserInfo from "./components/CallUserInfo";
 import Solutions from "./components/Solutions";
 import SignUpTest from "./components/SignUpTest";
+import PropertyEditView from "./components/PropertyEditView";
 
 const router = createBrowserRouter([
   {
@@ -45,6 +46,10 @@ const router = createBrowserRouter([
   ...PropertyList.map((item) => ({
     path: `/properties/${item.route}`,
     element: <PropertyView id={item.id} />,
+  })),
+  ...PropertyList.map((item) => ({
+    path: `/properties/${item.route}`,
+    element: <PropertyEditView id={item.id} />,
   })),
   {
     path: "/settings",
