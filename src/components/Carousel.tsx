@@ -13,6 +13,7 @@ import {
 import { useState } from "react";
 import { CarouselItems, CarouselItemsType } from "../global/data";
 import Box, { BoxProps } from "@mui/material/Box";
+import { Edit } from "@mui/icons-material";
 
 function Item(props: BoxProps) {
   const { sx, ...other } = props;
@@ -135,6 +136,17 @@ const Banner = (props: BannerProps) => {
             onClick={() => redirectToUrl(`/properties/${props.route}`)}
           >
             View Now
+          </Button>
+        )}
+        {!props.editMode ? null : (
+          <Button
+            variant="outlined"
+            className="ViewButton"
+            size="small"
+            startIcon={<Edit />}
+            onClick={() => redirectToUrl(`/properties/${props.route}`)}
+          >
+            Edit
           </Button>
         )}
       </CardContent>
