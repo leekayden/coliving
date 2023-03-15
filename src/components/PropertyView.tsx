@@ -34,7 +34,6 @@ function PropertyView({ id, editMode }: PropertyViewProps) {
         <Grid item xs={12} sm={6}>
           <PropertyTabs property={PropertyList[id].title} />
         </Grid>
-        {/* <PropertyOverview title={PropertyList[id].title} /> */}
         <Card sx={{ maxWidth: 400 }} elevation={0}>
           <CardContent>
             <Typography gutterBottom variant="h5" component="div">
