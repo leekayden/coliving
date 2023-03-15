@@ -33,7 +33,6 @@ function PropertyView({ id, editMode }: PropertyViewProps) {
       <Grid container spacing={3} justifyContent="space-between">
         <Grid item xs={12} sm={6}>
           <PropertyTabs property={PropertyList[id].title} />
-          {editMode || isLandlordAccount ? "Edit" : null}
         </Grid>
         {/* <PropertyOverview title={PropertyList[id].title} /> */}
         <Card sx={{ maxWidth: 400 }} elevation={0}>
