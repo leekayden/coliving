@@ -80,13 +80,19 @@ export default function BasicTabs({ property }: BasicTabsProps) {
         ))}
       </TabPanel>
       <TabPanel value={value} index={2}>
-        Item Three
+      {filteredList?.commonFacilities.map((feature) => (
+          <li>{feature}</li>
+        ))}
       </TabPanel>
       <TabPanel value={value} index={3}>
-        Item Three
+      {filteredList?.transport?.map((feature) => (
+          <li>{feature}</li>
+        ))}
       </TabPanel>
       <TabPanel value={value} index={4}>
-        Item Three
+      {filteredList?.surroundingAmenities?.map((feature) => (
+          <li>{feature}</li>
+        ))}
       </TabPanel>
     </Box>
   );

@@ -36,6 +36,8 @@ export let PropertyList = [
     roomFeatures: ["Room Feature 1", "Room Feature 2"],
     apartmentFeatures: ["Apartment Feature 1", "Apartment Feature 2"],
     commonFacilities: ["Common Facility 1", "Common Facility 2"],
+    transport: ["North South Line"],
+    surroundingAmenities: ["McDonalds", "KFC"],
   },
   {
     id: 1,
