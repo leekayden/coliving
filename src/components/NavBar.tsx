@@ -219,7 +219,7 @@ export default function NavBar({ appname, isLandlord, noNav }: NavBarProps) {
               {appname ? appname : AppName}
             </Link>
             &nbsp;
-            {isLandlord ? <Chip label="Landlord" color="warning" /> : null}
+            {isLandlord || isLandlordAccount ? <Chip label="Landlord" color="warning" /> : null}
           </Typography>
           <Search>
             <SearchIconWrapper>
@@ -275,7 +275,7 @@ export default function NavBar({ appname, isLandlord, noNav }: NavBarProps) {
               aria-haspopup="true"
               onClick={handleProfileMenuOpen}
               color="inherit"
-              disabled={isLandlord ? false : true}
+              disabled={isLandlord || isLandlordAccount ? false : true}
             >
               <AccountCircle />
             </IconButton>
