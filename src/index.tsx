@@ -23,6 +23,7 @@ import ToolView from "./components/ToolView";
 import TestServer from "./components/TestServer";
 import CallUserInfo from "./components/CallUserInfo";
 import Solutions from "./components/Solutions";
+import SignUpTest from "./components/SignUpTest";
 
 const router = createBrowserRouter([
   {
@@ -90,9 +91,9 @@ interface RootProps {
 
 function Root({ lightTheme, darkTheme }: RootProps) {
   const [theme, setTheme] = useState<"light" | "dark">("light");
-  const toggleTheme = () => {
-    setTheme((prevTheme) => (prevTheme === "light" ? "light" : "dark"));
-  };
+  // const toggleTheme = () => {
+  //   setTheme((prevTheme) => (prevTheme === "light" ? "light" : "dark"));
+  // };
 
   return (
     <ThemeProvider theme={theme === "light" ? lightTheme : darkTheme}>
